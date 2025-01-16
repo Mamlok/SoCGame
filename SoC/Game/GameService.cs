@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SoC.Adventures;
+using SoC.Adventures.Interfaces;
+using SoC.Entities.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +12,23 @@ namespace SoC.Game
 {
     public class GameService
     {
+        private IAdventureService adventureService;
+        private ICharakterService charakterService;
+        public GameService(IAdventureService AdventureService, ICharakterService CharakterService) 
+        {
+            adventureService = AdventureService;
+            charakterService = CharakterService;
+        }
         public void StartGame() 
         {
-            var basePath = $"{AppDomain.CurrentDomain.BaseDirectory}adventures";
-            var initialAdventure = new adventure();
+            var initialAdventure = adventureService.GetInitialAdventure();
+            var initialCharacter = charakterService.LoadInitialCharacter();
 
-            if (File.Exists($"{basePath}\\initial.json"))
-            {
-                var directory = new DirectoryInfo(basePath);
-                var InitialJsonFile = directory.GetFiles("initial.json");
+            Console.WriteLine($"Adventure : {initialAdventure.Title}");
+            Console.WriteLine($"Adventure : {initialAdventure.Description}");
 
-                using (StreamReader fi = File.OpenText(InitialJsonFile[0].FullName))
-                {
-                    initialAdventure = JsonConvert.DeserializeObject<adventure>(fi.ReadToEnd());
-                }
-
-                Console.WriteLine($"Adventure : {initialAdventure.Title}");
-                Console.WriteLine($"Adventure : {initialAdventure.Description}");
-
-            }
-
+            Console.WriteLine($"Character name : {initialCharacter.Name}");
+            Console.WriteLine($"Level : {initialCharacter.Level}");
         }
     }
 }

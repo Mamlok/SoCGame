@@ -15,3 +15,4 @@ C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\ref\SoC.dll
 C:\Users\HP_Pavilion\source\repos\SoC\SoC\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\SoC.csproj.AssemblyReference.cache
 C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\SoC.csproj.Up2Date
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\SoC.sourcelink.json

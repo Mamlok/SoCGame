@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Adventures\\Initial.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SoC\\bin\\Debug\\net8.0\\Adventures\\Initial.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\entities\\charakterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\entities\\charakterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\adventures\\adventureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\adventures\\adventureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\adventures\\adventure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\adventures\\adventure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\entities\\interfaces\\icharakterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\entities\\interfaces\\icharakterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\entities\\model\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\entities\\model\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\items\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\items\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\items\\interfaces\\iitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\items\\interfaces\\iitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\adventures\\interfaces\\iadventureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\adventures\\interfaces\\iadventureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,18 +45,18 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 253,
-          "SelectedChildIndex": 1,
+          "DockedWidth": 372,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Program.cs",
               "RelativeDocumentMoniker": "SoC\\Program.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Program.cs",
               "RelativeToolTip": "SoC\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACoAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-12T19:00:23.574Z",
               "IsPinned": true,
@@ -48,54 +64,112 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "Character.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\Model\\Character.cs",
+              "RelativeDocumentMoniker": "SoC\\Entities\\Model\\Character.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\Model\\Character.cs",
+              "RelativeToolTip": "SoC\\Entities\\Model\\Character.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-16T13:24:22.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "GameService.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\GameService.cs",
               "RelativeDocumentMoniker": "SoC\\Game\\GameService.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\GameService.cs",
               "RelativeToolTip": "SoC\\Game\\GameService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAB4AAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-12T20:27:58.737Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "CharakterService.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\CharakterService.cs",
+              "RelativeDocumentMoniker": "SoC\\Entities\\CharakterService.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\CharakterService.cs",
+              "RelativeToolTip": "SoC\\Entities\\CharakterService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-16T13:46:17.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "AdventureService.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Adventures\\AdventureService.cs",
               "RelativeDocumentMoniker": "SoC\\Adventures\\AdventureService.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Adventures\\AdventureService.cs",
               "RelativeToolTip": "SoC\\Adventures\\AdventureService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-12T20:27:20.773Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "adventure.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Adventures\\adventure.cs",
-              "RelativeDocumentMoniker": "SoC\\Adventures\\adventure.cs",
-              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Adventures\\adventure.cs",
-              "RelativeToolTip": "SoC\\Adventures\\adventure.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAVAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Items\\Models\\Item.cs",
+              "RelativeDocumentMoniker": "SoC\\Items\\Models\\Item.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Items\\Models\\Item.cs",
+              "RelativeToolTip": "SoC\\Items\\Models\\Item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T19:42:10.535Z",
+              "WhenOpened": "2025-01-16T13:32:33.656Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Initial.json",
-              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Adventures\\Initial.json",
-              "RelativeDocumentMoniker": "SoC\\bin\\Debug\\net8.0\\Adventures\\Initial.json",
-              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Adventures\\Initial.json",
-              "RelativeToolTip": "SoC\\bin\\Debug\\net8.0\\Adventures\\Initial.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-12T19:39:00.519Z",
+              "DocumentIndex": 7,
+              "Title": "IItem.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Items\\Interfaces\\IItem.cs",
+              "RelativeDocumentMoniker": "SoC\\Items\\Interfaces\\IItem.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Items\\Interfaces\\IItem.cs",
+              "RelativeToolTip": "SoC\\Items\\Interfaces\\IItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-16T13:31:59.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IAdventureService.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Adventures\\Interfaces\\IAdventureService.cs",
+              "RelativeDocumentMoniker": "SoC\\Adventures\\Interfaces\\IAdventureService.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Adventures\\Interfaces\\IAdventureService.cs",
+              "RelativeToolTip": "SoC\\Adventures\\Interfaces\\IAdventureService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-16T13:13:26.373Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 134,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ICharakterService.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\Interfaces\\ICharakterService.cs",
+              "RelativeDocumentMoniker": "SoC\\Entities\\Interfaces\\ICharakterService.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\Interfaces\\ICharakterService.cs",
+              "RelativeToolTip": "SoC\\Entities\\Interfaces\\ICharakterService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-16T13:46:41.11Z",
               "EditorCaption": ""
             }
           ]

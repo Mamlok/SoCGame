@@ -3,6 +3,8 @@
 
 using Newtonsoft.Json;
 using SoC.Adventures;
+using SoC.Entities;
+using SoC.Entities.Interfaces;
 using SoC.Game;
 using System.IO;
 using System.Net.Http.Headers;
@@ -11,7 +13,9 @@ namespace SoC
 {
     public class Program
     {
-        private static GameService gameService = new GameService();
+        private static AdventureService adventureService = new AdventureService();
+        private static CharacterService characterService = new CharacterService();
+        private static GameService gameService = new GameService(adventureService, characterService);
         static void Main(string[] args)
         {
             MakeTitle();
