@@ -1,0 +1,17 @@
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\bin\Debug\net8.0\SoC.exe
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\bin\Debug\net8.0\SoC.deps.json
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\bin\Debug\net8.0\SoC.runtimeconfig.json
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\bin\Debug\net8.0\SoC.dll
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\bin\Debug\net8.0\SoC.pdb
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\SoC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\SoC.AssemblyInfoInputs.cache
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\SoC.AssemblyInfo.cs
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\SoC.csproj.CoreCompileInputs.cache
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\SoC.dll
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\refint\SoC.dll
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\SoC.pdb
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\SoC.genruntimeconfig.cache
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\ref\SoC.dll
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\SoC.csproj.AssemblyReference.cache
+C:\Users\HP_Pavilion\source\repos\SoC\SoC\obj\Debug\net8.0\SoC.csproj.Up2Date
