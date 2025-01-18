@@ -2,9 +2,56 @@
 
   "GUID": "2711F44A-E637-46BA-A249-06C1D8DD2E4C",
   "Title": "Adams Smashers lair",
-  "Description": "Have fun nga",
+  "Description": "LLLL",
   "CompleteXpReward": 250,
   "CompleteEddiesReward": 100,
   "MaxLevel" : 1,
-  "MinLevel" : 1,
+  "MinLevel": 1,
+
+  "Rooms": [
+    {
+      "RoomNumber": 1,
+      "Description": "Entrance",
+      "Exits": [
+        {
+          "Locked": false,
+          "WallLocation": 0,
+          "LeadsToRoomNumber": 2
+        },
+        {
+          "Locked": false,
+          "WallLocation": 1,
+          "LeadsToRoomNumber": 3
+        }
+      ]
+    },
+    {
+      "RoomNumber": 2,
+      "Description": "Scary Room",
+      "Trap": {
+        "TrapType": 1
+      },
+      "Chest": {
+        "Gold" : 5
+      },
+      "Exits": [
+        {
+          "Locked": false,
+          "WallLocation": 3,
+          "LeadsToRoomNumber": 1
+        }
+      ]
+    },
+    {
+      "RoomNumber": 3,
+      "Description": "LONG HALL WAY",
+      "Exits": [
+        {
+          "Locked": false,
+          "WallLocation": 4,
+          "LeadsToRoomNumber": 1
+        }
+      ]
+    }
+  ]
 }

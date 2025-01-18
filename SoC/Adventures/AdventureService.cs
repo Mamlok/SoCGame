@@ -11,10 +11,10 @@ namespace SoC.Adventures
     public class AdventureService : IAdventureService
     {
 
-        public adventure GetInitialAdventure()
+        public Adventure GetInitialAdventure()
         {
             var basePath = $"{AppDomain.CurrentDomain.BaseDirectory}adventures";
-            var initialAdventure = new adventure();
+            var initialAdventure = new Adventure();
 
             if (File.Exists($"{basePath}\\initial.json"))
             {
@@ -23,7 +23,7 @@ namespace SoC.Adventures
 
                 using (StreamReader fi = File.OpenText(InitialJsonFile[0].FullName))
                 {
-                    initialAdventure = JsonConvert.DeserializeObject<adventure>(fi.ReadToEnd());
+                    initialAdventure = JsonConvert.DeserializeObject<Adventure>(fi.ReadToEnd());
                 }
             }
             return initialAdventure;

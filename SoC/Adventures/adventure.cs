@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoC.Adventures.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,26 +7,22 @@ using System.Threading.Tasks;
 
 namespace SoC.Adventures
 {
-    public class adventure
+    public class Adventure
     {
-        public string GUID { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public int CompleteXpReward { get; set; }
-        public int CompleteEddiesReward { get; set; }
-        public int MaxLevel { get; set; }
-        public int MinLevel { get; set; }
+        public string GUID;
+        public string Title;
+        public string Description;
+        public int CompleteXpReward;
+        public int CompleteEddiesReward;
+        public int MaxLevel;
+        public int MinLevel;
+        public List<Room> Rooms;
 
-        public adventure() 
+        public Adventure() 
         {
 
 
         }
 
-        public void MyMethod() 
-        {
-
-
-        }
     }
 }

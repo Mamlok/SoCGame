@@ -55,8 +55,12 @@ namespace SoC
                         CreateACharacter();
                         MainMenuInputValid = true;
                         break;
+                    case string input when string.IsNullOrWhiteSpace(input):
+                        Console.WriteLine("Please enter a valid option.");
+                        MainMenuChoice();
+                        break;
                     default:
-                        Console.WriteLine("Not the right one!!!");
+                        Console.WriteLine("Please enter a valid option.");
                         MainMenuInputValid = false;
                         MainMenuChoice();
                         break;

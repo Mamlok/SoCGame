@@ -19,5 +19,6 @@ namespace SoC.Items.Models
     public enum ItemType
     {
         Torch,
+        Food,
     }
 }

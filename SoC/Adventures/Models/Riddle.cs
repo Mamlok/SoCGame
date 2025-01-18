@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SoC.Adventures.Interfaces
+namespace SoC.Adventures.Models
 {
-    public interface IAdventureService
+    public class Riddle
     {
-
-         Adventure GetInitialAdventure();
+        public string question;
+        public string answer;
     }
 }

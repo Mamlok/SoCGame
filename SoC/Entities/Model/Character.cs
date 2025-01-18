@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace SoC.Entities.Model
 {
-    public class Character
+    public class Character : Entity
     {
         public string Name;
         public int Level;
-        public int Eddies;
+        public int Gold;
+        public Abilities Abilities;
         public string Background;
         public int InventoryWeight;
         public List<string> AdventurePlayed;
         public bool IsAlive;
         public int ArmorClass;
-        public List<IItem> Inverntory;
-        public int HitPoints;
+        public List<IItem> Inventory;
+        public CharacterClass Class;
 
 
     }
@@ -26,7 +27,18 @@ namespace SoC.Entities.Model
     public class Abilities
     {
         public int Strenght;
-        public int Hax;
-        public int Speed;
+        public int Dexterity;
+        public int Constitution;
+        public int Intelligence;
+        public int Wisdom;
+        public int Charisma;
+    }
+
+    public enum CharacterClass
+    {
+        Fighter,
+        Thief,
+        MagicUser,
+        Healer
     }
 }
