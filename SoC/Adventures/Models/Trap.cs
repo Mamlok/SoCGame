@@ -11,6 +11,8 @@ namespace SoC.Adventures.Models
     {
         public TrapType TrapType;
         public Die DamageDie = Die.D4;
+        public bool SearchedFor = false;
+        public bool TrippedOrDisarmed = false;
 
     }
 

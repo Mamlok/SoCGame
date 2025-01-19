@@ -6,6 +6,7 @@ using SoC.Adventures;
 using SoC.Entities;
 using SoC.Entities.Interfaces;
 using SoC.Game;
+using SoC.Utilities;
 using System.IO;
 using System.Net.Http.Headers;
 
@@ -13,9 +14,10 @@ namespace SoC
 {
     public class Program
     {
-        private static AdventureService adventureService = new AdventureService();
-        private static CharacterService characterService = new CharacterService();
-        private static GameService gameService = new GameService(adventureService, characterService);
+        private static readonly AdventureService adventureService = new AdventureService();
+        private static readonly CharacterService characterService = new CharacterService();
+        private static readonly ConsoleMessageHandler consoleMessageHandler = new ConsoleMessageHandler();
+        private static GameService gameService = new GameService(adventureService, characterService, consoleMessageHandler);
         static void Main(string[] args)
         {
             MakeTitle();
@@ -57,6 +59,7 @@ namespace SoC
                         break;
                     case string input when string.IsNullOrWhiteSpace(input):
                         Console.WriteLine("Please enter a valid option.");
+                        MainMenuInputValid = false;
                         MainMenuChoice();
                         break;
                     default:

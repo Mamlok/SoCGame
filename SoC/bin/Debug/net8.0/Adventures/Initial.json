@@ -12,6 +12,9 @@
     {
       "RoomNumber": 1,
       "Description": "Entrance",
+      "Trap": {
+        "TrapType": 1
+      },
       "Exits": [
         {
           "Locked": false,

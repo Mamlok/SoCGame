@@ -18,8 +18,8 @@ namespace SoC.Adventures.Models
     public enum CompassDirection
     {
         North,
-        West,
+        East,
         South,
-        East
+        West
     }
 }
