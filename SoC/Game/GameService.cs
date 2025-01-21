@@ -7,6 +7,7 @@ using SoC.Entities.Interfaces;
 using SoC.Entities.Model;
 using SoC.Game.Interfaces;
 using SoC.Utilities.Interfaces;
+using System.Security.AccessControl;
 
 namespace SoC.Game
 {
@@ -14,8 +15,10 @@ namespace SoC.Game
     {
         private IAdventureService adventureService;
         private ICharakterService characterService;
-        private Character character;
         private IMessageHandler messageHandler;
+
+        private Character character;
+        private Adventure gameAdventure;
 
         public GameService(IAdventureService AdventureService, ICharakterService CharakterService, IMessageHandler MessageHandler)
         {
@@ -25,18 +28,18 @@ namespace SoC.Game
         }
         public bool StartGame(Adventure adventure = null)
         {
-
             try
             {
-                if (adventure == null)
+                gameAdventure = adventure;
+                if (gameAdventure == null)
                 {
-                    adventure = adventureService.GetInitialAdventure();
+                    gameAdventure = adventureService.GetInitialAdventure();
                 }
 
-                CreateTitleBanner(adventure.Title);
-                CreateDescription(adventure);
+                CreateTitleBanner(gameAdventure.Title);
+                CreateDescription(gameAdventure);
 
-                var charactersInRange = characterService.GetCharactersInRange(adventure.MinLevel, adventure.MaxLevel);
+                var charactersInRange = characterService.GetCharactersInRange(gameAdventure.MinLevel, gameAdventure.MaxLevel);
 
                 if (charactersInRange.Count == 0)
                 {
@@ -55,7 +58,7 @@ namespace SoC.Game
                 }
                 character = characterService.LoadCharacter(charactersInRange[Convert.ToInt32(messageHandler.Read())].Name);
 
-                var rooms = adventure.Rooms;
+                var rooms = gameAdventure.Rooms;
                 RoomProcessor(rooms[0]);
 
 
@@ -78,19 +81,7 @@ namespace SoC.Game
 
         private void RoomOptions(Room room)
         {
-            messageHandler.Write("What would you like to do?");
-            messageHandler.Write("----------------------------");
-            messageHandler.Write("(L)ook for traps");
-            messageHandler.Write("Use an exit:");
-            foreach (var exit in room.Exits)
-            {
-                messageHandler.Write($"({exit.WallLocation.ToString().Substring(0, 1)}){exit.WallLocation.ToString().Substring(1)}");
-            }
-            if (room.Chest != null)
-            {
-                messageHandler.Write("(O)pen the chest");
-                messageHandler.Write("(C)heck the chest for traps");
-            }
+            WriteRoomOptions(room);
 
             var playerDecision = messageHandler.Read().ToLower();
             var exitRoom = false;
@@ -102,6 +93,8 @@ namespace SoC.Game
                     case "l":
                     case "c":
                         CheckForTrap(room);
+                        WriteRoomOptions(room);
+                        playerDecision = messageHandler.Read().ToLower();
                         break;
                     case "o":
                         if (room.Chest != null)
@@ -117,21 +110,73 @@ namespace SoC.Game
                     case "s":
                     case "e":
                     case "w":
-                        ExitRoom(room);
+                        var wallLocation = CompassDirection.North;
+                        if (playerDecision == "s") wallLocation = CompassDirection.South;
+                        else if (playerDecision == "e") wallLocation = CompassDirection.East;
+                        else if (playerDecision == "w") wallLocation = CompassDirection.West;
+                        if (room.Exits.FirstOrDefault(x => x.WallLocation == wallLocation) != null)
+                        {
+                            ExitRoom(room, wallLocation);
+                        }
+                        else
+                        {
+                            messageHandler.Write("\n Something went wrong there is a wall \n");
+                        }
                         break;
                     case string input when string.IsNullOrWhiteSpace(input):
                         Console.WriteLine("Please enter a valid option.");
+                        WriteRoomOptions(room);
+                        playerDecision = messageHandler.Read().ToLower();
                         break;
                     default:
-                        Console.WriteLine("Please enter a valid option.");;
+                        Console.WriteLine("Please enter a valid option.");
+                        WriteRoomOptions(room);
+                        playerDecision = messageHandler.Read().ToLower();
                         break;
                 }
             }
         }
 
-        private void ExitRoom(Room room)
+        private void WriteRoomOptions(Room room)
         {
-            throw new NotImplementedException();
+            messageHandler.Write("What would you like to do?");
+            messageHandler.Write("----------------------------");
+            messageHandler.Write("(L)ook for traps");
+            if (room.Chest != null)
+            {
+                messageHandler.Write("(O)pen the chest");
+                messageHandler.Write("(C)heck the chest for traps");
+            }
+            messageHandler.Write("Use an exit:");
+            foreach (var exit in room.Exits)
+            {
+                messageHandler.Write($"({exit.WallLocation.ToString().Substring(0, 1)}){exit.WallLocation.ToString().Substring(1)}");
+            }
+           
+        }
+
+        private void ExitRoom(Room room, CompassDirection wallLocation)
+        {
+            if (room.Trap != null && room.Trap.TrippedOrDisarmed == false)
+            {
+                ProcessTrapMessagesAndDamage(room);
+            }
+
+            var exit = room.Exits.FirstOrDefault(x => x.WallLocation == wallLocation);
+
+            if (exit == null) 
+            {
+                throw new Exception("this room doesnt have that exception");
+            }
+
+            var NewRoom = gameAdventure.Rooms.FirstOrDefault(x => x.RoomNumber == exit.LeadsToRoomNumber);
+
+            if (NewRoom == null)
+            {
+                throw new Exception("Room does not exist");
+            }
+
+            RoomProcessor(NewRoom);
         }
 
         private void OpenChest(Chest chest)
@@ -174,7 +219,7 @@ namespace SoC.Game
 
                 if (disarmTrapRoll < 11)
                 {
-                    messageHandler.Write("Kaboom u did not disarm it");
+                    ProcessTrapMessagesAndDamage(room);
 
                 }
                 else
@@ -188,6 +233,20 @@ namespace SoC.Game
 
             messageHandler.Write("You find no traps");
             return;
+        }
+
+        private void ProcessTrapMessagesAndDamage(Room room)
+        {
+            var dice = new Dice();
+
+            messageHandler.Write($"U tripped a {room.Trap.TrapType.ToString()} trap!");
+            var trapDamage = dice.RollDice(new List<Die>() { room.Trap.DamageDie });
+            var hitPoints = character.HitPoints - trapDamage;
+            messageHandler.Write($"You were damaged for {trapDamage} HP. You now have {hitPoints} HP");
+            if (hitPoints < 1)
+            {
+                messageHandler.Write("U dead");
+            }
         }
 
         private void RoomDescription(Room room)

@@ -40,7 +40,7 @@
       "Exits": [
         {
           "Locked": false,
-          "WallLocation": 3,
+          "WallLocation": 2,
           "LeadsToRoomNumber": 1
         }
       ]
@@ -51,7 +51,7 @@
       "Exits": [
         {
           "Locked": false,
-          "WallLocation": 4,
+          "WallLocation": 3,
           "LeadsToRoomNumber": 1
         }
       ]

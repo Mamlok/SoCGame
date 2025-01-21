@@ -1,7 +1,7 @@
 {
   "Name": "Nettspend",
   "Level": 1,
-  "Eddies": 100,
+  "Gold": 100,
   "HitPoints": 4,
   "Class": 1,
   "IsAlive": true,

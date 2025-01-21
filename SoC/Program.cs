@@ -26,14 +26,14 @@ namespace SoC
 
         private static void MakeTitle()
         {
-            Console.WriteLine(@"  __   __           _____                     ");
-            Console.WriteLine(@" |  \\/  |        / ____|                     ");
-            Console.WriteLine(@" | \\  / |_   _  | |  __  __ _ _ __ ___   ___ ");
-            Console.WriteLine(@" | |\\/| | | | | | | |_ |/ _` | '_ ` _ \\/ _\\");
-            Console.WriteLine(@" | |  | | |_| | | |__| | (_| | | | | | |  __/");
-            Console.WriteLine(@" |_|  |_|\__, |  \_____|\__,_|_| |_| |_|\___|");
-            Console.WriteLine(@"          __/ |                              ");
-            Console.WriteLine("         |___/                               \n\n");
+            consoleMessageHandler.Write(@"  __   __           _____                     ");
+            consoleMessageHandler.Write(@" |  \\/  |        / ____|                     ");
+            consoleMessageHandler.Write(@" | \\  / |_   _  | |  __  __ _ _ __ ___   ___ ");
+            consoleMessageHandler.Write(@" | |\\/| | | | | | | |_ |/ _` | '_ ` _ \\/ _\\");
+            consoleMessageHandler.Write(@" | |  | | |_| | | |__| | (_| | | | | | |  __/");
+            consoleMessageHandler.Write(@" |_|  |_|\__, |  \_____|\__,_|_| |_| |_|\___|");
+            consoleMessageHandler.Write(@"          __/ |                              ");
+            consoleMessageHandler.Write("         |___/                               \n\n");
         }
 
 
@@ -58,12 +58,12 @@ namespace SoC
                         MainMenuInputValid = true;
                         break;
                     case string input when string.IsNullOrWhiteSpace(input):
-                        Console.WriteLine("Please enter a valid option.");
+                        consoleMessageHandler.Write("Please enter a valid option.");
                         MainMenuInputValid = false;
                         MainMenuChoice();
                         break;
                     default:
-                        Console.WriteLine("Please enter a valid option.");
+                        consoleMessageHandler.Write("Please enter a valid option.");
                         MainMenuInputValid = false;
                         MainMenuChoice();
                         break;
@@ -74,19 +74,19 @@ namespace SoC
 
         private static void MainMenuChoice()
         {
-            Console.WriteLine("(S)tart a new game");
-            Console.WriteLine("(L)oad a game");
-            Console.WriteLine("(C)reate a new character");
+            consoleMessageHandler.Write("(S)tart a new game");
+            consoleMessageHandler.Write("(L)oad a game");
+            consoleMessageHandler.Write("(C)reate a new character");
         }
 
         private static void CreateACharacter()
         {
-            Console.WriteLine("create");
+            consoleMessageHandler.Write("create");
         }
 
         private static void LoadGame()
         {
-            Console.WriteLine("load");
+            consoleMessageHandler.Write("load");
         }
 
     }
