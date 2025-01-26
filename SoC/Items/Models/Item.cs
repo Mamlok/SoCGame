@@ -20,5 +20,11 @@ namespace SoC.Items.Models
     {
         Torch,
         Food,
+        Rope,
+        HolySymbol,
+        Water,
+        TinderBox,
+        Key,
+        Lockpicks
     }
 }

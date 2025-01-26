@@ -1,4 +1,5 @@
 ﻿using SoC.Items.Interfaces;
+using SoC.Items.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace SoC.Entities.Model
         public List<string> AdventurePlayed;
         public bool IsAlive;
         public int ArmorClass;
-        public List<IItem> Inventory;
+        public List<Item> Inventory;
         public CharacterClass Class;
 
 
@@ -26,7 +27,7 @@ namespace SoC.Entities.Model
 
     public class Abilities
     {
-        public int Strenght;
+        public int Strength;
         public int Dexterity;
         public int Constitution;
         public int Intelligence;

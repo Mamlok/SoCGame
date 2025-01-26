@@ -1,4 +1,5 @@
-﻿using SoC.Items.Models;
+﻿using SoC.Items.Interfaces;
+using SoC.Items.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace SoC.Adventures.Models
 {
     public class Chest
     {
-        public bool Locked = false;
+        public Lock Lock;
         public Trap Trap;
         public List<Item> Treasure;
         public int Gold;

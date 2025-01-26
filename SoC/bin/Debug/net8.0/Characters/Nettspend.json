@@ -5,6 +5,7 @@
   "HitPoints": 4,
   "Class": 1,
   "IsAlive": true,
+  "Inventory": [],
   "Abilities":
      {
       "Strenght": 1,

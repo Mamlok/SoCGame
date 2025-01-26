@@ -8,7 +8,7 @@ namespace SoC.Adventures.Models
 {
     public class Exit
     {
-        public bool Locked = false;
+        public Lock Lock;
         public CompassDirection WallLocation;
         public int LeadsToRoomNumber;
         public Riddle Riddle;

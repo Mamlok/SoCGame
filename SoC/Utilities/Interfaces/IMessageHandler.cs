@@ -11,7 +11,8 @@ namespace SoC.Utilities.Interfaces
         public void Write(string message = "", bool withLine = true);
 
         public string Read();
-        //clear screen
+
+        public void WriteRead(string message);
         public void Clear();
 
     }

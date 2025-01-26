@@ -26,6 +26,12 @@ namespace SoC.Utilities
             }
         }
 
+        public void WriteRead(string message)
+        {
+            Console.WriteLine(message);
+            Console.ReadLine();
+        }
+
         public void Clear()
         {
             Console.Clear();
