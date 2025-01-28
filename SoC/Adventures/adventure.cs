@@ -9,11 +9,12 @@ namespace SoC.Adventures
 {
     public class Adventure
     {
-        public string GUID;
+        public Guid GUID;
         public string Title;
         public string Description;
         public int CompleteXpReward;
-        public int CompleteEddiesReward;
+        public int CompleteGoldReward;
+        public int FinalObjective;
         public int MaxLevel;
         public int MinLevel;
         public List<Room> Rooms;

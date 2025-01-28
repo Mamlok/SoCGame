@@ -9,6 +9,7 @@ using SoC.Game.Interfaces;
 using SoC.Items.Models;
 using SoC.Utilities.Interfaces;
 using System.Security.AccessControl;
+using System.Threading;
 
 namespace SoC.Game
 {
@@ -20,6 +21,8 @@ namespace SoC.Game
 
         private Character character;
         private Adventure gameAdventure;
+        private bool gameWon = false;
+        private string gameWinningDescription;
 
         public GameService(IAdventureService AdventureService, ICharakterService CharakterService, IMessageHandler MessageHandler)
         {
@@ -40,7 +43,7 @@ namespace SoC.Game
                 CreateTitleBanner(gameAdventure.Title);
                 CreateDescription(gameAdventure);
 
-                var charactersInRange = characterService.GetCharactersInRange(gameAdventure.MinLevel, gameAdventure.MaxLevel);
+                var charactersInRange = characterService.GetCharactersInRange(gameAdventure.GUID, gameAdventure.MinLevel, gameAdventure.MaxLevel);
 
                 if (charactersInRange.Count == 0)
                 {
@@ -104,6 +107,10 @@ namespace SoC.Game
                         {
                             OpenChest(room.Chest);
                             WriteRoomOptions(room);
+                            if (gameWon)
+                            {
+                                GameOver();
+                            }
                             playerDecision = messageHandler.Read().ToLower();
                         }
                         else
@@ -226,11 +233,37 @@ namespace SoC.Game
                         foreach (var item in chest.Treasure)
                         {
                             messageHandler.Write(item.Name.ToString());
+
+                            if (item.ObjectiveNumber == gameAdventure.FinalObjective)
+                            {
+                                gameWon = true;
+                                gameWinningDescription = item.Description;
+                                character.Gold += gameAdventure.CompleteGoldReward;
+                                character.XP += gameAdventure.CompleteXpReward;
+                                character.AdventurePlayed.Add(gameAdventure.GUID);
+                            }
                         }
                         messageHandler.Write("\n");
 
                         character.Inventory.AddRange(chest.Treasure);
                         chest.Treasure = new List<Item>();
+                        if (gameWon)
+                        {
+                            Console.BackgroundColor = ConsoleColor.DarkBlue;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            messageHandler.Write("**************************************************");
+                            messageHandler.Write("*         YOU FOUND THE FINAL OBJECTIVE!         *");
+                            messageHandler.Write("**************************************************");
+
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            messageHandler.Write($"You found : {gameWinningDescription}");
+                            messageHandler.Write("Rewards:");
+                            messageHandler.Write($"{gameAdventure.CompleteXpReward} XP");
+                            messageHandler.Write($"{gameAdventure.CompleteGoldReward} Gold");
+                            messageHandler.Write($"{character.Name} now has {character.XP} XP and {character.Gold} Gold");
+
+                        }
                         return;
                     }
 
@@ -245,6 +278,10 @@ namespace SoC.Game
                 if (TryUnlock(chest.Lock))
                 {
                     OpenChest(chest);
+                    if (gameWon)
+                    {
+                        GameOver();
+                    }
                 }
             }
         }
@@ -310,7 +347,7 @@ namespace SoC.Game
             messageHandler.Write($"You were damaged for {trapDamage} HP. You now have {hitPoints} HP");
             if (hitPoints < 1)
             {
-                messageHandler.Write("U dead");
+                Death();
             }
             messageHandler.Read();
         }
@@ -346,7 +383,7 @@ namespace SoC.Game
         {
             messageHandler.Write($"\n{adventure.Description}");
             messageHandler.Write($"\nLevels: {adventure.MinLevel} - {adventure.MaxLevel}");
-            messageHandler.Write($"\nCompletion Rewards: {adventure.CompleteEddiesReward} gold & {adventure.CompleteXpReward} XP");
+            messageHandler.Write($"\nCompletion Rewards: {adventure.CompleteGoldReward} gold & {adventure.CompleteXpReward} XP");
             messageHandler.Write();
         }
 
@@ -469,6 +506,32 @@ namespace SoC.Game
                 }
             }
             return false;
+        }
+
+        private void Death()
+        {
+            messageHandler.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            messageHandler.Write("\t __   __  _______  __   __    ______   ___   _______  ______  ");
+            messageHandler.Write("\t|  | |  ||       ||  | |  |  |      | |   | |       ||      | ");
+            messageHandler.Write("\t|  |_|  ||   _   ||  | |  |  |  _    ||   | |    ___||  _    |");
+            messageHandler.Write("\t|       ||  | |  ||  |_|  |  | | |   ||   | |   |___ | | |   |");
+            messageHandler.Write("\t|_     _||  |_|  ||       |  | |_|   ||   | |    ___|| |_|   |");
+            messageHandler.Write("\t  |   |  |       ||       |  |       ||   | |   |___ |       |");
+            messageHandler.Write("\t  |___|  |_______||_______|  |______| |___| |_______||______| ");
+            messageHandler.Write("\t                                                              ");
+
+            Thread.Sleep(5000);
+            System.Environment.Exit(0);
+        }
+
+        private void GameOver()
+        {
+            characterService.SaveCharacter(character);
+            character = new Character();
+            messageHandler.WriteRead("GAME IS OVER PRES ENTER TO RETURN TO TAVERN");
+            messageHandler.Clear();
+            Program.MainMenu();
         }
     }
 }

@@ -20,7 +20,6 @@ namespace SoC
         private static GameService gameService = new GameService(adventureService, characterService, consoleMessageHandler);
         static void Main(string[] args)
         {
-            MakeTitle();
             MainMenu();
         }
 
@@ -37,8 +36,9 @@ namespace SoC
         }
 
 
-        private static void MainMenu()
+        public static void MainMenu()
         {
+            MakeTitle();
             MainMenuChoice();
             bool MainMenuInputValid = false;
             while (!MainMenuInputValid) 

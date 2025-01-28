@@ -4,9 +4,10 @@
   "Title": "Adams Smashers lair",
   "Description": "LLLL",
   "CompleteXpReward": 250,
-  "CompleteEddiesReward": 100,
+  "CompleteGoldReward": 100,
+  "FinalObjective" : 123,
   "MaxLevel" : 1,
-  "MinLevel": 1,
+  "MinLevel": 0,
 
   "Rooms": [
     {

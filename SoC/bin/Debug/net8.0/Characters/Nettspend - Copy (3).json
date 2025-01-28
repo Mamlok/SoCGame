@@ -1,0 +1,18 @@
+{
+  "Name": "Nettspend",
+  "Level": 1,
+  "Gold": 0,
+  "HitPoints": 4,
+  "Class": 1,
+  "IsAlive": true,
+  "XP" :  0,
+  "Abilities": {
+    "Strenght": 1,
+    "Dexterity": 1,
+    "Constitution": 0,
+    "Intelligence": -1,
+    "Wisdom": -1,
+    "Charisma": 1
+  },
+  "Inventory": []
+}

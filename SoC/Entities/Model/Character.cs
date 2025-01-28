@@ -11,15 +11,11 @@ namespace SoC.Entities.Model
     public class Character : Entity
     {
         public string Name;
-        public int Level;
-        public int Gold;
+        public int XP;
         public Abilities Abilities;
         public string Background;
         public int InventoryWeight;
-        public List<string> AdventurePlayed;
-        public bool IsAlive;
-        public int ArmorClass;
-        public List<Item> Inventory;
+        public List<Guid> AdventurePlayed;
         public CharacterClass Class;
 
 
