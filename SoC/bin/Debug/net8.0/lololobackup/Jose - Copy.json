@@ -1,5 +1,5 @@
 {
-  "Name": "Nettspend",
+  "Name": "Jose",
   "Level": 1,
   "Gold": 0,
   "HitPoints": 4,
@@ -15,5 +15,7 @@
     "Wisdom": -1,
     "Charisma": 1
   },
-  "Inventory": []
+  "Inventory": [],
+  "CauseOfDeath": "",
+  "DiedInAdventure": ""
 }

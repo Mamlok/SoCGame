@@ -8,6 +8,7 @@ using SoC.Entities.Model;
 using SoC.Game.Interfaces;
 using SoC.Items.Models;
 using SoC.Utilities.Interfaces;
+using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using System.Threading;
 
@@ -47,8 +48,38 @@ namespace SoC.Game
 
                 if (charactersInRange.Count == 0)
                 {
-                    messageHandler.Write("no enough level");
-                    return false;
+                    messageHandler.Write("Sorry, you dont have any characters.");
+                    messageHandler.Write("(C)reate a new character");
+                    messageHandler.Write("(R)eturn to main menu");
+                    var playerDecision = messageHandler.Read().ToLower();
+                    bool running = true;
+                    while (running)
+                    {
+                        switch (playerDecision)
+                        {
+                            case "c":
+                                messageHandler.Clear();
+                                running = false;
+                                characterService.CreateCharacter();
+                                break;
+                            case "r":
+                                running = false;
+                                messageHandler.Clear();
+                                Program.MainMenu();
+                                break;
+                            case string input when string.IsNullOrWhiteSpace(input):
+                                Console.WriteLine("Please enter a valid option.");
+                                playerDecision = messageHandler.Read().ToLower();
+                                running = true;
+                                break;
+                            default:
+                                Console.WriteLine("Please enter a valid option.");
+                                playerDecision = messageHandler.Read().ToLower();
+                                running = true;
+                                break;
+                        }
+                    }   
+
                 }
                 else
                 {
@@ -347,7 +378,11 @@ namespace SoC.Game
             messageHandler.Write($"You were damaged for {trapDamage} HP. You now have {hitPoints} HP");
             if (hitPoints < 1)
             {
+                character.CauseOfDeath =  $"You were killed by a {trap.TrapType} trap!";
+                character.DiedInAdventure = gameAdventure.Title;
+                character.IsAlive = false;
                 Death();
+                GameOver();
             }
             messageHandler.Read();
         }
@@ -520,16 +555,18 @@ namespace SoC.Game
             messageHandler.Write("\t  |   |  |       ||       |  |       ||   | |   |___ |       |");
             messageHandler.Write("\t  |___|  |_______||_______|  |______| |___| |_______||______| ");
             messageHandler.Write("\t                                                              ");
-
+            Console.ForegroundColor = ConsoleColor.White;
+            messageHandler.Write($"\t{character.CauseOfDeath} in {character.DiedInAdventure}");
             Thread.Sleep(5000);
-            System.Environment.Exit(0);
+            messageHandler.Clear();
+
         }
 
         private void GameOver()
         {
             characterService.SaveCharacter(character);
             character = new Character();
-            messageHandler.WriteRead("GAME IS OVER PRES ENTER TO RETURN TO TAVERN");
+            messageHandler.WriteRead("GAME IS OVER PRES ENTER TO RETURN TO MAIN MENU");
             messageHandler.Clear();
             Program.MainMenu();
         }

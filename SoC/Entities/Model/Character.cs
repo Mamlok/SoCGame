@@ -11,24 +11,23 @@ namespace SoC.Entities.Model
     public class Character : Entity
     {
         public string Name;
-        public int XP;
-        public Abilities Abilities;
+        public int XP = 0;
+        public Abilities Abilities = new Abilities();
         public string Background;
-        public int InventoryWeight;
-        public List<Guid> AdventurePlayed;
+        public int InventoryWeight = 0;
+        public List<Guid> AdventurePlayed = new List<Guid>();
         public CharacterClass Class;
-
-
+        public string CauseOfDeath = "";
+        public string DiedInAdventure = "";
     }
+    
 
     public class Abilities
     {
         public int Strength;
         public int Dexterity;
-        public int Constitution;
         public int Intelligence;
         public int Wisdom;
-        public int Charisma;
     }
 
     public enum CharacterClass

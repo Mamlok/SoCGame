@@ -15,8 +15,8 @@ namespace SoC
     public class Program
     {
         private static readonly AdventureService adventureService = new AdventureService();
-        private static readonly CharacterService characterService = new CharacterService();
         private static readonly ConsoleMessageHandler consoleMessageHandler = new ConsoleMessageHandler();
+        private static readonly CharacterService characterService = new CharacterService(consoleMessageHandler);
         private static GameService gameService = new GameService(adventureService, characterService, consoleMessageHandler);
         static void Main(string[] args)
         {
@@ -54,7 +54,7 @@ namespace SoC
                         MainMenuInputValid = true;
                         break;
                     case "c":
-                        CreateACharacter();
+                        characterService.CreateCharacter();
                         MainMenuInputValid = true;
                         break;
                     case string input when string.IsNullOrWhiteSpace(input):

@@ -11,11 +11,11 @@ namespace SoC.Entities.Model
     {
         public int HitPoints = 0;
         public Attack Attack;
-        public int Gold;
-        public int Level;
-        public bool IsAlive;
+        public int Gold = 0;
+        public int Level = 1;
+        public bool IsAlive = true;
         public int ArmorClass;
-        public List<Item> Inventory;
+        public List<Item> Inventory = new List<Item>();
     }
 
     public class Attack

@@ -104,9 +104,6 @@
         }
       ],
       "Chest": {
-        "Trap": {
-          "TrapType": 1
-        },
         "Treasure": [
           {
             "Name": "Food",

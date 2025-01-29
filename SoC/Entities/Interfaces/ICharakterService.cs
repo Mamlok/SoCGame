@@ -15,5 +15,7 @@ namespace SoC.Entities.Interfaces
 
         public bool SaveCharacter(Character character);
 
+        public void CreateCharacter();
+
     }
 }
