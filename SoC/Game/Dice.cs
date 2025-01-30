@@ -24,6 +24,7 @@ namespace SoC.Game
 
     public enum Die
     {
+        D2 = 2,
         D4 = 4,
         D6 = 6,
         D8 = 8,

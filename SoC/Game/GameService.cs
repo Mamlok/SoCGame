@@ -19,17 +19,19 @@ namespace SoC.Game
         private IAdventureService adventureService;
         private ICharakterService characterService;
         private IMessageHandler messageHandler;
+        private ICombatService combatService;
 
         private Character character;
         private Adventure gameAdventure;
         private bool gameWon = false;
         private string gameWinningDescription;
 
-        public GameService(IAdventureService AdventureService, ICharakterService CharakterService, IMessageHandler MessageHandler)
+        public GameService(IAdventureService AdventureService, ICharakterService CharakterService, IMessageHandler MessageHandler, ICombatService CombatService)
         {
             adventureService = AdventureService;
             characterService = CharakterService;
-            messageHandler = MessageHandler; 
+            messageHandler = MessageHandler;
+            combatService = CombatService;
         }
         public bool StartGame(Adventure adventure = null)
         {
@@ -126,9 +128,14 @@ namespace SoC.Game
                 switch (playerDecision)
                 {
                     case "l":
-                    case "c":
                         messageHandler.Clear();
                         CheckForTrap(room);
+                        WriteRoomOptions(room);
+                        playerDecision = messageHandler.Read().ToLower();
+                        break;
+                    case "c":
+                        messageHandler.Clear();
+                        CheckForTrapInChest(room.Chest);
                         WriteRoomOptions(room);
                         playerDecision = messageHandler.Read().ToLower();
                         break;
@@ -263,7 +270,7 @@ namespace SoC.Game
 
                         foreach (var item in chest.Treasure)
                         {
-                            messageHandler.Write(item.Name.ToString());
+                            messageHandler.Write(item.Description);
 
                             if (item.ObjectiveNumber == gameAdventure.FinalObjective)
                             {
@@ -293,6 +300,7 @@ namespace SoC.Game
                             messageHandler.Write($"{gameAdventure.CompleteXpReward} XP");
                             messageHandler.Write($"{gameAdventure.CompleteGoldReward} Gold");
                             messageHandler.Write($"{character.Name} now has {character.XP} XP and {character.Gold} Gold");
+                            character.HasUsedSpell = false;
 
                         }
                         return;
@@ -411,6 +419,22 @@ namespace SoC.Game
             if (room.Chest != null)
             {
                 messageHandler.Write("There is a chest in this room");
+            }
+
+            if (room.Monsters != null)
+            {
+                messageHandler.Write("THERE IS A MONSTER HERE!!");
+                combatService.RunCombat(ref character, room.Monsters);
+                if (!character.IsAlive)
+                {
+                    character.DiedInAdventure = gameAdventure.Title;
+                    Death();
+                    GameOver();
+                }
+                else
+                {
+                    room.Monsters = null;
+                }
             }
         }
 
@@ -565,10 +589,60 @@ namespace SoC.Game
         private void GameOver()
         {
             characterService.SaveCharacter(character);
-            character = new Character();
+            //character = new Character();
             messageHandler.WriteRead("GAME IS OVER PRES ENTER TO RETURN TO MAIN MENU");
             messageHandler.Clear();
             Program.MainMenu();
         }
+
+        private void CheckForTrapInChest(Chest chest)
+        {
+            if (chest.Trap != null)
+            {
+                if (chest.Trap.TrippedOrDisarmed)
+                {
+                    messageHandler.Write("You had already found this trap or tripped it");
+                    return;
+                }
+                if (chest.Trap.SearchedFor)
+                {
+                    messageHandler.Write("You had already searched for it ");
+                    return;
+                }
+
+                var trapBonus = 0 + character.Abilities.Intelligence;
+                if (character.Class == CharacterClass.Thief)
+                {
+                    trapBonus += 2;
+                }
+
+                var dice = new Dice();
+                var findTrapRoll = dice.RollDice(new List<Die> { Die.D20 }) + trapBonus;
+
+                if (findTrapRoll < 12)
+                {
+                    messageHandler.Write("You find no traps");
+                    chest.Trap.SearchedFor = true;
+                    return;
+                }
+                messageHandler.Write("You found the trap and are forced to disarm it");
+                var disarmTrapRoll = dice.RollDice(new List<Die> { Die.D20 }) + trapBonus;
+
+                if (disarmTrapRoll < 11)
+                {
+                    ProcessTrapMessagesAndDamage(chest.Trap);
+                }
+                else
+                {
+                    messageHandler.Write("Trap disarmed");
+                }
+                chest.Trap.TrippedOrDisarmed = true;
+                return;
+            }
+
+            messageHandler.Write("You find no traps");
+            return;
+        }
+
     }
 }

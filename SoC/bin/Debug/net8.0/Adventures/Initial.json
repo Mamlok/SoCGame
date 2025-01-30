@@ -92,6 +92,27 @@
           "WallLocation": 1,
           "LeadsToRoomNumber": 4
         }
+      ],
+      "Monsters": [
+        {
+          "MonsterType": "Rat",
+          "HitPoints": 10,
+          "Attack": {
+            "BaseDie": 1,
+            "BonusDamage": 0
+          },
+          "Gold": 1,
+          "ArmorClass": 9,
+          "Inventory" :  [
+            {
+              "Name": "Food",
+              "Description": "Maggoty bread",
+              "ObjectiveNumber": 0,
+              "Weight": 1,
+              "GoldValue": 0
+            }
+          ]
+        }
       ]
     },
     {
@@ -109,7 +130,7 @@
             "Name": "Food",
             "Description": "Maggoty bread",
             "ObjectiveNumber": 0,
-            "Weight": 0,
+            "Weight": 1,
             "GoldValue": 0
           },
           {

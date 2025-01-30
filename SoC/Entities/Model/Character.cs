@@ -10,15 +10,16 @@ namespace SoC.Entities.Model
 {
     public class Character : Entity
     {
+        public bool HasUsedSpell = false;
         public string Name;
         public int XP = 0;
         public Abilities Abilities = new Abilities();
-        public string Background;
+        public CharacterBackground Background;
         public int InventoryWeight = 0;
         public List<Guid> AdventurePlayed = new List<Guid>();
         public CharacterClass Class;
-        public string CauseOfDeath = "";
-        public string DiedInAdventure = "";
+        public string CauseOfDeath;
+        public string DiedInAdventure;
     }
     
 
@@ -36,5 +37,12 @@ namespace SoC.Entities.Model
         Thief,
         MagicUser,
         Healer
+    }
+
+    public enum CharacterBackground
+    {
+        Drifter,
+        Noble,
+        Outcast
     }
 }

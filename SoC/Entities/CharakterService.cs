@@ -2,6 +2,7 @@
 using SoC.Adventures;
 using SoC.Entities.Interfaces;
 using SoC.Entities.Model;
+using SoC.Items.Models;
 using SoC.Utilities;
 using SoC.Utilities.Interfaces;
 using System;
@@ -98,12 +99,13 @@ namespace SoC.Entities
             messageHandler.Clear();
 
             var newCharacter = new Character();
+            newCharacter.Inventory = new List<Item>();
 
             messageHandler.Write("What is your character's name?");
             newCharacter.Name = messageHandler.Read();
             messageHandler.Clear();
 
-            messageHandler.Write("Class? (F)ighter, (T)hief, (M)agicUser, (H)ealer"); //vysvětlit
+            messageHandler.Write("Class? (F)ighter, (T)hief, (M)agicUser, (H)ealer, (I)nfo"); //vysvětlit
             bool classChosen = false;
             while (!classChosen)
             {
@@ -114,24 +116,36 @@ namespace SoC.Entities
                         newCharacter.Class = CharacterClass.Fighter;
                         newCharacter.HitPoints = 8;
                         newCharacter.Abilities.Strength = 1;
+                        newCharacter.ArmorClass = 12;
+                        newCharacter.Attack = new Attack { BaseDie = 8, BonusDamage = 0 };
                         break;
                     case "t":
                         classChosen = true;
                         newCharacter.Class = CharacterClass.Thief;
                         newCharacter.HitPoints = 5;
                         newCharacter.Abilities.Dexterity = 1;
+                        newCharacter.ArmorClass = 8;
+                        newCharacter.Attack = new Attack { BaseDie = 4, BonusDamage = 0 };
                         break;
                     case "m":
                         classChosen = true;
                         newCharacter.Class = CharacterClass.MagicUser;
                         newCharacter.HitPoints = 4;
                         newCharacter.Abilities.Intelligence = 1;
+                        newCharacter.ArmorClass = 8;
+                        newCharacter.Attack = new Attack { BaseDie = 4, BonusDamage = 0 };
                         break;
                     case "h":
                         classChosen = true;
                         newCharacter.Class = CharacterClass.Healer;
                         newCharacter.HitPoints = 6;
                         newCharacter.Abilities.Wisdom = 1;
+                        newCharacter.ArmorClass = 10;
+                        newCharacter.Attack = new Attack { BaseDie = 6, BonusDamage = 0 };
+                        break;
+                    case "i":
+                        WriteInfo();
+                        classChosen = false;
                         break;
                     case string input when string.IsNullOrWhiteSpace(input):
                         messageHandler.Write("Please enter a valid option.");
@@ -145,9 +159,34 @@ namespace SoC.Entities
             }
             messageHandler.Clear();
 
-            messageHandler.Write("Background : ");
-            newCharacter.Background = messageHandler.Read();
-            messageHandler.Clear();
+            messageHandler.Write("Background? (D)rifter, (N)oble, (O)utcast");
+            bool backgroundChosen = false;
+            while (!backgroundChosen)
+            {
+                switch (messageHandler.Read().ToLower())
+                {
+                    case "d":
+                        backgroundChosen = true;
+                        newCharacter.Background = CharacterBackground.Drifter;
+                        break;
+                    case "n":
+                        backgroundChosen = true;
+                        newCharacter.Background = CharacterBackground.Noble;
+                        break;
+                    case "o":
+                        backgroundChosen = true;
+                        newCharacter.Background = CharacterBackground.Outcast;
+                        break;
+                    case string input when string.IsNullOrWhiteSpace(input):
+                        messageHandler.Write("Please enter a valid option.");
+                        backgroundChosen = false;
+                        break;
+                    default:
+                        messageHandler.Write("Please enter a valid option.");
+                        backgroundChosen = false;
+                        break;
+                }
+            }
 
             newCharacter.Abilities = SetAbilities(newCharacter);
             messageHandler.Clear();
@@ -192,7 +231,7 @@ namespace SoC.Entities
             messageHandler.Write("                   HERE IS YOUR CHARACTER                   ");
             messageHandler.Write($"Name: {character.Name}");
             messageHandler.Write($"Class: {character.Class}");
-            messageHandler.Write($"Background: {character.Background}");
+            messageHandler.Write($"Background: {character.Background.ToString()}");
             messageHandler.Write($"Level: {character.Level}");
             WriteAbilities(character.Abilities);
             messageHandler.Write("************************************************************");
@@ -259,6 +298,86 @@ namespace SoC.Entities
             messageHandler.Write($"Wisdom:                                      {abilities.Wisdom}");
             Console.ForegroundColor = ConsoleColor.White;
             messageHandler.Write("**********************************************");
+        }
+
+        private void WriteInfo()
+        {
+            var infoRunning = true;
+            while (infoRunning)
+            {
+                messageHandler.Clear();
+                messageHandler.Write("Chose class on which you want info: ");
+                messageHandler.Write("(F)ighter, (T)hief, (M)agicUser, (H)ealer, (B)ack");
+                switch (messageHandler.Read().ToLower())
+                {
+                    case "f":
+                        messageHandler.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        messageHandler.Write("Fighter: ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        messageHandler.Write("With 8 hit points, they stand tall and strong,");
+                        messageHandler.Write("A shield of armor class 12, where foes belong.");
+                        messageHandler.Write("Strength is their virtue, their might unparalleled,");
+                        messageHandler.Write("A force of nature, with power unexcelled.");
+                        messageHandler.Read();
+                        infoRunning = true;
+                        break;
+                   case "t":
+                        messageHandler.Clear();
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        messageHandler.Write("Thief: ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        messageHandler.Write("Fleet of foot with 5 hit points slight,");
+                        messageHandler.Write("An armor class of 8, to dance through the fight.");
+                        messageHandler.Write("Dexterity sharpens their wit and skill,");
+                        messageHandler.Write("A shadow unseen, bending foes to their will.");
+                        messageHandler.Read();
+                        infoRunning = true;
+                        break;
+                   case "m":
+                        messageHandler.Clear();
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        messageHandler.Write("MagicUser: ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        messageHandler.Write("With 4 hit points, they are frail but wise,");
+                        messageHandler.Write("An armor class of 8, under watchful skies.");
+                        messageHandler.Write("Intelligence fuels their arcane spark,");
+                        messageHandler.Write("A conjurer of power, bending light and dark.");
+                        messageHandler.Read();
+                        infoRunning = true;
+                        break;
+                   case "h":
+                        messageHandler.Clear();
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        messageHandler.Write("Healer: ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        messageHandler.Write("With 6 hit points, they carry the light,");
+                        messageHandler.Write("An armor class of 10, defending what's right.");
+                        messageHandler.Write("Wisdom flows through their gentle hands,");
+                        messageHandler.Write("A balm for wounds across all lands.");
+                        messageHandler.Read();
+                        infoRunning = true;
+                        break;
+                   case "b":
+                        messageHandler.Clear();
+                        messageHandler.Write("Class? (F)ighter, (T)hief, (M)agicUser, (H)ealer, (I)nfo");
+                        infoRunning = false;
+                        break;
+                   case string input when string.IsNullOrWhiteSpace(input):
+                        messageHandler.Clear();
+                        messageHandler.Write("Please enter a valid option.");
+                        Thread.Sleep(1000);
+                        infoRunning = true;
+                        break;
+                    default:
+                        messageHandler.Clear();
+                        messageHandler.Write("Please enter a valid option.");
+                        Thread.Sleep(1000);
+                        infoRunning = true;
+                        break;
+                }
+            }
+            return;
         }
     }
 }
