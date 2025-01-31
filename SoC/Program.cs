@@ -39,11 +39,11 @@ namespace SoC
 
         public static void MainMenu()
         {
-            MakeTitle();
-            MainMenuChoice();
             bool MainMenuInputValid = false;
             while (!MainMenuInputValid) 
             {
+                MakeTitle();
+                MainMenuChoice();
                 switch (Console.ReadLine().ToLower())
                 {
                     case "s":
@@ -58,16 +58,12 @@ namespace SoC
                         characterService.CreateCharacter();
                         MainMenuInputValid = true;
                         break;
-                    case string input when string.IsNullOrWhiteSpace(input):
-                        consoleMessageHandler.Write("Please enter a valid option.");
-                        MainMenuInputValid = false;
-                        MainMenuChoice();
-                        break;
                     default:
                         consoleMessageHandler.Write("Please enter a valid option.");
+                        Thread.Sleep(1000);
                         MainMenuInputValid = false;
-                        MainMenuChoice();
-                        break;
+                        consoleMessageHandler.Clear();
+                        continue;
                 }
 
             }
@@ -82,7 +78,7 @@ namespace SoC
 
         private static void CreateACharacter()
         {
-            consoleMessageHandler.Write("create");
+            characterService.CreateCharacter();
         }
 
         private static void LoadGame()

@@ -144,7 +144,7 @@ namespace SoC.Entities
                         newCharacter.Attack = new Attack { BaseDie = 6, BonusDamage = 0 };
                         break;
                     case "i":
-                        WriteInfo();
+                        WriteInfoClass();
                         classChosen = false;
                         break;
                     case string input when string.IsNullOrWhiteSpace(input):
@@ -187,6 +187,7 @@ namespace SoC.Entities
                         break;
                 }
             }
+            messageHandler.Clear(); 
 
             newCharacter.Abilities = SetAbilities(newCharacter);
             messageHandler.Clear();
@@ -300,7 +301,7 @@ namespace SoC.Entities
             messageHandler.Write("**********************************************");
         }
 
-        private void WriteInfo()
+        private void WriteInfoClass()
         {
             var infoRunning = true;
             while (infoRunning)
@@ -319,6 +320,8 @@ namespace SoC.Entities
                         messageHandler.Write("A shield of armor class 12, where foes belong.");
                         messageHandler.Write("Strength is their virtue, their might unparalleled,");
                         messageHandler.Write("A force of nature, with power unexcelled.");
+                        messageHandler.Write("Their attack is Vril, pure and immense,");
+                        messageHandler.Write("A strike that grows in strength, leaving foes in suspense.");
                         messageHandler.Read();
                         infoRunning = true;
                         break;
@@ -331,6 +334,8 @@ namespace SoC.Entities
                         messageHandler.Write("An armor class of 8, to dance through the fight.");
                         messageHandler.Write("Dexterity sharpens their wit and skill,");
                         messageHandler.Write("A shadow unseen, bending foes to their will.");
+                        messageHandler.Write("They steal the armor class of those they betray,");
+                        messageHandler.Write("Leaving enemies exposed, an easy prey.");
                         messageHandler.Read();
                         infoRunning = true;
                         break;
@@ -343,6 +348,8 @@ namespace SoC.Entities
                         messageHandler.Write("An armor class of 8, under watchful skies.");
                         messageHandler.Write("Intelligence fuels their arcane spark,");
                         messageHandler.Write("A conjurer of power, bending light and dark.");
+                        messageHandler.Write("They cast a powerful spell with dazzling might,");
+                        messageHandler.Write("Shaping the battle in radiant light.");
                         messageHandler.Read();
                         infoRunning = true;
                         break;
@@ -355,6 +362,8 @@ namespace SoC.Entities
                         messageHandler.Write("An armor class of 10, defending what's right.");
                         messageHandler.Write("Wisdom flows through their gentle hands,");
                         messageHandler.Write("A balm for wounds across all lands.");
+                        messageHandler.Write("When in peril, they heal themselves anew,");
+                        messageHandler.Write("Restoring their strength to see the battle through.");
                         messageHandler.Read();
                         infoRunning = true;
                         break;
@@ -368,6 +377,76 @@ namespace SoC.Entities
                         messageHandler.Write("Please enter a valid option.");
                         Thread.Sleep(1000);
                         infoRunning = true;
+                        break;
+                    default:
+                        messageHandler.Clear();
+                        messageHandler.Write("Please enter a valid option.");
+                        Thread.Sleep(1000);
+                        infoRunning = true;
+                        break;
+                }
+            }
+            return;
+        }
+
+        private void WriteInfoBackground()
+        {
+            var infoRunning = true;
+            while (infoRunning)
+            {
+                messageHandler.Clear();
+                messageHandler.Write("Chose background on which you want info: ");
+                messageHandler.Write("(N)oble, (D)rifter, (O)utcast, (B)ack");
+                switch (messageHandler.Read().ToLower())
+                {
+                    case "n":
+                        messageHandler.Clear();
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        messageHandler.Write("Noble: ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        messageHandler.Write("Born of lineage, with banners held high,");
+                        messageHandler.Write("The weight of a name beneath the sky.");
+                        messageHandler.Write("Elegance and duty, their burdens entwine,");
+                        messageHandler.Write("A legacy of honor in every sign.");
+                        messageHandler.Write("From gilded halls to the fray untold,");
+                        messageHandler.Write("Their destiny is forged with a heart of gold.");
+                        messageHandler.Read();
+                        infoRunning = true;
+                        break;
+                    case "d":
+                        messageHandler.Clear();
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        messageHandler.Write("Drifter: ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        messageHandler.Write("A wanderer beneath the stars' embrace,");
+                        messageHandler.Write("No home, no anchor, just endless space.");
+                        messageHandler.Write("With tales untold and roads unpaved,");
+                        messageHandler.Write("A life of freedom, the heart unshaved.");
+                        messageHandler.Write("They tread where others dare not roam,");
+                        messageHandler.Write("The world their path, the unknown their home.");
+                        messageHandler.Read();
+                        infoRunning = true;
+                        break;
+                    case "o":
+                        messageHandler.Clear();
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        messageHandler.Write("Outcast: ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        messageHandler.Write("Marked by whispers, their shadow looms,");
+                        messageHandler.Write("A tale of exile, of silent dooms.");
+                        messageHandler.Write("Shunned by the world, yet fiercely they rise,");
+                        messageHandler.Write("Fire in their heart and steel in their eyes.");
+                        messageHandler.Write("From ashes and ruin, they carve their way,");
+                        messageHandler.Write("Defying the night to reclaim the day.");
+                        messageHandler.Read();
+                        infoRunning = true;
+                        break;
+                    case "b":
+                        messageHandler.Clear();
+                        messageHandler.Write("Class? (F)ighter, (T)hief, (M)agicUser, (H)ealer, (I)nfo");
+                        infoRunning = false;
                         break;
                     default:
                         messageHandler.Clear();

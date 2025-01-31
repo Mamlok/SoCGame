@@ -69,11 +69,6 @@ namespace SoC.Game
                                 messageHandler.Clear();
                                 Program.MainMenu();
                                 break;
-                            case string input when string.IsNullOrWhiteSpace(input):
-                                Console.WriteLine("Please enter a valid option.");
-                                playerDecision = messageHandler.Read().ToLower();
-                                running = true;
-                                break;
                             default:
                                 Console.WriteLine("Please enter a valid option.");
                                 playerDecision = messageHandler.Read().ToLower();
