@@ -3,40 +3,60 @@
   "WorkspaceRootPath": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\entities\\charakterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\entities\\charakterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\entities\\model\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\entities\\model\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\utilities\\consolemessagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\utilities\\consolemessagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\combatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\combatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\interfaces\\icombatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\interfaces\\icombatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\entities\\interfaces\\icharakterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\entities\\interfaces\\icharakterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\utilities\\interfaces\\imessagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\utilities\\interfaces\\imessagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\dice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\dice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\entities\\charakterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\entities\\charakterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Adventures\\Initial.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SoC\\bin\\Debug\\net8.0\\Adventures\\Initial.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\adventures\\interfaces\\iadventureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\adventures\\interfaces\\iadventureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\adventures\\adventureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\adventures\\adventureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\dice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\dice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\entities\\model\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\entities\\model\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\entities\\model\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\entities\\model\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\interfaces\\icombatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\interfaces\\icombatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,20 +66,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 290,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Program.cs",
               "RelativeDocumentMoniker": "SoC\\Program.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Program.cs",
               "RelativeToolTip": "SoC\\Program.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAUwEEAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowEYAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-27T20:44:13.725Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IMessageHandler.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Utilities\\Interfaces\\IMessageHandler.cs",
+              "RelativeDocumentMoniker": "SoC\\Utilities\\Interfaces\\IMessageHandler.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Utilities\\Interfaces\\IMessageHandler.cs",
+              "RelativeToolTip": "SoC\\Utilities\\Interfaces\\IMessageHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-01T20:13:53.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ConsoleMessageHandler.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Utilities\\ConsoleMessageHandler.cs",
+              "RelativeDocumentMoniker": "SoC\\Utilities\\ConsoleMessageHandler.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Utilities\\ConsoleMessageHandler.cs",
+              "RelativeToolTip": "SoC\\Utilities\\ConsoleMessageHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-01T20:12:05.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ICharakterService.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\Interfaces\\ICharakterService.cs",
+              "RelativeDocumentMoniker": "SoC\\Entities\\Interfaces\\ICharakterService.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\Interfaces\\ICharakterService.cs",
+              "RelativeToolTip": "SoC\\Entities\\Interfaces\\ICharakterService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-01T18:05:55.663Z",
               "EditorCaption": ""
             },
             {
@@ -70,13 +129,14 @@
               "RelativeDocumentMoniker": "SoC\\Game\\CombatService.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\CombatService.cs",
               "RelativeToolTip": "SoC\\Game\\CombatService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL0AAABBAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAANYAAABiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-30T16:47:01.114Z"
+              "WhenOpened": "2025-01-30T16:47:01.114Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "ICombatService.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\Interfaces\\ICombatService.cs",
               "RelativeDocumentMoniker": "SoC\\Game\\Interfaces\\ICombatService.cs",
@@ -88,38 +148,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "GameService.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\GameService.cs",
               "RelativeDocumentMoniker": "SoC\\Game\\GameService.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\GameService.cs",
               "RelativeToolTip": "SoC\\Game\\GameService.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAADwv3UAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-30T16:38:42.995Z"
+              "WhenOpened": "2025-01-30T16:38:42.995Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "CharakterService.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\CharakterService.cs",
               "RelativeDocumentMoniker": "SoC\\Entities\\CharakterService.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\CharakterService.cs",
               "RelativeToolTip": "SoC\\Entities\\CharakterService.cs",
-              "ViewState": "AgIAAJQBAAAAAAAAAAAwwLkBAABTAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJQBAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-30T16:36:09.751Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "Character.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\Model\\Character.cs",
               "RelativeDocumentMoniker": "SoC\\Entities\\Model\\Character.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\Model\\Character.cs",
               "RelativeToolTip": "SoC\\Entities\\Model\\Character.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-30T16:35:36.361Z",
               "EditorCaption": ""
@@ -132,13 +193,40 @@
               "RelativeDocumentMoniker": "SoC\\bin\\Debug\\net8.0\\Adventures\\Initial.json",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Adventures\\Initial.json",
               "RelativeToolTip": "SoC\\bin\\Debug\\net8.0\\Adventures\\Initial.json",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAkwGIAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAABAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-30T16:31:03.035Z"
+              "WhenOpened": "2025-01-30T16:31:03.035Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
+              "Title": "AdventureService.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Adventures\\AdventureService.cs",
+              "RelativeDocumentMoniker": "SoC\\Adventures\\AdventureService.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Adventures\\AdventureService.cs",
+              "RelativeToolTip": "SoC\\Adventures\\AdventureService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-01T19:21:43.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IAdventureService.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Adventures\\Interfaces\\IAdventureService.cs",
+              "RelativeDocumentMoniker": "SoC\\Adventures\\Interfaces\\IAdventureService.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Adventures\\Interfaces\\IAdventureService.cs",
+              "RelativeToolTip": "SoC\\Adventures\\Interfaces\\IAdventureService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-01T19:40:01.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Dice.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\Dice.cs",
               "RelativeDocumentMoniker": "SoC\\Game\\Dice.cs",
@@ -146,19 +234,21 @@
               "RelativeToolTip": "SoC\\Game\\Dice.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAqwBMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-30T21:41:00.973Z"
+              "WhenOpened": "2025-01-30T21:41:00.973Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "Entity.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\Model\\Entity.cs",
               "RelativeDocumentMoniker": "SoC\\Entities\\Model\\Entity.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\Model\\Entity.cs",
               "RelativeToolTip": "SoC\\Entities\\Model\\Entity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-30T16:35:20.917Z"
+              "WhenOpened": "2025-01-30T16:35:20.917Z",
+              "EditorCaption": ""
             }
           ]
         }

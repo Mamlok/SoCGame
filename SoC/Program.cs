@@ -24,8 +24,9 @@ namespace SoC
             MainMenu();
         }
 
-        private static void MakeTitle()
+        public static void MakeTitle()
         {
+            consoleMessageHandler.Clear();
             consoleMessageHandler.Write(@"  __   __           _____                     ");
             consoleMessageHandler.Write(@" |  \\/  |        / ____|                     ");
             consoleMessageHandler.Write(@" | \\  / |_   _  | |  __  __ _ _ __ ___   ___ ");
@@ -33,7 +34,7 @@ namespace SoC
             consoleMessageHandler.Write(@" | |  | | |_| | | |__| | (_| | | | | | |  __/");
             consoleMessageHandler.Write(@" |_|  |_|\__, |  \_____|\__,_|_| |_| |_|\___|");
             consoleMessageHandler.Write(@"          __/ |                              ");
-            consoleMessageHandler.Write("         |___/                               \n\n");
+            consoleMessageHandler.Write("         |___/                               \n");
         }
 
 
@@ -48,10 +49,6 @@ namespace SoC
                 {
                     case "s":
                         gameService.StartGame();
-                        MainMenuInputValid = true;
-                        break;
-                    case "l":
-                        LoadGame();
                         MainMenuInputValid = true;
                         break;
                     case "c":
@@ -72,7 +69,6 @@ namespace SoC
         private static void MainMenuChoice()
         {
             consoleMessageHandler.Write("(S)tart a new game");
-            consoleMessageHandler.Write("(L)oad a game");
             consoleMessageHandler.Write("(C)reate a new character");
         }
 
@@ -81,10 +77,6 @@ namespace SoC
             characterService.CreateCharacter();
         }
 
-        private static void LoadGame()
-        {
-            consoleMessageHandler.Write("load");
-        }
 
     }
 }

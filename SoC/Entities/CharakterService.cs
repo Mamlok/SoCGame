@@ -46,7 +46,7 @@ namespace SoC.Entities
             return character;
         }
 
-        public List<Character> GetCharactersInRange(Guid adventureGUID, int minLevel = 0, int maxLevel = 20)
+        public List<Character> GetCharactersInRange()
         {
             var basePath = $"{AppDomain.CurrentDomain.BaseDirectory}characters";
             var charactersInRange = new List<Character>();
@@ -59,7 +59,7 @@ namespace SoC.Entities
                     using (StreamReader fi = File.OpenText(file.FullName))
                     {
                         var potentialCharacterInRange = JsonConvert.DeserializeObject<Character>(fi.ReadToEnd());
-                        if (potentialCharacterInRange.IsAlive && (potentialCharacterInRange.Level >= minLevel && potentialCharacterInRange.Level <= maxLevel) && potentialCharacterInRange.AdventurePlayed != null && !potentialCharacterInRange.AdventurePlayed.Contains(adventureGUID))
+                        if (potentialCharacterInRange.IsAlive)
                         {
                             charactersInRange.Add(potentialCharacterInRange);
                         }
@@ -147,10 +147,6 @@ namespace SoC.Entities
                         WriteInfoClass();
                         classChosen = false;
                         break;
-                    case string input when string.IsNullOrWhiteSpace(input):
-                        messageHandler.Write("Please enter a valid option.");
-                        classChosen = false;
-                        break;
                     default:
                         messageHandler.Write("Please enter a valid option.");
                         classChosen = false;
@@ -159,7 +155,7 @@ namespace SoC.Entities
             }
             messageHandler.Clear();
 
-            messageHandler.Write("Background? (D)rifter, (N)oble, (O)utcast");
+            messageHandler.Write("Background? (D)rifter, (N)oble, (O)utcast, (I)nfo");
             bool backgroundChosen = false;
             while (!backgroundChosen)
             {
@@ -177,9 +173,9 @@ namespace SoC.Entities
                         backgroundChosen = true;
                         newCharacter.Background = CharacterBackground.Outcast;
                         break;
-                    case string input when string.IsNullOrWhiteSpace(input):
-                        messageHandler.Write("Please enter a valid option.");
+                    case "i":
                         backgroundChosen = false;
+                        WriteInfoBackground();
                         break;
                     default:
                         messageHandler.Write("Please enter a valid option.");
@@ -401,11 +397,9 @@ namespace SoC.Entities
                 {
                     case "n":
                         messageHandler.Clear();
-                        Console.BackgroundColor = ConsoleColor.DarkBlue;
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         messageHandler.Write("Noble: ");
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.BackgroundColor = ConsoleColor.Black;
                         messageHandler.Write("Born of lineage, with banners held high,");
                         messageHandler.Write("The weight of a name beneath the sky.");
                         messageHandler.Write("Elegance and duty, their burdens entwine,");

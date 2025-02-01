@@ -20,6 +20,7 @@ namespace SoC.Entities.Model
         public CharacterClass Class;
         public string CauseOfDeath;
         public string DiedInAdventure;
+        public bool PlayedIntro = false;
     }
     
 

@@ -11,7 +11,7 @@ namespace SoC.Entities.Interfaces
     {
         public Character LoadCharacter(string name);
 
-        public List<Character> GetCharactersInRange(Guid adventureGUID, int minLevel = 0, int maxLevel = 20);
+        public List<Character> GetCharactersInRange();
 
         public bool SaveCharacter(Character character);
 

@@ -11,22 +11,22 @@ namespace SoC.Adventures
     public class AdventureService : IAdventureService
     {
 
-        public Adventure GetInitialAdventure()
+        public Adventure GetAdventure(string name)
         {
             var basePath = $"{AppDomain.CurrentDomain.BaseDirectory}adventures";
-            var initialAdventure = new Adventure();
+            var Adventure = new Adventure();
 
-            if (File.Exists($"{basePath}\\initial.json"))
+            if (File.Exists($"{basePath}\\{name}.json"))
             {
                 var directory = new DirectoryInfo(basePath);
-                var InitialJsonFile = directory.GetFiles("initial.json");
+                var JsonFile = directory.GetFiles($"{name}.json");
 
-                using (StreamReader fi = File.OpenText(InitialJsonFile[0].FullName))
+                using (StreamReader fi = File.OpenText(JsonFile[0].FullName))
                 {
-                    initialAdventure = JsonConvert.DeserializeObject<Adventure>(fi.ReadToEnd());
+                    Adventure = JsonConvert.DeserializeObject<Adventure>(fi.ReadToEnd());
                 }
             }
-            return initialAdventure;
+            return Adventure;
         }
     }
 }

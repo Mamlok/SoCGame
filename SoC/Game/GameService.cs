@@ -37,16 +37,18 @@ namespace SoC.Game
         {
             try
             {
+                /*
                 gameAdventure = adventure;
                 if (gameAdventure == null)
                 {
-                    gameAdventure = adventureService.GetInitialAdventure();
+                    gameAdventure = adventureService.GetAdventure();
                 }
 
                 CreateTitleBanner(gameAdventure.Title);
                 CreateDescription(gameAdventure);
-
-                var charactersInRange = characterService.GetCharactersInRange(gameAdventure.GUID, gameAdventure.MinLevel, gameAdventure.MaxLevel);
+                */
+                messageHandler.Clear();
+                var charactersInRange = characterService.GetCharactersInRange();
 
                 if (charactersInRange.Count == 0)
                 {
@@ -80,7 +82,7 @@ namespace SoC.Game
                 }
                 else
                 {
-                    messageHandler.Write("pick character:");
+                    messageHandler.Write("Pick character:");
                     var characterCount = 0;
                     foreach (var character in charactersInRange)
                     {
@@ -90,8 +92,13 @@ namespace SoC.Game
                 }
                 character = characterService.LoadCharacter(charactersInRange[Convert.ToInt32(messageHandler.Read())].Name);
 
-                var rooms = gameAdventure.Rooms;
-                RoomProcessor(rooms[0]);
+                if (character.PlayedIntro == false)
+                {
+                    PlayIntro(character);
+                    
+                }
+                //var rooms = gameAdventure.Rooms;
+                //RoomProcessor(rooms[0]);
 
 
             }
@@ -102,6 +109,131 @@ namespace SoC.Game
             }
             return true;
 
+        }
+
+        private void PlayIntro(Character character)
+        {
+            Program.MakeTitle();
+            messageHandler.Write("------------------------------------------------------------");
+            messageHandler.Write("\t**BLACKWOOD FOREST – MIDNIGHT**");
+            messageHandler.Write("\tA thick fog clings to the ground, swallowing sound.");
+            messageHandler.Write("\tDistant howls pierce the air—closer than before.");
+            messageHandler.Write("\tThe trees whisper as a chill runs down your spine.");
+            messageHandler.Write("\tSomething is wrong here... very wrong.");
+            messageHandler.Write("------------------------------------------------------------");
+            messageHandler.Write(" ");
+            messageHandler.Write("\t[Press ENTER to Begin Your Journey]");
+            messageHandler.Read();
+            messageHandler.Clear();
+            if (character.Background == CharacterBackground.Noble)
+            {
+                messageHandler.Write("The halls of your family’s estate were grand, adorned with banners bearing your house's");
+                messageHandler.Write("crest, the scent of polished wood mingling with the faint aroma of aged wine. Yet,");
+                messageHandler.Write("beneath the luxury, you felt trapped—bound by duty, suffocated by the weight of ");
+                messageHandler.Write("expectation. A life of politics, alliances, and preordained destiny was all you’d known.");
+                messageHandler.Read();
+                messageHandler.Clear();
+                messageHandler.Write("When your elder sibling inherited the title of lord, you thought you’d find peace in your");
+                messageHandler.Write("reduced responsibilities. But the scheming of courtiers and whispers of betrayal grew");
+                messageHandler.Write("unbearable. One fateful evening, you made your choice: you donned a simple cloak,");
+                messageHandler.Write("packed your sword, and left your family behind. The road ahead was uncertain, but at");
+                messageHandler.Write("least it was your own.");
+                messageHandler.Read();
+                messageHandler.Clear();
+                messageHandler.Write("Now, after weeks of wandering and dwindling coin, you find yourself stumbling through a");
+                messageHandler.Write("dense forest, your noble boots muddied, your stomach growling. You crest a hill and");
+                messageHandler.Write("spot a small village nestled in a valley below. Lanterns flicker in the misty evening air,");
+                messageHandler.Write("and your heart lifts slightly. Perhaps here, among simpler folk, you might find refuge—");
+                messageHandler.Write("and perhaps a new purpose.");
+                messageHandler.Read();
+                messageHandler.Clear();
+            }
+            else if (character.Background == CharacterBackground.Outcast)
+            {
+                messageHandler.Write("The memories of your past are vivid, sharp as blades: the betrayal that tore your world");
+                messageHandler.Write("apart, the faces of those who turned their backs on you, and the cold realization that you");
+                messageHandler.Write("were truly alone. The brand—whether literal or figurative—marks you still, a constant");
+                messageHandler.Write("reminder of what you’ve lost.");
+                messageHandler.Read();
+                messageHandler.Clear();
+                messageHandler.Write("You’ve spent years surviving on the fringes of society, shunned by most, tolerated by few.");
+                messageHandler.Write("Every town, every camp, every settlement has felt temporary, a place to hide rather than");
+                messageHandler.Write("to live. Yet, somewhere deep within you, a flicker of hope remains. Perhaps, one day,");
+                messageHandler.Write("you’ll find a place where you’re more than just an outcast.");
+                messageHandler.Read();
+                messageHandler.Clear();
+                messageHandler.Write("The forest seems to stretch endlessly around you, the evening shadows deepening. Your");
+                messageHandler.Write("meager rations are running low, and your strength is waning. Then, through the gloom,");
+                messageHandler.Write("you spot it: a village, its lights like beacons in the darkness. You hesitate for a moment,");
+                messageHandler.Write("wary of the reception you might receive, but your need for shelter outweighs your fear.");
+                messageHandler.Read();
+                messageHandler.Clear();
+            }
+            else if (character.Background == CharacterBackground.Drifter)
+            {
+                messageHandler.Write("The road is your constant companion, your only home. You’ve spent years walking its");
+                messageHandler.Write("winding paths, taking what odd jobs you could, never staying in one place long enough");
+                messageHandler.Write("to be remembered. Faces blur together in your mind, towns and cities fading into distant");
+                messageHandler.Write("memories. You don’t know where you belong, and a part of you wonders if you’re");
+                messageHandler.Write("destined to wander forever.");
+                messageHandler.Read();
+                messageHandler.Clear();
+                messageHandler.Write("On this particular evening, the forest feels heavier than usual. The trees loom like dark ");
+                messageHandler.Write("sentinels, and the air carries a faint chill. You tighten your grip on your pack, its weight a");
+                messageHandler.Write("small comfort against the creeping unease. Just as you consider stopping to rest, the");
+                messageHandler.Write("faint glow of lanterns cuts through the darkness. A village.");
+                messageHandler.Read();
+                messageHandler.Clear();
+                messageHandler.Write("You sigh with relief as you make your way toward the light. The promise of a warm fire");
+                messageHandler.Write("and a hot meal drives you forward. You’ve seen enough villages to know this one might ");
+                messageHandler.Write("hold work for someone like you—a drifter with no ties, no questions asked.");
+                messageHandler.Read();
+            }
+            messageHandler.Write("\t[Press ENTER to enter the local tavern]");
+            messageHandler.Read();
+            messageHandler.Clear();
+            messageHandler.Write("The creak of the Dancing Willow Tavern’s wooden door is a welcome sound as you step");
+            messageHandler.Write("inside. The warmth of the fire hits you like a wave, chasing away the evening chill. The");
+            messageHandler.Write("scent of roasting meat and spiced ale fills the air, and the hum of conversation wraps");
+            messageHandler.Write("around you like a familiar tune.");
+            messageHandler.Read();
+            messageHandler.Clear();
+            messageHandler.Write("The villagers glance your way as you enter, their eyes flicking over your mud-splattered");
+            messageHandler.Write("boots, your worn cloak, and the weariness etched into your features. They don’t speak,");
+            messageHandler.Write("but their expressions say enough: another traveler, another story.");
+            messageHandler.Read();
+            messageHandler.Clear();
+            messageHandler.Write("The barkeep, a stout man with a gray beard and a towel slung over his shoulder, beckons");
+            messageHandler.Write("you to the bar.");
+            messageHandler.Read();
+            messageHandler.Clear();
+            messageHandler.Write("B: Come in, stranger,");
+            messageHandler.Write("(his voice gruff but welcoming)", false);
+            messageHandler.Read();
+            messageHandler.Write("B: You look like you’ve had a rough journey.", false);
+            messageHandler.Read();
+            messageHandler.Write("B: Care for a drink?", false);
+            messageHandler.Read();
+            messageHandler.Write("B: Something warm to eat?");
+            messageHandler.Read();
+            messageHandler.Clear();
+            messageHandler.Write("You nod and take a seat at the bar. As you sip the ale he sets before you, the voices");
+            messageHandler.Write("around you begin to rise. Farmers whisper about strange markings in their fields. A");
+            messageHandler.Write("merchant complains of goods stolen during the night. A hunter, seated near the fire,");
+            messageHandler.Write("mutters about wolves howling closer than ever.");
+            messageHandler.Write("The barkeep leans in, lowering his voice.");
+            messageHandler.Read();
+            messageHandler.Clear();
+            messageHandler.Write("B: This village’s been quiet for years, but lately....  strange things’ve been happening.", false);
+            messageHandler.Read();
+            messageHandler.Write("B: If you’re looking for work, there’s plenty of trouble to go around.", false);
+            messageHandler.Read();
+            messageHandler.Clear();
+            messageHandler.Write("You glance around the room, taking in the faces of the villagers. Some are hopeful,");
+            messageHandler.Write("others wary, but all are burdened by something they can’t fight alone. Whether by fate,");
+            messageHandler.Write("duty, or sheer chance, you realize this small village is where your story begins.");
+            messageHandler.Read();
+            messageHandler.Clear();
         }
 
         private void RoomProcessor(Room room)
