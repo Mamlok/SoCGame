@@ -1,2 +1,1 @@
-vysvětli classy
-backgrround
+
