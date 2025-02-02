@@ -7,6 +7,7 @@ using SoC.Entities;
 using SoC.Entities.Interfaces;
 using SoC.Game;
 using SoC.Utilities;
+using SoC.Utilities.Interfaces;
 using System.IO;
 using System.Net.Http.Headers;
 
@@ -18,7 +19,8 @@ namespace SoC
         private static readonly ConsoleMessageHandler consoleMessageHandler = new ConsoleMessageHandler();
         private static readonly CharacterService characterService = new CharacterService(consoleMessageHandler);
         private static readonly CombatService combatService = new CombatService(consoleMessageHandler);
-        private static GameService gameService = new GameService(adventureService, characterService, consoleMessageHandler, combatService);
+        private static readonly Tavern tavern = new Tavern(consoleMessageHandler);
+        private static GameService gameService = new GameService(adventureService, characterService, consoleMessageHandler, combatService, tavern);
         static void Main(string[] args)
         {
             MainMenu();
@@ -34,7 +36,8 @@ namespace SoC
             consoleMessageHandler.Write(@" | |  | | |_| | | |__| | (_| | | | | | |  __/");
             consoleMessageHandler.Write(@" |_|  |_|\__, |  \_____|\__,_|_| |_| |_|\___|");
             consoleMessageHandler.Write(@"          __/ |                              ");
-            consoleMessageHandler.Write("         |___/                               \n");
+            consoleMessageHandler.Write("         |___/                               ");
+            consoleMessageHandler.Write("----------------------------------------------");
         }
 
 

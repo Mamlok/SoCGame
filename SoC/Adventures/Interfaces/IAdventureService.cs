@@ -9,6 +9,6 @@ namespace SoC.Adventures.Interfaces
     public interface IAdventureService
     {
 
-         Adventure GetAdventure(string name);
+         Adventure GetAdventure(int name);
     }
 }

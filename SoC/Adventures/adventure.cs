@@ -15,9 +15,8 @@ namespace SoC.Adventures
         public int CompleteXpReward;
         public int CompleteGoldReward;
         public int FinalObjective;
-        public int MaxLevel;
-        public int MinLevel;
         public List<Room> Rooms;
+        public List<Npc> Npcs;
 
         public Adventure() 
         {

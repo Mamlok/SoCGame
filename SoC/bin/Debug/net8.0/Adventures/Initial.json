@@ -6,8 +6,6 @@
   "CompleteXpReward": 250,
   "CompleteGoldReward": 100,
   "FinalObjective" : 123,
-  "MaxLevel" : 1,
-  "MinLevel": 0,
 
   "Rooms": [
     {
@@ -56,14 +54,12 @@
             "Name": "HolySymbol",
             "Description": "dukes chalice",
             "ObjectiveNumber": 123,
-            "Weight": 2,
             "GoldValue": 50
           },
           {
             "Name": "Rope",
             "Description": "fancy rope",
             "ObjectiveNumber": 0,
-            "Weight": 1,
             "GoldValue": 0
           }
         ]
@@ -108,7 +104,6 @@
               "Name": "Food",
               "Description": "Maggoty bread",
               "ObjectiveNumber": 0,
-              "Weight": 1,
               "GoldValue": 0
             }
           ]
@@ -130,14 +125,12 @@
             "Name": "Food",
             "Description": "Maggoty bread",
             "ObjectiveNumber": 0,
-            "Weight": 1,
             "GoldValue": 0
           },
           {
             "Name": "Key",
             "Description": "Rusty looking key",
             "ObjectiveNumber": 22,
-            "Weight": 0,
             "GoldValue": 0
           }
         ],

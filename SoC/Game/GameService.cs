@@ -11,6 +11,7 @@ using SoC.Utilities.Interfaces;
 using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using System.Threading;
+using System.Xml.Linq;
 
 namespace SoC.Game
 {
@@ -20,33 +21,26 @@ namespace SoC.Game
         private ICharakterService characterService;
         private IMessageHandler messageHandler;
         private ICombatService combatService;
+        private ITavern tavern;
 
         private Character character;
         private Adventure gameAdventure;
-        private bool gameWon = false;
+        //private bool gameWon = false;
         private string gameWinningDescription;
+        public int adventureNumber;
 
-        public GameService(IAdventureService AdventureService, ICharakterService CharakterService, IMessageHandler MessageHandler, ICombatService CombatService)
+        public GameService(IAdventureService AdventureService, ICharakterService CharakterService, IMessageHandler MessageHandler, ICombatService CombatService,ITavern Tavern)
         {
             adventureService = AdventureService;
             characterService = CharakterService;
             messageHandler = MessageHandler;
             combatService = CombatService;
+            tavern = Tavern;
         }
         public bool StartGame(Adventure adventure = null)
         {
             try
             {
-                /*
-                gameAdventure = adventure;
-                if (gameAdventure == null)
-                {
-                    gameAdventure = adventureService.GetAdventure();
-                }
-
-                CreateTitleBanner(gameAdventure.Title);
-                CreateDescription(gameAdventure);
-                */
                 messageHandler.Clear();
                 var charactersInRange = characterService.GetCharactersInRange();
 
@@ -72,7 +66,7 @@ namespace SoC.Game
                                 Program.MainMenu();
                                 break;
                             default:
-                                Console.WriteLine("Please enter a valid option.");
+                                messageHandler.Write("Please enter a valid option.");
                                 playerDecision = messageHandler.Read().ToLower();
                                 running = true;
                                 break;
@@ -95,10 +89,28 @@ namespace SoC.Game
                 if (character.PlayedIntro == false)
                 {
                     PlayIntro(character);
-                    
                 }
-                //var rooms = gameAdventure.Rooms;
-                //RoomProcessor(rooms[0]);
+                bool GameEnd = false;
+                while (!GameEnd)
+                {
+                    tavern.TavernMenu();
+                    adventureNumber = character.AdventurePlayed.Count + 1;
+                    if (adventureNumber > 7)
+                    {
+                        messageHandler.Write("You have completed all the adventures!  You are a true hero!");
+                        GameEnd = true;
+                    }
+                    gameAdventure = adventureService.GetAdventure(adventureNumber);
+
+                    CreateTitleBanner(gameAdventure.Title);
+                    CreateDescription(gameAdventure);
+                    messageHandler.Read();
+                    var rooms = gameAdventure.Rooms;
+                    RoomProcessor(rooms[0]);
+
+                }
+                
+
 
 
             }
@@ -234,6 +246,8 @@ namespace SoC.Game
             messageHandler.Write("duty, or sheer chance, you realize this small village is where your story begins.");
             messageHandler.Read();
             messageHandler.Clear();
+            character.PlayedIntro = true;
+            characterService.SaveCharacter(character);
         }
 
         private void RoomProcessor(Room room)
@@ -245,7 +259,7 @@ namespace SoC.Game
 
         private void RoomOptions(Room room)
         {
-            WriteRoomOptions(room);
+            WriteRoomOptions(room, adventureNumber);
 
             var playerDecision = messageHandler.Read().ToLower();
             var exitRoom = false;
@@ -257,13 +271,13 @@ namespace SoC.Game
                     case "l":
                         messageHandler.Clear();
                         CheckForTrap(room);
-                        WriteRoomOptions(room);
+                        WriteRoomOptions(room, adventureNumber);
                         playerDecision = messageHandler.Read().ToLower();
                         break;
                     case "c":
                         messageHandler.Clear();
                         CheckForTrapInChest(room.Chest);
-                        WriteRoomOptions(room);
+                        WriteRoomOptions(room, adventureNumber);
                         playerDecision = messageHandler.Read().ToLower();
                         break;
                     case "o":
@@ -271,18 +285,31 @@ namespace SoC.Game
                         if (room.Chest != null)
                         {
                             OpenChest(room.Chest);
-                            WriteRoomOptions(room);
-                            if (gameWon)
-                            {
-                                GameOver();
-                            }
+                            WriteRoomOptions(room, adventureNumber);
+                            //if (gameWon)
+                            //{
+                            //    GameOver();
+                            //}
                             playerDecision = messageHandler.Read().ToLower();
                         }
                         else
                         {
                             messageHandler.Write("There is no chest");
-                            WriteRoomOptions(room);
+                            WriteRoomOptions(room, adventureNumber);
                             playerDecision = messageHandler.Read().ToLower();
+                        }
+                        break;
+                    case "i":
+                        messageHandler.Clear();
+                        if (room.Events != null)
+                        {
+                            if (adventureNumber == 1)
+                            {
+                                if (room.RoomNumber == 2 && room.RoomVisited < 1)
+                                {
+                                    QuestFirstEvent(room, 1);
+                                }
+                            }
                         }
                         break;
                     case "n":
@@ -301,27 +328,21 @@ namespace SoC.Game
                         else
                         {
                             messageHandler.Write("\n Something went wrong there is a wall \n");
-                            WriteRoomOptions(room);
+                            WriteRoomOptions(room, adventureNumber);
                             playerDecision = messageHandler.Read().ToLower();
                         }
-                        break;
-                    case string input when string.IsNullOrWhiteSpace(input):
-                        messageHandler.Clear();
-                        Console.WriteLine("Please enter a valid option.");
-                        WriteRoomOptions(room);
-                        playerDecision = messageHandler.Read().ToLower();
                         break;
                     default:
                         messageHandler.Clear();
                         Console.WriteLine("Please enter a valid option.");
-                        WriteRoomOptions(room);
+                        WriteRoomOptions(room, adventureNumber);
                         playerDecision = messageHandler.Read().ToLower();
                         break;
                 }
             }
         }
 
-        private void WriteRoomOptions(Room room)
+        private void WriteRoomOptions(Room room, int adventureNumber)
         {
             messageHandler.Write("What would you like to do?");
             messageHandler.Write("----------------------------");
@@ -330,6 +351,16 @@ namespace SoC.Game
             {
                 messageHandler.Write("(O)pen the chest");
                 messageHandler.Write("(C)heck the chest for traps");
+            }
+            if (room.Events != null)
+            {
+                if (adventureNumber == 1)
+                {
+                    if (room.RoomNumber == 2 && room.RoomVisited < 1)
+                    {
+                        messageHandler.Write("(I)nteraction : Talk to Harlan");
+                    }
+                }
             }
             messageHandler.Write("Use an exit:");
             foreach (var exit in room.Exits)
@@ -345,7 +376,6 @@ namespace SoC.Game
             {
                 ProcessTrapMessagesAndDamage(room.Trap);
                 room.Trap.TrippedOrDisarmed = true;
-                //IF NOT DEAD - keep going.
             }
 
             var exit = room.Exits.FirstOrDefault(x => x.WallLocation == wallLocation);
@@ -364,6 +394,7 @@ namespace SoC.Game
 
             if ((exit.Lock == null || !exit.Lock.Locked) || TryUnlock(exit.Lock))
             {
+                room.RoomVisited++;
                 RoomProcessor(newRoom);
             }
             else
@@ -398,38 +429,29 @@ namespace SoC.Game
                         foreach (var item in chest.Treasure)
                         {
                             messageHandler.Write(item.Description);
-
-                            if (item.ObjectiveNumber == gameAdventure.FinalObjective)
-                            {
-                                gameWon = true;
-                                gameWinningDescription = item.Description;
-                                character.Gold += gameAdventure.CompleteGoldReward;
-                                character.XP += gameAdventure.CompleteXpReward;
-                                character.AdventurePlayed.Add(gameAdventure.GUID);
-                            }
                         }
                         messageHandler.Write("\n");
 
                         character.Inventory.AddRange(chest.Treasure);
                         chest.Treasure = new List<Item>();
-                        if (gameWon)
-                        {
-                            Console.BackgroundColor = ConsoleColor.DarkBlue;
-                            Console.ForegroundColor = ConsoleColor.White;
-                            messageHandler.Write("**************************************************");
-                            messageHandler.Write("*         YOU FOUND THE FINAL OBJECTIVE!         *");
-                            messageHandler.Write("**************************************************");
+                        //if (gameWon)
+                        //{
+                        //    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        //    Console.ForegroundColor = ConsoleColor.White;
+                        //    messageHandler.Write("**************************************************");
+                        //    messageHandler.Write("*         YOU FOUND THE FINAL OBJECTIVE!         *");
+                        //    messageHandler.Write("**************************************************");
 
-                            Console.BackgroundColor = ConsoleColor.Black;
-                            Console.ForegroundColor = ConsoleColor.White;
-                            messageHandler.Write($"You found : {gameWinningDescription}");
-                            messageHandler.Write("Rewards:");
-                            messageHandler.Write($"{gameAdventure.CompleteXpReward} XP");
-                            messageHandler.Write($"{gameAdventure.CompleteGoldReward} Gold");
-                            messageHandler.Write($"{character.Name} now has {character.XP} XP and {character.Gold} Gold");
-                            character.HasUsedSpell = false;
+                        //    Console.BackgroundColor = ConsoleColor.Black;
+                        //    Console.ForegroundColor = ConsoleColor.White;
+                        //    messageHandler.Write($"You found : {gameWinningDescription}");
+                        //    messageHandler.Write("Rewards:");
+                        //    messageHandler.Write($"{gameAdventure.CompleteXpReward} XP");
+                        //    messageHandler.Write($"{gameAdventure.CompleteGoldReward} Gold");
+                        //    messageHandler.Write($"{character.Name} now has {character.XP} XP and {character.Gold} Gold");
+                        //    character.HasUsedSpell = false;
 
-                        }
+                        //}
                         return;
                     }
 
@@ -444,10 +466,10 @@ namespace SoC.Game
                 if (TryUnlock(chest.Lock))
                 {
                     OpenChest(chest);
-                    if (gameWon)
-                    {
-                        GameOver();
-                    }
+                    //if (gameWon)
+                    //{
+                    //    GameOver();
+                    //}
                 }
             }
         }
@@ -527,10 +549,11 @@ namespace SoC.Game
             messageHandler.Clear();
             messageHandler.Write("---------------------------");
 
-            messageHandler.Write($"{room.RoomNumber} {room.Description}");
+            messageHandler.Write($"{room.Description}");
+            messageHandler.Write($"{room.SubDescription}");
             if (room.Exits.Count == 1)
             {
-                messageHandler.Write($"Therer is an exit on the {room.Exits[0].WallLocation} wall");
+                messageHandler.Write($"Therer is an exit on the {room.Exits[0].WallLocation}.");
             }
             else
             {
@@ -540,12 +563,12 @@ namespace SoC.Game
                     exitDescription += $"{exit.WallLocation},";
                 }
 
-                messageHandler.Write($"There are exits on the {exitDescription.Remove(exitDescription.Length - 1)} walls.");
+                messageHandler.Write($"There are exits on the {exitDescription.Remove(exitDescription.Length - 1)}.");
             }
 
             if (room.Chest != null)
             {
-                messageHandler.Write("There is a chest in this room");
+                messageHandler.Write("There is a chest in this location.");
             }
 
             if (room.Monsters != null)
@@ -568,7 +591,6 @@ namespace SoC.Game
         private void CreateDescription(Adventure adventure)
         {
             messageHandler.Write($"\n{adventure.Description}");
-            messageHandler.Write($"\nLevels: {adventure.MinLevel} - {adventure.MaxLevel}");
             messageHandler.Write($"\nCompletion Rewards: {adventure.CompleteGoldReward} gold & {adventure.CompleteXpReward} XP");
             messageHandler.Write();
         }
@@ -771,5 +793,38 @@ namespace SoC.Game
             return;
         }
 
+        private void QuestFirstEvent(Room room, int eventNumber)
+        {
+            if (eventNumber == 1)
+            {
+                messageHandler.Clear();
+                messageHandler.Write("H: You’re the one the barkeep sent?",false);
+                messageHandler.Read();
+                messageHandler.Write("H: Good.", false);
+                messageHandler.Read();
+                messageHandler.Write("H: We got a real problem here", false);
+                messageHandler.Read();
+                messageHandler.Write("H: The wolves have been attacking at night, and they ain’t acting normal.", false);
+                messageHandler.Read();
+                messageHandler.Write("H: They’re hunting like they’ve got a leader pulling the strings. Stronger. Smarter", false);
+                messageHandler.Read();
+                messageHandler.Write("H: I tracked their movements and found their den deep in the woods.", false);
+                messageHandler.Read();
+                messageHandler.Write("H: I reckon their leader’s hiding there.", false);
+                messageHandler.Read();
+                messageHandler.Write("H: If you can take it down, the rest should scatter.", false);
+                messageHandler.Read();
+                messageHandler.Write("H: Bring me proof that you did the job—something off the beast itself.", false);
+                messageHandler.Read();
+                messageHandler.Write("H: A fang, a pelt, whatever you can get.", false);
+                messageHandler.Read();
+                messageHandler.Write("H: But be careful. The thing ain't just a normal wolf.", false);
+                messageHandler.Read();
+                messageHandler.Write("H: Some say they've seen shadows move with it", false);
+                messageHandler.Read();
+                messageHandler.Write("H: if the stories are true, you’ll be facing something far worse than just a wild animal.", false);
+
+            }
+        }
     }
 }

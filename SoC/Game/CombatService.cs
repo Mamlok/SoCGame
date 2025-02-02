@@ -74,7 +74,7 @@ namespace SoC.Game
                         case "r":
                             if (TryToRunAway(character, dice))
                             {
-                                return;
+                                return; //dodělat
                             }
                             break;
                         default:
@@ -237,7 +237,7 @@ namespace SoC.Game
                 messageHandler.Write($"You found {monster.Gold} gold on the {monster.MonsterType}!");
             }
 
-            if (monster.Inventory.Count > 0)
+            if (monster.Inventory != null && monster.Inventory.Count > 0)
             {
                 messageHandler.Write($"You found the following items on the {monster.MonsterType}:");
                 foreach (var item in monster.Inventory)

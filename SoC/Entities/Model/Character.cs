@@ -15,7 +15,6 @@ namespace SoC.Entities.Model
         public int XP = 0;
         public Abilities Abilities = new Abilities();
         public CharacterBackground Background;
-        public int InventoryWeight = 0;
         public List<Guid> AdventurePlayed = new List<Guid>();
         public CharacterClass Class;
         public string CauseOfDeath;

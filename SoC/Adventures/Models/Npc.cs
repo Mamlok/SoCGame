@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SoC.Entities.Model
+namespace SoC.Adventures.Models
 {
-    public class Monster : Entity
+    public class Npc
     {
-        public string MonsterType;
+        public string Name;
+        public bool IsAlive = true;
     }
 }

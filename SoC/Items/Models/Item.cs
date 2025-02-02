@@ -12,7 +12,6 @@ namespace SoC.Items.Models
         public ItemType Name;
         public string Description;
         public int ObjectiveNumber;
-        public int Weight;
         public int GoldValue;
     }
 
@@ -26,5 +25,6 @@ namespace SoC.Items.Models
         TinderBox,
         Key,
         Lockpicks
+
     }
 }

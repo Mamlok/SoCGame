@@ -1,0 +1,211 @@
+{
+
+  "GUID": "212C35D8-C58B-415B-8F1F-2C355E185358",
+  "Title": "The Howling in the Woods",
+  "Description": "Hunt the strange wolves attacking the village. Strange clues suggest something more is happening.",
+  "CompleteXpReward": 250,
+  "CompleteGoldReward": 5,
+  "FinalObjective": 101,
+
+  "Rooms": [
+    {
+      "RoomNumber": 1,
+      "Description": "Village outskirts",
+      "SubDescription": "A dirt path lined with wooden fences leads out of the village.\nLanterns flicker softly in the misty air.\nIn the distance, wolves howl in the dark.",
+      "Exits": [
+        {
+          "Locked": false,
+          "WallLocation": 0,
+          "LeadsToRoomNumber": 2,
+          "Description": "Harlan´s farm",
+          "Hidden": false
+        }
+      ]
+    },
+    {
+      "RoomNumber": 2,
+      "Description": "Harlan’s farm",
+      "SubDescription": "A small farm surrounded by tall grass.\nThe air smells like hay and animals.\nNear a broken fence, blood stains the ground where the sheep were taken.",
+      "Events": [
+        {
+          "Name": "Harlan Quest",
+          "EventNumber": 1,
+          "IsCompleted": false
+        },
+        {
+          "Name": "Harlan End",
+          "EventNumber": 3,
+          "IsCompleted": false
+        }
+      ],
+      "Exits": [
+        {
+          "Locked": false,
+          "WallLocation": 2,
+          "LeadsToRoomNumber": 1,
+          "Description": "Village outskirts",
+          "Hidden": false
+        },
+        {
+          "Locked": false,
+          "WallLocation": 0,
+          "LeadsToRoomNumber": 3,
+          "Description": "Forest entrance",
+          "Hidden": false
+        }
+      ]
+    },
+    {
+      "RoomNumber": 3,
+      "Description": "Forest entrance",
+      "SubDescription": "Tall trees form a thick cover, blocking out most of the moonlight.\nFog rolls across the ground, and silence hangs heavy, broken only by distant howls.",
+      "Events": [
+        {
+          "Name": "Climb tree",
+          "EventNumber": 2,
+          "IsCompleted": false
+        }
+      ],
+      "Exits": [
+        {
+          "Locked": false,
+          "WallLocation": 0,
+          "LeadsToRoomNumber": 4,
+          "Description": "Dark thicket",
+          "Hidden": false
+        },
+        {
+          "Locked": false,
+          "WallLocation": 2,
+          "LeadsToRoomNumber": 2,
+          "Description": "Harlan’s farm",
+          "Hidden": false
+        },
+        {
+          "Locked": false,
+          "WallLocation": 3,
+          "LeadsToRoomNumber": 6,
+          "Description": "Abandoned cabin",
+          "Hidden": false
+        }
+      ]
+    },
+    {
+      "RoomNumber": 4,
+      "Description": "Dark Thicket",
+      "SubDescription": "A tangled grove where trees grow close together.\nThe ground is rough, covered in roots and bones. ",
+      "Monsters": [
+        {
+          "MonsterType": "Wolfs",
+          "HitPoints": 2,
+          "Attack": {
+            "BaseDie": 1,
+            "BonusDamage": 0
+          },
+          "Gold": 0,
+          "ArmorClass": 5
+        }
+      ],
+      "Exits": [
+        {
+          "Locked": false,
+          "WallLocation": 0,
+          "LeadsToRoomNumber": 5,
+          "Description": "Wolf den",
+          "Hidden": false
+        },
+        {
+          "Locked": false,
+          "WallLocation": 2,
+          "LeadsToRoomNumber": 3,
+          "Description": "Forest entrance",
+          "Hidden": false
+        }
+      ]
+    },
+    {
+      "RoomNumber": 5,
+      "Description": "Wolf den",
+      "SubDescription": "A rocky clearing filled with half-eaten remains.",
+      "Monsters": [
+        {
+          "MonsterType": "Wolf pack leader",
+          "HitPoints": 2,
+          "Attack": {
+            "BaseDie": 1,
+            "BonusDamage": 0
+          },
+          "Gold": 0,
+          "ArmorClass": 10,
+          "Inventory": [
+            {
+              "Name": "HolySymbol",
+              "Description": "Wolf pack leader´s fang",
+              "ObjectiveNumber": 101,
+              "GoldValue": 0
+            }
+          ]
+        }
+      ],
+      "Exits": [
+        {
+          "Locked": false,
+          "WallLocation": 1,
+          "LeadsToRoomNumber": 7,
+          "Description": "Hidden cave",
+          "Hidden": true
+        },
+        {
+          "Locked": false,
+          "WallLocation": 2,
+          "LeadsToRoomNumber": 4,
+          "Description": "Dark thicket",
+          "Hidden": false
+        }
+      ]
+    },
+    {
+      "RoomNumber": 6,
+      "Description": "Abandoned cabin",
+      "SubDescription": "A forgotten wooden shack hidden among the trees.\nThe windows are shattered, and old claw marks cover the door.",
+      "Chest": {
+        "Treasure": [
+          {
+            "Name": "Food",
+            "Description": "Healing herb",
+            "ObjectiveNumber": 1,
+            "GoldValue": 2
+          }
+        ]
+      },
+      "Exits": [
+        {
+          "Locked": false,
+          "WallLocation": 1,
+          "LeadsToRoomNumber": 3,
+          "Description": "Forest entrance",
+          "Hidden": false
+        }
+      ]
+    },
+    {
+      "RoomNumber": 7,
+      "Description": "Hidden cave",
+      "SubDescription": "A tangled grove where trees grow close together.\nThe ground is rough, covered in roots and bones. ",
+      "Chest": {
+        "Trap": {
+          "TrapType": 1
+        },
+        "Gold": 5
+      },
+      "Exits": [
+        {
+          "Locked": false,
+          "WallLocation": 3,
+          "LeadsToRoomNumber": 5,
+          "Description": "Wolf den"
+        }
+      ]
+    }
+  ]
+}

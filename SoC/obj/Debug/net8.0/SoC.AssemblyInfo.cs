@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SoC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1c496306346cea6c60c75076f40b13a2649d05e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb27a8c1564aa036bc9528d8fafc58919781dd1f")]
 [assembly: System.Reflection.AssemblyProductAttribute("SoC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SoC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

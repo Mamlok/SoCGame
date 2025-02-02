@@ -12,6 +12,7 @@ namespace SoC.Adventures.Models
         public CompassDirection WallLocation;
         public int LeadsToRoomNumber;
         public Riddle Riddle;
+        public string Description;
 
     }
 
