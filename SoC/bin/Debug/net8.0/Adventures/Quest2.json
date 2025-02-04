@@ -1,7 +1,7 @@
 {
 
   "GUID": "212C35D8-C58B-415B-8F1F-2C355E185358",
-  "Title": "The Howling in the Woods",
+  "Title": "JOE SKIBIDI",
   "Description": "Hunt the strange wolves attacking the village. Strange clues suggest something more is happening.",
   "CompleteXpReward": 250,
   "CompleteGoldReward": 5,
@@ -89,17 +89,7 @@
       "SubDescription": "A tangled grove where trees grow close together.\nThe ground is rough, covered in roots and bones. ",
       "Monsters": [
         {
-          "MonsterType": "Wolf",
-          "HitPoints": 1,
-          "Attack": {
-            "BaseDie": 1,
-            "BonusDamage": 0
-          },
-          "Gold": 0,
-          "ArmorClass": 1
-        },
-        {
-          "MonsterType": "Wolf",
+          "MonsterType": "Wolfs",
           "HitPoints": 1,
           "Attack": {
             "BaseDie": 1,
@@ -128,15 +118,8 @@
     },
     {
       "RoomNumber": 5,
-      "Description": "Wolf´s den",
-      "SubDescription": "A rocky clearing filled with half-eaten remains. You also see wierd markings on the rocks.",
-      "Events": [
-        {
-          "Name": "Weird marks",
-          "EventNumber": 4,
-          "IsCompleted": false
-        }
-      ],
+      "Description": "Wolf den",
+      "SubDescription": "A rocky clearing filled with half-eaten remains. You alse see wierd markings on the rocks.",
       "Monsters": [
         {
           "MonsterType": "Wolf pack leader",
@@ -194,13 +177,6 @@
             "ObjectiveNumber": 1,
             "GoldValue": 2,
             "HealthValue": 5
-          },
-          {
-            "Name": "Lockpicks",
-            "Description": "Old dusty lockpicks",
-            "ObjectiveNumber": 1,
-            "GoldValue": 1,
-            "HealthValue": 0
           }
         ]
       },

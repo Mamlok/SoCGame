@@ -17,7 +17,6 @@ namespace SoC.Adventures.Models
         public Chest Chest;
         public List<Exit> Exits;
         public List<Event> Events;
-        public bool Hidden;
         public int RoomVisited = 0;
     }
 }

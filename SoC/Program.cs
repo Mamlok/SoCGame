@@ -18,11 +18,14 @@ namespace SoC
         private static readonly AdventureService adventureService = new AdventureService();
         private static readonly ConsoleMessageHandler consoleMessageHandler = new ConsoleMessageHandler();
         private static readonly CharacterService characterService = new CharacterService(consoleMessageHandler);
-        private static readonly CombatService combatService = new CombatService(consoleMessageHandler);
-        private static readonly Tavern tavern = new Tavern(consoleMessageHandler);
-        private static GameService gameService = new GameService(adventureService, characterService, consoleMessageHandler, combatService, tavern);
+        private static readonly CharakterInfo charakterInfo = new CharakterInfo(consoleMessageHandler, characterService);
+        private static readonly CombatService combatService = new CombatService(consoleMessageHandler, charakterInfo);
+        private static readonly Tavern tavern = new Tavern(consoleMessageHandler, characterService, charakterInfo);
+        private static readonly LevelUp levelUp = new LevelUp(characterService, consoleMessageHandler);
+        private static GameService gameService = new GameService(adventureService, characterService, consoleMessageHandler, combatService, tavern, charakterInfo, levelUp);
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             MainMenu();
         }
 

@@ -12,18 +12,26 @@ namespace SoC.Game
     public class CombatService : ICombatService
     {
         private readonly IMessageHandler messageHandler;
+        private readonly ICharakterInfo charakterInfo;
 
-        public CombatService(IMessageHandler messageHandler)
+        public CombatService(IMessageHandler messageHandler,ICharakterInfo charakterInfo)
         {
             this.messageHandler = messageHandler;
+            this.charakterInfo = charakterInfo;
         }
 
         public void RunCombat(ref Character character, List<Monster> monsters)
         {
-            var monsterDescriptions = "You face off against :";
+            var monsterDescriptions = "You face off against : ";
+            var monsterCount = monsters.Count;
             foreach (var monster in monsters)
             {
                 monsterDescriptions += $"{monster.MonsterType} ";
+                if (monsterCount > 1)
+                {
+                    monsterDescriptions += "and ";
+                    monsterCount--;
+                }
             }
             messageHandler.Write(monsterDescriptions);
 
@@ -57,7 +65,8 @@ namespace SoC.Game
             {
                 if (characterTurn)
                 {
-                    messageHandler.Write("Choose an action: (A)ttack, Use (S)pecial Ability, Use (I)tem, (R)un Away");
+                    messageHandler.Write("Choose an action: (A)ttack, Use (S)pecial Ability, (U)se Item, (R)un Away");
+                    messageHandler.Write("Character (I)nfo, (E)nemy info");
                     var action = messageHandler.Read().ToLower();
 
                     switch (action)
@@ -68,7 +77,7 @@ namespace SoC.Game
                         case "s":
                             UseSpecialAbility(character, monsters[0], dice, ref healCooldown);
                             break;
-                        case "i":
+                        case "u":
                             UseItem(character);
                             break;
                         case "r":
@@ -77,6 +86,12 @@ namespace SoC.Game
                                 return; //dodělat
                             }
                             break;
+                        case "i":
+                            charakterInfo.ShowCharakterInfo(character);
+                            continue;
+                        case "e":
+                            MonsterInfo(monsters[0]);
+                            continue;
                         default:
                             messageHandler.Write("Invalid action. Try again.");
                             messageHandler.Clear();
@@ -248,6 +263,31 @@ namespace SoC.Game
             }
         }
 
-
+        private void MonsterInfo(Monster monster)
+        {
+            messageHandler.Clear();
+            messageHandler.Write($"[{monster.MonsterType.ToUpper()}]");
+            messageHandler.Write($"HP: {monster.HitPoints}");
+            messageHandler.Write($"Armor Class: {monster.ArmorClass}");
+            messageHandler.Write($"Gold: {monster.Gold}");
+            if (monster.Inventory != null)
+            {
+                messageHandler.Write("Inventory:");
+                foreach (var item in monster.Inventory)
+                {
+                    messageHandler.Write("*********************************");
+                    messageHandler.Write($"Name: {item.Description}");
+                    messageHandler.Write($"Value: {item.GoldValue} Gold");
+                    if (item.HealthValue > 0)
+                    {
+                        messageHandler.Write($"Healing value: {item.HealthValue} HP");
+                    }
+                }
+                messageHandler.Write("*********************************");
+            }
+            messageHandler.Write("[ENTER to END]");
+            messageHandler.Read();
+            messageHandler.Clear();
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace SoC.Adventures.Models
         public int LeadsToRoomNumber;
         public Riddle Riddle;
         public string Description;
+        public bool Hidden;
 
     }
 

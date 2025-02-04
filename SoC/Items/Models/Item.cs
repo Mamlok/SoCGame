@@ -13,6 +13,7 @@ namespace SoC.Items.Models
         public string Description;
         public int ObjectiveNumber;
         public int GoldValue;
+        public int HealthValue;
     }
 
     public enum ItemType
