@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "Food",
+    "Description": "Healing herb",
+    "ObjectiveNumber": 1,
+    "GoldValue": 2,
+    "HealthValue": 5
+  },
+  {
+    "Name": "Lockpicks",
+    "Description": "Old dusty lockpicks",
+    "ObjectiveNumber": 1,
+    "GoldValue": 1,
+    "HealthValue": 0
+  }
+]

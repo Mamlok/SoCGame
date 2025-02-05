@@ -16,6 +16,7 @@ namespace SoC.Entities.Model
         public bool IsAlive = true;
         public int ArmorClass;
         public List<Item> Inventory;
+        public List<Weapon> Weapons;
     }
 
     public class Attack

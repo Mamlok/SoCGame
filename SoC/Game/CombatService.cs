@@ -38,7 +38,7 @@ namespace SoC.Game
             var dice = new Dice();
             var d20 = new List<Die> { Die.D20 };
             var charDamageDie = new List<Die> { (Die)character.Attack.BaseDie };
-
+            
             messageHandler.WriteRead("Hit a Key to roll for initiative!");
 
             var charInitiative = dice.RollDice(d20);
@@ -131,11 +131,11 @@ namespace SoC.Game
         {
             messageHandler.WriteRead($"Hit a key to attack the {monster.MonsterType}!");
             var attackToHitMonster = dice.RollDice(new List<Die> { Die.D20 });
-            messageHandler.WriteRead($"You rolled a {attackToHitMonster} to hit the {monster.ArmorClass}!");
+            messageHandler.WriteRead($"You rolled a {attackToHitMonster} to hit the {monster.ArmorClass} armorClass of the {monster.MonsterType}!");
 
             if (attackToHitMonster >= monster.ArmorClass)
             {
-                var damage = dice.RollDice(charDamageDie);
+                var damage = dice.RollDice(charDamageDie) * character.Attack.BonusDamage;
                 messageHandler.WriteRead($"You hit the {monster.MonsterType} for {damage} damage!");
                 monster.HitPoints -= damage;
             }
@@ -226,7 +226,7 @@ namespace SoC.Game
             if (attackToHitCharacter >= character.ArmorClass)
             {
                 messageHandler.WriteRead($"The {monster.MonsterType} hit you!");
-                var damage = dice.RollDice(new List<Die> { (Die)monster.Attack.BaseDie });
+                var damage = dice.RollDice(new List<Die> { (Die)monster.Attack.BaseDie }) * monster.Attack.BonusDamage;
                 messageHandler.WriteRead($"The {monster.MonsterType} hit you for {damage} damage!");
                 character.HitPoints -= damage;
                 if (character.HitPoints < 1)

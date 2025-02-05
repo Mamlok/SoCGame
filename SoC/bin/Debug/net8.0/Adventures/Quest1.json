@@ -92,7 +92,7 @@
           "MonsterType": "Wolf",
           "HitPoints": 1,
           "Attack": {
-            "BaseDie": 1,
+            "BaseDie": 2,
             "BonusDamage": 0
           },
           "Gold": 0,
@@ -102,7 +102,7 @@
           "MonsterType": "Wolf",
           "HitPoints": 1,
           "Attack": {
-            "BaseDie": 1,
+            "BaseDie": 2,
             "BonusDamage": 0
           },
           "Gold": 0,
@@ -142,7 +142,7 @@
           "MonsterType": "Wolf pack leader",
           "HitPoints": 1,
           "Attack": {
-            "BaseDie": 1,
+            "BaseDie": 2,
             "BonusDamage": 0
           },
           "Gold": 0,

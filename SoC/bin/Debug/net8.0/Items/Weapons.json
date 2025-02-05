@@ -1,0 +1,30 @@
+[
+  {
+    "Name": "Sword",
+    "Description": "Old rusted sword",
+    "ObjectiveNumber": 1,
+    "GoldValue": 5,
+    "DamageValue": 1
+  },
+  {
+    "Name": "MagicStaff",
+    "Description": "Old basic magic staff",
+    "ObjectiveNumber": 1,
+    "GoldValue": 5,
+    "DamageValue": 1
+  },
+  {
+    "Name": "Dagger",
+    "Description": "Old rusted dagger",
+    "ObjectiveNumber": 1,
+    "GoldValue": 5,
+    "DamageValue": 1
+  },
+  {
+    "Name": "Rapier",
+    "Description": "Old rusted rapier",
+    "ObjectiveNumber": 1,
+    "GoldValue": 5,
+    "DamageValue": 1
+  }
+]

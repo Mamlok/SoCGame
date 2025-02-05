@@ -1,4 +1,4 @@
-﻿using SoC.Items.Interfaces;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SoC.Items.Models
 {
-    public class Item : IItem
+    public class Item
     {
         public ItemType Name;
         public string Description;
@@ -26,6 +26,9 @@ namespace SoC.Items.Models
         TinderBox,
         Key,
         Lockpicks
+        
 
     }
+
+
 }

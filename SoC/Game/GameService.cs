@@ -6,6 +6,7 @@ using SoC.Entities;
 using SoC.Entities.Interfaces;
 using SoC.Entities.Model;
 using SoC.Game.Interfaces;
+using SoC.Items.Interfaces;
 using SoC.Items.Models;
 using SoC.Utilities.Interfaces;
 using System.Runtime.CompilerServices;
@@ -24,6 +25,8 @@ namespace SoC.Game
         private ITavern tavern;
         private ICharakterInfo charakterInfo;
         private ILevelUp levelUp;
+        private IItemService itemService;
+        private IWeaponService weaponService;
 
         private Character character;
         private Adventure gameAdventure;
@@ -31,8 +34,10 @@ namespace SoC.Game
         private bool exitRoom = false;
         private string gameWinningDescription;
         public int adventureNumber;
+        public List<Item> items;
+        public List<Weapon> weapons;
 
-        public GameService(IAdventureService AdventureService, ICharakterService CharakterService, IMessageHandler MessageHandler, ICombatService CombatService,ITavern Tavern,ICharakterInfo CharakterInfo, ILevelUp LevelUp)
+        public GameService(IAdventureService AdventureService, ICharakterService CharakterService, IMessageHandler MessageHandler, ICombatService CombatService,ITavern Tavern,ICharakterInfo CharakterInfo, ILevelUp LevelUp, IItemService ItemService, IWeaponService WeaponService)
         {
             adventureService = AdventureService;
             characterService = CharakterService;
@@ -41,11 +46,15 @@ namespace SoC.Game
             tavern = Tavern;
             charakterInfo = CharakterInfo;
             levelUp = LevelUp;
+            itemService = ItemService;
+            weaponService = WeaponService;  
         }
         public bool StartGame(Adventure adventure = null)
         {
             try
             {
+                items = itemService.GetItems();
+                weapons = weaponService.GetWeapons();
                 messageHandler.Clear();
                 var charactersInRange = characterService.GetCharactersInRange();
 

@@ -6,23 +6,33 @@ using SoC.Adventures;
 using SoC.Entities;
 using SoC.Entities.Interfaces;
 using SoC.Game;
+using SoC.Game.Interfaces;
+using SoC.Items;
+using SoC.Items.Interfaces;
+using SoC.Items.Models;
 using SoC.Utilities;
 using SoC.Utilities.Interfaces;
 using System.IO;
 using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SoC
 {
     public class Program
     {
+        private static readonly IItemService itemService = new ItemService();
+        private static readonly IWeaponService weaponService = new WeaponService();
         private static readonly AdventureService adventureService = new AdventureService();
         private static readonly ConsoleMessageHandler consoleMessageHandler = new ConsoleMessageHandler();
-        private static readonly CharacterService characterService = new CharacterService(consoleMessageHandler);
-        private static readonly CharakterInfo charakterInfo = new CharakterInfo(consoleMessageHandler, characterService);
+        private static readonly CharacterService characterService = new CharacterService(consoleMessageHandler, weaponService);
+        private static readonly IEquipWeapon equipWeapon = new EquipWeapon(weaponService, characterService, consoleMessageHandler);
+        private static readonly CharakterInfo charakterInfo = new CharakterInfo(consoleMessageHandler, characterService, equipWeapon);
         private static readonly CombatService combatService = new CombatService(consoleMessageHandler, charakterInfo);
         private static readonly Tavern tavern = new Tavern(consoleMessageHandler, characterService, charakterInfo);
         private static readonly LevelUp levelUp = new LevelUp(characterService, consoleMessageHandler);
-        private static GameService gameService = new GameService(adventureService, characterService, consoleMessageHandler, combatService, tavern, charakterInfo, levelUp);
+        private static GameService gameService = new GameService(adventureService, characterService, consoleMessageHandler, combatService, tavern, charakterInfo, levelUp, itemService, weaponService);
+
+
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.White;

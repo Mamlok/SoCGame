@@ -14,11 +14,13 @@ namespace SoC.Game
     {
         private readonly IMessageHandler messageHandler;
         private readonly ICharakterService charakterService;
+        private readonly IEquipWeapon equipWeapon;
 
-        public CharakterInfo(IMessageHandler messageHandler, ICharakterService charakterService)
+        public CharakterInfo(IMessageHandler messageHandler, ICharakterService charakterService, IEquipWeapon equipWeapon)
         {
             this.messageHandler = messageHandler;
             this.charakterService = charakterService;
+            this.equipWeapon = equipWeapon;
         }
         public void ShowCharakterInfo(Character character)
         {
@@ -34,6 +36,12 @@ namespace SoC.Game
                     case "i":
                         messageHandler.Clear();
                         ShowCharakterInventory(character);
+                        ShowCharakterWeapons(character);
+                        isRunning = true;
+                        break;
+                    case "e":
+                        messageHandler.Clear();
+                        equipWeapon.EquipWeaponMethod(character);
                         isRunning = true;
                         break;
                     case "b":
@@ -75,6 +83,7 @@ namespace SoC.Game
             }
             else
             {
+                
                 foreach (var item in character.Inventory)
                 {
                     messageHandler.Write("*********************************");
@@ -87,8 +96,6 @@ namespace SoC.Game
                 }
                 messageHandler.Write("*********************************");
             }
-            messageHandler.Write("[ENTER to END]");
-            messageHandler.Read();
         }
 
         private void ShowCharakterInfoBanner(Character character)
@@ -102,10 +109,44 @@ namespace SoC.Game
             messageHandler.Write($"Level: {character.Level}");
             messageHandler.Write($"XP: {character.XP}");
             messageHandler.Write($"Gold: {character.Gold}");
+            if (character.WeaponEquipped.Count > 0)
+            {
+                messageHandler.Write($"Weapon equiped: {character.WeaponEquipped[0].Description}");
+            }
+            else
+            {
+                messageHandler.Write("Weapon equiped: NONE");
+            }
             WriteAbilities(character.Abilities);
             messageHandler.Write("************************************************************");
             messageHandler.Write("See character (I)nventory");
+            messageHandler.Write("(E)quip weapon");
             messageHandler.Write("(B)ack");
+        }
+
+        private void ShowCharakterWeapons(Character character)
+        {
+            messageHandler.Clear();
+            messageHandler.Write("[WEAPONS]");
+            if (character.Weapons.Count == 0)
+            {
+                messageHandler.Write("Your weapons list is empty....");
+            }
+            else
+            {
+                var counter = 0;
+                foreach (var item in character.Weapons)
+                {
+                    messageHandler.Write("*********************************");
+                    messageHandler.Write($"Name:  {item.Description}");
+                    messageHandler.Write($"Value: {item.GoldValue} Gold");
+                    messageHandler.Write($"Damage: {item.DamageValue}");
+                    counter++;
+                }
+                messageHandler.Write("*********************************");
+            }
+            messageHandler.Write("[ENTER to END]");
+            messageHandler.Read();
         }
     }
 }

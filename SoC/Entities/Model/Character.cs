@@ -21,6 +21,7 @@ namespace SoC.Entities.Model
         public string DiedInAdventure;
         public bool PlayedIntro = false;
         public bool shopOpen = false;
+        public List<Weapon> WeaponEquipped = new List<Weapon>();
     }
     
 

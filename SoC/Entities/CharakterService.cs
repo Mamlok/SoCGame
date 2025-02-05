@@ -2,6 +2,8 @@
 using SoC.Adventures;
 using SoC.Entities.Interfaces;
 using SoC.Entities.Model;
+using SoC.Items;
+using SoC.Items.Interfaces;
 using SoC.Items.Models;
 using SoC.Utilities;
 using SoC.Utilities.Interfaces;
@@ -17,10 +19,12 @@ namespace SoC.Entities
     public class CharacterService : ICharakterService
     {
         private readonly IMessageHandler messageHandler;
-        
-        public CharacterService(IMessageHandler messageHandler)
+        private readonly IWeaponService weaponService;
+
+        public CharacterService(IMessageHandler messageHandler,IWeaponService weaponService)
         {
             this.messageHandler = messageHandler;
+            this.weaponService = weaponService;
         }
 
 
@@ -100,6 +104,8 @@ namespace SoC.Entities
 
             var newCharacter = new Character();
             newCharacter.Inventory = new List<Item>();
+            newCharacter.Weapons = new List<Weapon>();
+            newCharacter.WeaponEquipped = new List<Weapon>();
 
             messageHandler.Write("What is your character's name?");
             newCharacter.Name = messageHandler.Read();
@@ -117,7 +123,8 @@ namespace SoC.Entities
                         newCharacter.HitPoints = 8;
                         newCharacter.Abilities.Strength = 1;
                         newCharacter.ArmorClass = 12;
-                        newCharacter.Attack = new Attack { BaseDie = 8, BonusDamage = 0 };
+                        newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Name == Weapon.WeaponType.Sword));
+                        newCharacter.Attack = new Attack { BaseDie = 8, BonusDamage = 0};
                         break;
                     case "t":
                         classChosen = true;
@@ -125,6 +132,7 @@ namespace SoC.Entities
                         newCharacter.HitPoints = 5;
                         newCharacter.Abilities.Dexterity = 1;
                         newCharacter.ArmorClass = 8;
+                        newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Name == Weapon.WeaponType.Dagger));
                         newCharacter.Attack = new Attack { BaseDie = 4, BonusDamage = 0 };
                         break;
                     case "m":
@@ -133,6 +141,7 @@ namespace SoC.Entities
                         newCharacter.HitPoints = 4;
                         newCharacter.Abilities.Intelligence = 1;
                         newCharacter.ArmorClass = 8;
+                        newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Name == Weapon.WeaponType.MagicStaff));
                         newCharacter.Attack = new Attack { BaseDie = 4, BonusDamage = 0 };
                         break;
                     case "h":
@@ -141,6 +150,7 @@ namespace SoC.Entities
                         newCharacter.HitPoints = 6;
                         newCharacter.Abilities.Wisdom = 1;
                         newCharacter.ArmorClass = 10;
+                        newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Name == Weapon.WeaponType.Rapier));
                         newCharacter.Attack = new Attack { BaseDie = 6, BonusDamage = 0 };
                         break;
                     case "i":
