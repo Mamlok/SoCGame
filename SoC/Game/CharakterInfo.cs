@@ -106,6 +106,7 @@ namespace SoC.Game
             messageHandler.Write($"Name: {character.Name}");
             messageHandler.Write($"Class: {character.Class}");
             messageHandler.Write($"Background: {character.Background.ToString()}");
+            messageHandler.Write($"HP: {character.HitPoints}");
             messageHandler.Write($"Level: {character.Level}");
             messageHandler.Write($"XP: {character.XP}");
             messageHandler.Write($"Gold: {character.Gold}");
@@ -126,7 +127,6 @@ namespace SoC.Game
 
         private void ShowCharakterWeapons(Character character)
         {
-            messageHandler.Clear();
             messageHandler.Write("[WEAPONS]");
             if (character.Weapons.Count == 0)
             {

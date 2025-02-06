@@ -37,7 +37,7 @@ namespace SoC.Game
         public List<Item> items;
         public List<Weapon> weapons;
 
-        public GameService(IAdventureService AdventureService, ICharakterService CharakterService, IMessageHandler MessageHandler, ICombatService CombatService,ITavern Tavern,ICharakterInfo CharakterInfo, ILevelUp LevelUp, IItemService ItemService, IWeaponService WeaponService)
+        public GameService(IAdventureService AdventureService, ICharakterService CharakterService, IMessageHandler MessageHandler, ICombatService CombatService, ITavern Tavern, ICharakterInfo CharakterInfo, ILevelUp LevelUp, IItemService ItemService, IWeaponService WeaponService)
         {
             adventureService = AdventureService;
             characterService = CharakterService;
@@ -47,7 +47,7 @@ namespace SoC.Game
             charakterInfo = CharakterInfo;
             levelUp = LevelUp;
             itemService = ItemService;
-            weaponService = WeaponService;  
+            weaponService = WeaponService;
         }
         public bool StartGame(Adventure adventure = null)
         {
@@ -85,7 +85,7 @@ namespace SoC.Game
                                 running = true;
                                 break;
                         }
-                    }   
+                    }
 
                 }
                 else
@@ -125,9 +125,10 @@ namespace SoC.Game
                     {
                         levelUp.LevelUpCharacter(character);
                     }
+                    QuestOutro(adventureNumber, character);
 
                 }
-                
+
 
 
 
@@ -410,7 +411,7 @@ namespace SoC.Game
                             break;
                     }
                 }
-                
+
             }
         }
 
@@ -456,7 +457,7 @@ namespace SoC.Game
                     messageHandler.Write($" - {exit.Description}");
                 }
             }
-           
+
         }
 
         private void ExitRoom(Room room, CompassDirection wallLocation)
@@ -593,7 +594,7 @@ namespace SoC.Game
                     return;
                 }
                 messageHandler.Write("You found the trap and are forced to disarm it");
-                var disarmTrapRoll = dice.RollDice(new List<Die> { Die.D20 }) +trapBonus;
+                var disarmTrapRoll = dice.RollDice(new List<Die> { Die.D20 }) + trapBonus;
 
                 if (disarmTrapRoll < 11)
                 {
@@ -607,7 +608,7 @@ namespace SoC.Game
                 room.Trap.TrippedOrDisarmed = true;
                 return;
 
-            }          
+            }
 
             messageHandler.Write("You find no traps");
             return;
@@ -624,7 +625,7 @@ namespace SoC.Game
             messageHandler.Write($"You were damaged for {trapDamage} HP. You now have {hitPoints} HP");
             if (hitPoints < 1)
             {
-                character.CauseOfDeath =  $"You were killed by a {trap.TrapType} trap!";
+                character.CauseOfDeath = $"You were killed by a {trap.TrapType} trap!";
                 character.DiedInAdventure = gameAdventure.Title;
                 character.IsAlive = false;
                 Death();
@@ -640,7 +641,7 @@ namespace SoC.Game
 
             messageHandler.Write($"{room.Description}");
             messageHandler.Write($"{room.SubDescription}");
-            if (room.Exits.Count == 1 && room.Exits[0].Hidden == false) 
+            if (room.Exits.Count == 1 && room.Exits[0].Hidden == false)
             {
                 messageHandler.Write($"Therer is an exit on the {room.Exits[0].WallLocation}.");
             }
@@ -651,7 +652,7 @@ namespace SoC.Game
                 {
                     if (exit.Hidden == false)
                     {
-                       exitDescription += $"{exit.WallLocation},";
+                        exitDescription += $"{exit.WallLocation},";
                     }
                 }
 
@@ -694,7 +695,7 @@ namespace SoC.Game
         {
             messageHandler.Clear();
             messageHandler.Write();
-            
+
             for (int i = 0; i <= title.Length + 1; i++)
             {
                 messageHandler.Write("*", false);
@@ -893,7 +894,7 @@ namespace SoC.Game
             if (eventNumber == 1)
             {
                 messageHandler.Clear();
-                messageHandler.Write("H: You’re the one the barkeep sent?",false);
+                messageHandler.Write("H: You’re the one the barkeep sent?", false);
                 messageHandler.Read();
                 messageHandler.Write("H: Good.", false);
                 messageHandler.Read();
@@ -931,7 +932,7 @@ namespace SoC.Game
                 messageHandler.Write("You can see the wolf pack leader is bigger and stronger than the other wolves.");
                 messageHandler.Write("From the top, you spot a narrow path leading east of the Wolf’s Den, partially hidden beneath thick bush");
                 messageHandler.Read();
-                messageHandler.Write("At the end of the path, you glimpse the entrance of a",false);
+                messageHandler.Write("At the end of the path, you glimpse the entrance of a", false);
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 messageHandler.Write(" Hidden Cave,");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -1030,8 +1031,70 @@ namespace SoC.Game
                 messageHandler.Write("B: Go to his farm to learn more.", false);
                 messageHandler.Read();
             }
-            
 
+
+        }
+
+        private void QuestOutro(int outroNumber, Character character)
+        {
+            if (outroNumber == 1)
+            {
+                messageHandler.Write("The warm glow of the hearth welcomes you back as you step inside the Dancing", false);
+                messageHandler.Write("Willow Tavern. The scent of roasted meat and aged ale fills the air.", false);
+                messageHandler.Write("The murmurs of villagers hush as you approach the bar,", false);
+                messageHandler.Write("their eyes filled with curiosity and expectation.", false);
+                messageHandler.Read();
+                messageHandler.Clear();
+                messageHandler.Write("B: Back in one piece, I see.", false);
+                messageHandler.Read();
+                messageHandler.Write("B: That means either you were quick on your feet, or you took care of those beasts.", false);
+                messageHandler.Read();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                messageHandler.Write("Y: It wasn’t easy, but the pack leader won’t be a problem anymore.", false);
+                Console.ForegroundColor = ConsoleColor.White;
+                messageHandler.Read();
+                messageHandler.Write("B: Good to hear.", false);
+                messageHandler.Read();
+                messageHandler.Write("B: Folk around here will sleep a little easier tonight.", false);
+                messageHandler.Read();
+                messageHandler.Write("B: You’ve done us a service, stranger.", false);
+                messageHandler.Read();
+                messageHandler.Write("B: But tell me—did you see anything… strange out there?", false);
+                messageHandler.Read();
+                Console.ForegroundColor= ConsoleColor.Yellow;
+                messageHandler.Write("Y: The wolves weren’t normal.", false);
+                Console.ForegroundColor = ConsoleColor.White;
+                messageHandler.Read();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                messageHandler.Write("Y: And this… I found it near their den.", false);
+                Console.ForegroundColor = ConsoleColor.White;
+                messageHandler.Read();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                messageHandler.Write("(You scrible the wierd marking you found on a piece of paper.)", false);
+                Console.ForegroundColor = ConsoleColor.White;
+                messageHandler.Read();
+                messageHandler.Write("(Eyes narrow as he inspects the token, his fingers running over the etched symbols.)", false);
+                messageHandler.Read();
+                messageHandler.Write("B: Hmm… I don’t like this. Not one bit. This ain’t just some wild animal problem.", false);
+                messageHandler.Read();
+                messageHandler.Write("B: There’s something darker at play.", false);
+                messageHandler.Read();
+                messageHandler.Write("Duncan sighs and sets the token down, shaking his head before reaching under the bar.", false);
+                messageHandler.Read();
+                messageHandler.Write("B: You did good, and I don’t let good work go unrewarded.", false);
+                messageHandler.Read();
+                messageHandler.Write("B: Here, take this—it ain’t much,", false);
+                messageHandler.Read();
+                messageHandler.Write("B: but it’ll help if you run into trouble again.", false);
+                messageHandler.Read();
+                messageHandler.Write("(Duncan slides a small satchel across the bar. Inside, you find a Healing Herb.)", false);
+                messageHandler.Read();
+                messageHandler.Write("B: Stay sharp, traveler.", false);
+                messageHandler.Read();
+                messageHandler.Write("B: Something tells me this won’t be the last time we talk about trouble in the woods.", false);
+                messageHandler.Read();
+                character.Inventory.Add(itemService.GetItems().FirstOrDefault(i => i.Description == "Healing herb"));
+            }
         }
     }
 }

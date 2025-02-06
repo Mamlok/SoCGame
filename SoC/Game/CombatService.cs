@@ -1,5 +1,7 @@
-﻿using SoC.Entities.Model;
+﻿using SoC.Entities.Interfaces;
+using SoC.Entities.Model;
 using SoC.Game.Interfaces;
+using SoC.Items.Models;
 using SoC.Utilities.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ namespace SoC.Game
     {
         private readonly IMessageHandler messageHandler;
         private readonly ICharakterInfo charakterInfo;
+        private readonly ICharakterService charakterService;
 
         public CombatService(IMessageHandler messageHandler,ICharakterInfo charakterInfo)
         {
@@ -78,8 +81,17 @@ namespace SoC.Game
                             UseSpecialAbility(character, monsters[0], dice, ref healCooldown);
                             break;
                         case "u":
-                            UseItem(character);
-                            break;
+                            if (character.Inventory.Count == 0)
+                            {  
+                                messageHandler.Write("Your inventory is empty");
+                                messageHandler.Read();
+                                continue;
+                            }
+                            else
+                            {
+                                UseItem(character);
+                                break;
+                            }
                         case "r":
                             if (TryToRunAway(character, dice))
                             {
@@ -131,7 +143,7 @@ namespace SoC.Game
         {
             messageHandler.WriteRead($"Hit a key to attack the {monster.MonsterType}!");
             var attackToHitMonster = dice.RollDice(new List<Die> { Die.D20 });
-            messageHandler.WriteRead($"You rolled a {attackToHitMonster} to hit the {monster.ArmorClass} armorClass of the {monster.MonsterType}!");
+            messageHandler.WriteRead($"You rolled a {attackToHitMonster} to hit the {monster.ArmorClass} ArmorClass of the {monster.MonsterType}!");
 
             if (attackToHitMonster >= monster.ArmorClass)
             {
@@ -198,8 +210,17 @@ namespace SoC.Game
 
         private void UseItem(Character character)
         {
-            //itemy
-            messageHandler.Write("You used an item.");
+            messageHandler.Clear();
+            ShowInventory(character);
+            messageHandler.Write("Choose an item to use:");
+            var itemChoice = Convert.ToInt32(messageHandler.Read());
+            character.HitPoints += character.Inventory[itemChoice].HealthValue;
+            character.Inventory.RemoveAt(itemChoice);
+            messageHandler.Clear();
+            messageHandler.Write("You used the item!");
+            messageHandler.Read();
+            messageHandler.Clear();
+
         }
 
         private bool TryToRunAway(Character character, Dice dice)
@@ -288,6 +309,30 @@ namespace SoC.Game
             messageHandler.Write("[ENTER to END]");
             messageHandler.Read();
             messageHandler.Clear();
+        }
+
+        private void ShowInventory(Character character)
+        {
+            messageHandler.Clear();
+            messageHandler.Write("[INVENTORY]");
+            var counter = 0;
+            foreach (var item in character.Inventory)
+            {
+                if (item.Name == ItemType.Food)
+                {
+                    messageHandler.Write("*********************************");
+                    messageHandler.Write($"Name: ({counter}). {item.Description}");
+                    messageHandler.Write($"Value: {item.GoldValue} Gold");
+                    if (item.HealthValue > 0)
+                    {
+                        messageHandler.Write($"Healing value: {item.HealthValue} HP");
+                    }
+                    counter++;
+                }
+
+            }
+            messageHandler.Write("*********************************");
+            
         }
     }
 }

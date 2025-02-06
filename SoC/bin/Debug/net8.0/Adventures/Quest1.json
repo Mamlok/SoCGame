@@ -93,7 +93,7 @@
           "HitPoints": 1,
           "Attack": {
             "BaseDie": 2,
-            "BonusDamage": 0
+            "BonusDamage": 1
           },
           "Gold": 0,
           "ArmorClass": 1
@@ -103,7 +103,7 @@
           "HitPoints": 1,
           "Attack": {
             "BaseDie": 2,
-            "BonusDamage": 0
+            "BonusDamage": 1
           },
           "Gold": 0,
           "ArmorClass": 1
@@ -143,7 +143,7 @@
           "HitPoints": 1,
           "Attack": {
             "BaseDie": 2,
-            "BonusDamage": 0
+            "BonusDamage": 1
           },
           "Gold": 0,
           "ArmorClass": 1,

@@ -124,7 +124,8 @@ namespace SoC.Entities
                         newCharacter.Abilities.Strength = 1;
                         newCharacter.ArmorClass = 12;
                         newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Name == Weapon.WeaponType.Sword));
-                        newCharacter.Attack = new Attack { BaseDie = 8, BonusDamage = 0};
+                        newCharacter.WeaponEquipped.Add(newCharacter.Weapons[0]);
+                        newCharacter.Attack = new Attack { BaseDie = 8, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
                         break;
                     case "t":
                         classChosen = true;
@@ -133,7 +134,8 @@ namespace SoC.Entities
                         newCharacter.Abilities.Dexterity = 1;
                         newCharacter.ArmorClass = 8;
                         newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Name == Weapon.WeaponType.Dagger));
-                        newCharacter.Attack = new Attack { BaseDie = 4, BonusDamage = 0 };
+                        newCharacter.WeaponEquipped.Add(newCharacter.Weapons[0]);
+                        newCharacter.Attack = new Attack { BaseDie = 4, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
                         break;
                     case "m":
                         classChosen = true;
@@ -142,7 +144,8 @@ namespace SoC.Entities
                         newCharacter.Abilities.Intelligence = 1;
                         newCharacter.ArmorClass = 8;
                         newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Name == Weapon.WeaponType.MagicStaff));
-                        newCharacter.Attack = new Attack { BaseDie = 4, BonusDamage = 0 };
+                        newCharacter.WeaponEquipped.Add(newCharacter.Weapons[0]);
+                        newCharacter.Attack = new Attack { BaseDie = 4, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
                         break;
                     case "h":
                         classChosen = true;
@@ -151,7 +154,8 @@ namespace SoC.Entities
                         newCharacter.Abilities.Wisdom = 1;
                         newCharacter.ArmorClass = 10;
                         newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Name == Weapon.WeaponType.Rapier));
-                        newCharacter.Attack = new Attack { BaseDie = 6, BonusDamage = 0 };
+                        newCharacter.WeaponEquipped.Add(newCharacter.Weapons[0]);
+                        newCharacter.Attack = new Attack { BaseDie = 6, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
                         break;
                     case "i":
                         WriteInfoClass();
