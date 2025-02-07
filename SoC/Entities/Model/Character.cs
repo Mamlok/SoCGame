@@ -22,6 +22,7 @@ namespace SoC.Entities.Model
         public bool PlayedIntro = false;
         public bool shopOpen = false;
         public List<Weapon> WeaponEquipped = new List<Weapon>();
+        public List<Armor> ArmorEquipped = new List<Armor>();
     }
     
 

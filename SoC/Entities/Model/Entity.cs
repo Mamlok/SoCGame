@@ -17,6 +17,7 @@ namespace SoC.Entities.Model
         public int ArmorClass;
         public List<Item> Inventory;
         public List<Weapon> Weapons;
+        public List<Armor> Armors;
     }
 
     public class Attack

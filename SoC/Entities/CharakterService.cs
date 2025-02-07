@@ -20,11 +20,13 @@ namespace SoC.Entities
     {
         private readonly IMessageHandler messageHandler;
         private readonly IWeaponService weaponService;
+        private readonly IArmorService armorService;
 
-        public CharacterService(IMessageHandler messageHandler,IWeaponService weaponService)
+        public CharacterService(IMessageHandler messageHandler,IWeaponService weaponService, IArmorService armorService)
         {
             this.messageHandler = messageHandler;
             this.weaponService = weaponService;
+            this.armorService = armorService;
         }
 
 
@@ -106,6 +108,8 @@ namespace SoC.Entities
             newCharacter.Inventory = new List<Item>();
             newCharacter.Weapons = new List<Weapon>();
             newCharacter.WeaponEquipped = new List<Weapon>();
+            newCharacter.ArmorEquipped = new List<Armor>();
+            newCharacter.Armors = new List<Armor>();
 
             messageHandler.Write("What is your character's name?");
             newCharacter.Name = messageHandler.Read();
@@ -122,8 +126,10 @@ namespace SoC.Entities
                         newCharacter.Class = CharacterClass.Fighter;
                         newCharacter.HitPoints = 8;
                         newCharacter.Abilities.Strength = 1;
-                        newCharacter.ArmorClass = 12;
-                        newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Name == Weapon.WeaponType.Sword));
+                        newCharacter.Armors.Add(armorService.GetArmor().FirstOrDefault(a => a.Description == "Worn chainmail"));
+                        newCharacter.ArmorEquipped.Add(newCharacter.Armors[0]);
+                        newCharacter.ArmorClass = newCharacter.ArmorEquipped[0].ArmorValue;
+                        newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Description == "Old rusted sword"));
                         newCharacter.WeaponEquipped.Add(newCharacter.Weapons[0]);
                         newCharacter.Attack = new Attack { BaseDie = 8, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
                         break;
@@ -132,8 +138,10 @@ namespace SoC.Entities
                         newCharacter.Class = CharacterClass.Thief;
                         newCharacter.HitPoints = 5;
                         newCharacter.Abilities.Dexterity = 1;
-                        newCharacter.ArmorClass = 8;
-                        newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Name == Weapon.WeaponType.Dagger));
+                        newCharacter.Armors.Add(armorService.GetArmor().FirstOrDefault(a => a.Description == "Ragged leather vest"));
+                        newCharacter.ArmorEquipped.Add(newCharacter.Armors[0]);
+                        newCharacter.ArmorClass = newCharacter.ArmorEquipped[0].ArmorValue;
+                        newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Description == "Old rusted dagger"));
                         newCharacter.WeaponEquipped.Add(newCharacter.Weapons[0]);
                         newCharacter.Attack = new Attack { BaseDie = 4, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
                         break;
@@ -142,8 +150,10 @@ namespace SoC.Entities
                         newCharacter.Class = CharacterClass.MagicUser;
                         newCharacter.HitPoints = 4;
                         newCharacter.Abilities.Intelligence = 1;
-                        newCharacter.ArmorClass = 8;
-                        newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Name == Weapon.WeaponType.MagicStaff));
+                        newCharacter.Armors.Add(armorService.GetArmor().FirstOrDefault(a => a.Description == "Apprentice’s robe"));
+                        newCharacter.ArmorEquipped.Add(newCharacter.Armors[0]);
+                        newCharacter.ArmorClass = newCharacter.ArmorEquipped[0].ArmorValue;
+                        newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Description == "Old basic magic staff"));
                         newCharacter.WeaponEquipped.Add(newCharacter.Weapons[0]);
                         newCharacter.Attack = new Attack { BaseDie = 4, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
                         break;
@@ -152,8 +162,10 @@ namespace SoC.Entities
                         newCharacter.Class = CharacterClass.Healer;
                         newCharacter.HitPoints = 6;
                         newCharacter.Abilities.Wisdom = 1;
-                        newCharacter.ArmorClass = 10;
-                        newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Name == Weapon.WeaponType.Rapier));
+                        newCharacter.Armors.Add(armorService.GetArmor().FirstOrDefault(a => a.Description == "Blessed chainmail"));
+                        newCharacter.ArmorEquipped.Add(newCharacter.Armors[0]);
+                        newCharacter.ArmorClass = newCharacter.ArmorEquipped[0].ArmorValue;
+                        newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Description == "Old rusted rapier"));
                         newCharacter.WeaponEquipped.Add(newCharacter.Weapons[0]);
                         newCharacter.Attack = new Attack { BaseDie = 6, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
                         break;
@@ -453,7 +465,7 @@ namespace SoC.Entities
                         break;
                     case "b":
                         messageHandler.Clear();
-                        messageHandler.Write("Class? (F)ighter, (T)hief, (M)agicUser, (H)ealer, (I)nfo");
+                        messageHandler.Write("Background? (D)rifter, (N)oble, (O)utcast, (I)nfo");
                         infoRunning = false;
                         break;
                     default:

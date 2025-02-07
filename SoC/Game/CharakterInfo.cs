@@ -15,12 +15,14 @@ namespace SoC.Game
         private readonly IMessageHandler messageHandler;
         private readonly ICharakterService charakterService;
         private readonly IEquipWeapon equipWeapon;
+        private readonly IArmorEquip armorEquip;
 
-        public CharakterInfo(IMessageHandler messageHandler, ICharakterService charakterService, IEquipWeapon equipWeapon)
+        public CharakterInfo(IMessageHandler messageHandler, ICharakterService charakterService, IEquipWeapon equipWeapon, IArmorEquip armorEquip)
         {
             this.messageHandler = messageHandler;
             this.charakterService = charakterService;
             this.equipWeapon = equipWeapon;
+            this.armorEquip = armorEquip;
         }
         public void ShowCharakterInfo(Character character)
         {
@@ -36,12 +38,18 @@ namespace SoC.Game
                     case "i":
                         messageHandler.Clear();
                         ShowCharakterInventory(character);
+                        ShowCharakterArmor(character);
                         ShowCharakterWeapons(character);
                         isRunning = true;
                         break;
                     case "e":
                         messageHandler.Clear();
                         equipWeapon.EquipWeaponMethod(character);
+                        isRunning = true;
+                        break;
+                    case "a":
+                        messageHandler.Clear();
+                        armorEquip.ArmorEquipMethod(character);
                         isRunning = true;
                         break;
                     case "b":
@@ -118,10 +126,19 @@ namespace SoC.Game
             {
                 messageHandler.Write("Weapon equiped: NONE");
             }
+            if (character.ArmorEquipped.Count > 0)
+            {
+                messageHandler.Write($"Armor equiped: {character.ArmorEquipped[0].Description}");
+            }
+            else
+            {
+                messageHandler.Write("Armor equiped: NONE");
+            }
             WriteAbilities(character.Abilities);
             messageHandler.Write("************************************************************");
             messageHandler.Write("See character (I)nventory");
             messageHandler.Write("(E)quip weapon");
+            messageHandler.Write("Equip (A)rmor");
             messageHandler.Write("(B)ack");
         }
 
@@ -134,19 +151,38 @@ namespace SoC.Game
             }
             else
             {
-                var counter = 0;
                 foreach (var item in character.Weapons)
                 {
                     messageHandler.Write("*********************************");
                     messageHandler.Write($"Name:  {item.Description}");
                     messageHandler.Write($"Value: {item.GoldValue} Gold");
                     messageHandler.Write($"Damage: {item.DamageValue}");
-                    counter++;
                 }
                 messageHandler.Write("*********************************");
             }
             messageHandler.Write("[ENTER to END]");
             messageHandler.Read();
+        }
+
+        private void ShowCharakterArmor(Character character)
+        {
+            messageHandler.Write("[Armor]");
+            if (character.Weapons.Count == 0)
+            {
+                messageHandler.Write("Your armor list is empty....");
+            }
+            else
+            {
+                foreach (var item in character.Armors)
+                {
+                    messageHandler.Write("*********************************");
+                    messageHandler.Write($"Name:  {item.Description}");
+                    messageHandler.Write($"Value: {item.GoldValue} Gold");
+                    messageHandler.Write($"ArmorClass: {item.ArmorValue}");
+                    
+                }
+                messageHandler.Write("*********************************");
+            }
         }
     }
 }

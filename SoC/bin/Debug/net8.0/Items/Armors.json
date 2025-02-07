@@ -1,0 +1,30 @@
+[
+  {
+    "Name": "Heavy",
+    "Description": "Worn chainmail",
+    "ObjectiveNumber": 1,
+    "GoldValue": 5,
+    "ArmorValue": 12
+  },
+  {
+    "Name": "Robe",
+    "Description": "Apprentice’s robe",
+    "ObjectiveNumber": 1,
+    "GoldValue": 5,
+    "ArmorValue": 10
+  },
+  {
+    "Name": "Light",
+    "Description": "Ragged leather vest",
+    "ObjectiveNumber": 1,
+    "GoldValue": 5,
+    "ArmorValue": 10
+  },
+  {
+    "Name": "Medium",
+    "Description": "Blessed chainmail",
+    "ObjectiveNumber": 1,
+    "GoldValue": 5,
+    "ArmorValue": 11
+  }
+]

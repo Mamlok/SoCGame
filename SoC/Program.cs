@@ -22,11 +22,13 @@ namespace SoC
     {
         private static readonly IItemService itemService = new ItemService();
         private static readonly IWeaponService weaponService = new WeaponService();
+        private static readonly IArmorService armorService = new ArmorService();
         private static readonly AdventureService adventureService = new AdventureService();
         private static readonly ConsoleMessageHandler consoleMessageHandler = new ConsoleMessageHandler();
-        private static readonly CharacterService characterService = new CharacterService(consoleMessageHandler, weaponService);
+        private static readonly CharacterService characterService = new CharacterService(consoleMessageHandler, weaponService, armorService);
+        private static readonly IArmorEquip armorEquip = new ArmorEquip(weaponService, characterService, consoleMessageHandler);
         private static readonly IEquipWeapon equipWeapon = new EquipWeapon(weaponService, characterService, consoleMessageHandler);
-        private static readonly CharakterInfo charakterInfo = new CharakterInfo(consoleMessageHandler, characterService, equipWeapon);
+        private static readonly CharakterInfo charakterInfo = new CharakterInfo(consoleMessageHandler, characterService, equipWeapon, armorEquip);
         private static readonly CombatService combatService = new CombatService(consoleMessageHandler, charakterInfo);
         private static readonly Tavern tavern = new Tavern(consoleMessageHandler, characterService, charakterInfo);
         private static readonly LevelUp levelUp = new LevelUp(characterService, consoleMessageHandler);
