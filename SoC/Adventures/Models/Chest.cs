@@ -13,6 +13,8 @@ namespace SoC.Adventures.Models
         public Lock Lock;
         public Trap Trap;
         public List<Item> Treasure;
+        public List<Weapon> Weapons;
+        public List<Armor> Armors;
         public int Gold;
     }
 }

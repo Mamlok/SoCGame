@@ -143,7 +143,7 @@ namespace SoC.Game
         {
             messageHandler.WriteRead($"Hit a key to attack the {monster.MonsterType}!");
             var attackToHitMonster = dice.RollDice(new List<Die> { Die.D20 });
-            messageHandler.WriteRead($"You rolled a {attackToHitMonster} to hit the {monster.ArmorClass} ArmorClass of the {monster.MonsterType}!");
+            messageHandler.WriteRead($"You rolled a {attackToHitMonster} to hit the {monster.MonsterType} ArmorClass of {monster.ArmorClass}!");
 
             if (attackToHitMonster >= monster.ArmorClass)
             {
@@ -281,6 +281,26 @@ namespace SoC.Game
                     messageHandler.Write(item.Description);
                 }
                 character.Inventory.AddRange(monster.Inventory);
+            }
+
+            if (monster.Armors != null && monster.Armors.Count > 0)
+            {
+                messageHandler.Write($"You found the following items on the {monster.MonsterType}:");
+                foreach (var item in monster.Armors)
+                {
+                    messageHandler.Write(item.Description);
+                }
+                character.Armors.AddRange(monster.Armors);
+            }
+
+            if (monster.Weapons != null && monster.Weapons.Count > 0)
+            {
+                messageHandler.Write($"You found the following items on the {monster.MonsterType}:");
+                foreach (var item in monster.Weapons)
+                {
+                    messageHandler.Write(item.Description);
+                }
+                character.Weapons.AddRange(monster.Weapons);
             }
         }
 

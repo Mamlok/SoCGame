@@ -34,8 +34,6 @@ namespace SoC.Game
         private bool exitRoom = false;
         private string gameWinningDescription;
         public int adventureNumber;
-        public List<Item> items;
-        public List<Weapon> weapons;
 
         public GameService(IAdventureService AdventureService, ICharakterService CharakterService, IMessageHandler MessageHandler, ICombatService CombatService, ITavern Tavern, ICharakterInfo CharakterInfo, ILevelUp LevelUp, IItemService ItemService, IWeaponService WeaponService)
         {
@@ -53,8 +51,6 @@ namespace SoC.Game
         {
             try
             {
-                items = itemService.GetItems();
-                weapons = weaponService.GetWeapons();
                 messageHandler.Clear();
                 var charactersInRange = characterService.GetCharactersInRange();
 
@@ -358,6 +354,7 @@ namespace SoC.Game
                                     {
                                         QuestFirstEvent(room, 3);
                                         room.Events[1].IsCompleted = true;
+                                        character.Inventory.Remove(character.Inventory.FirstOrDefault(x => x.Name == ItemType.HolySymbol && x.ObjectiveNumber == gameAdventure.FinalObjective));
                                         gameWon = true;
                                         break;
                                     }
@@ -504,6 +501,11 @@ namespace SoC.Game
                 }
                 else
                 {
+                    if (chest.Gold == 0 && (chest.Treasure == null || chest.Treasure.Count == 0) && (chest.Armors == null || chest.Armors.Count == 0) && (chest.Weapons == null || chest.Weapons.Count == 0))
+                    {
+                        messageHandler.Write("The chest is empty... \n");
+                    }
+
                     messageHandler.Write("You open the chest..");
                     if (chest.Gold > 0)
                     {
@@ -542,12 +544,37 @@ namespace SoC.Game
                         //    character.HasUsedSpell = false;
 
                         //}
-                        return;
+
                     }
 
-                    if (chest.Gold == 0 && (chest.Treasure == null || chest.Treasure.Count == 0))
+                    if (chest.Armors != null && chest.Armors.Count > 0)
                     {
-                        messageHandler.Write("The chest is empty... \n");
+                        messageHandler.Write($"You find {chest.Armors.Count} armor in this chest!  And they are:");
+
+                        foreach (var item in chest.Armors)
+                        {
+                            messageHandler.Write(item.Description);
+                        }
+                        messageHandler.Write("\n");
+
+                        character.Armors.AddRange(chest.Armors);
+                        chest.Armors = new List<Armor>();
+
+                    }
+
+                    if (chest.Weapons != null && chest.Weapons.Count > 0)
+                    {
+                        messageHandler.Write($"You find {chest.Weapons.Count} armor in this chest!  And they are:");
+
+                        foreach (var item in chest.Weapons)
+                        {
+                            messageHandler.Write(item.Description);
+                        }
+                        messageHandler.Write("\n");
+
+                        character.Weapons.AddRange(chest.Weapons);
+                        chest.Weapons = new List<Weapon>();
+
                     }
                 }
             }
@@ -1073,7 +1100,7 @@ namespace SoC.Game
                 messageHandler.Write("(You scrible the wierd marking you found on a piece of paper.)", false);
                 Console.ForegroundColor = ConsoleColor.White;
                 messageHandler.Read();
-                messageHandler.Write("(Eyes narrow as he inspects the token, his fingers running over the etched symbols.)", false);
+                messageHandler.Write("(Eyes narrow as he inspects the token, his fingers running over the symbols.)", false);
                 messageHandler.Read();
                 messageHandler.Write("B: Hmm… I don’t like this. Not one bit. This ain’t just some wild animal problem.", false);
                 messageHandler.Read();

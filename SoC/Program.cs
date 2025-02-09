@@ -86,7 +86,7 @@ namespace SoC
 
         private static void MainMenuChoice()
         {
-            consoleMessageHandler.Write("(S)tart a new game");
+            consoleMessageHandler.Write("(S)tart the game");
             consoleMessageHandler.Write("(C)reate a new character");
         }
 
