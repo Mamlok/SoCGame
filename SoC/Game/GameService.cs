@@ -311,11 +311,19 @@ namespace SoC.Game
                             messageHandler.Clear();
                             CheckForTrap(room);
                             WriteRoomOptions(room, adventureNumber);
+                            Thread.Sleep(3000);
+                            messageHandler.Clear();
+                            RoomDescription(room);
+                            WriteRoomOptions(room, adventureNumber);
                             playerDecision = messageHandler.Read().ToLower();
                             break;
                         case "c":
                             messageHandler.Clear();
                             CheckForTrapInChest(room.Chest);
+                            WriteRoomOptions(room, adventureNumber);
+                            Thread.Sleep(3000);
+                            messageHandler.Clear();
+                            RoomDescription(room);
                             WriteRoomOptions(room, adventureNumber);
                             playerDecision = messageHandler.Read().ToLower();
                             break;
@@ -324,6 +332,10 @@ namespace SoC.Game
                             if (room.Chest != null)
                             {
                                 OpenChest(room.Chest);
+                                WriteRoomOptions(room, adventureNumber);
+                                Thread.Sleep(5000);
+                                messageHandler.Clear();
+                                RoomDescription(room);
                                 WriteRoomOptions(room, adventureNumber);
                                 //if (gameWon)
                                 //{
@@ -334,6 +346,10 @@ namespace SoC.Game
                             else
                             {
                                 messageHandler.Write("There is no chest");
+                                WriteRoomOptions(room, adventureNumber);
+                                Thread.Sleep(3000);
+                                messageHandler.Clear();
+                                RoomDescription(room);
                                 WriteRoomOptions(room, adventureNumber);
                                 playerDecision = messageHandler.Read().ToLower();
                             }
@@ -370,6 +386,10 @@ namespace SoC.Game
                                         room.Events[0].IsCompleted = true;
                                     }
                                     WriteRoomOptions(room, adventureNumber);
+                                    Thread.Sleep(3000);
+                                    messageHandler.Clear();
+                                    RoomDescription(room);
+                                    WriteRoomOptions(room, adventureNumber);
                                     playerDecision = messageHandler.Read().ToLower();
                                 }
                             }
@@ -377,6 +397,10 @@ namespace SoC.Game
                         case "i":
                             messageHandler.Clear();
                             charakterInfo.ShowCharakterInfo(character);
+                            WriteRoomOptions(room, adventureNumber);
+                            Thread.Sleep(3000);
+                            messageHandler.Clear();
+                            RoomDescription(room);
                             WriteRoomOptions(room, adventureNumber);
                             playerDecision = messageHandler.Read().ToLower();
                             break;
@@ -397,12 +421,20 @@ namespace SoC.Game
                             {
                                 messageHandler.Write("\n Something went wrong there is a wall \n");
                                 WriteRoomOptions(room, adventureNumber);
+                                Thread.Sleep(3000);
+                                messageHandler.Clear();
+                                RoomDescription(room);
+                                WriteRoomOptions(room, adventureNumber);
                                 playerDecision = messageHandler.Read().ToLower();
                             }
                             break;
                         default:
                             messageHandler.Clear();
-                            Console.WriteLine("Please enter a valid option.");
+                            messageHandler.Write("Please enter a valid option.");
+                            WriteRoomOptions(room, adventureNumber);
+                            Thread.Sleep(3000);
+                            messageHandler.Clear();
+                            RoomDescription(room);
                             WriteRoomOptions(room, adventureNumber);
                             playerDecision = messageHandler.Read().ToLower();
                             break;
@@ -622,7 +654,8 @@ namespace SoC.Game
                 }
                 messageHandler.Write("You found the trap and are forced to disarm it");
                 var disarmTrapRoll = dice.RollDice(new List<Die> { Die.D20 }) + trapBonus;
-
+                messageHandler.Write($"You rolled {disarmTrapRoll} and needed 11!");
+                messageHandler.Read();
                 if (disarmTrapRoll < 11)
                 {
                     ProcessTrapMessagesAndDamage(room.Trap);
@@ -693,9 +726,19 @@ namespace SoC.Game
 
             if (room.Monsters != null)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                messageHandler.Write("THERE IS A MONSTER HERE!!");
-                Console.ForegroundColor = ConsoleColor.White;
+                if (room.Monsters.Count > 1)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    messageHandler.Write("THERE ARE ENEMIES HERE!!");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    messageHandler.Write("THERE IS AN ENEMIE HERE!!");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+
                 combatService.RunCombat(ref character, room.Monsters);
                 if (!character.IsAlive)
                 {
@@ -899,7 +942,8 @@ namespace SoC.Game
                 }
                 messageHandler.Write("You found the trap and are forced to disarm it");
                 var disarmTrapRoll = dice.RollDice(new List<Die> { Die.D20 }) + trapBonus;
-
+                messageHandler.Write($"You rolled {disarmTrapRoll} and needed 11!");
+                messageHandler.Read();
                 if (disarmTrapRoll < 11)
                 {
                     ProcessTrapMessagesAndDamage(chest.Trap);
@@ -955,7 +999,7 @@ namespace SoC.Game
             {
                 messageHandler.Clear();
                 messageHandler.Write("Climbing up gives you a better view of the surroundings.");
-                messageHandler.Write("You see a pack of wolves in the nerby thicket and you see the wolf pack leader in the wolf´s den north of here.");
+                messageHandler.Write("You see a pack of wolves in the nearby thicket and you see the wolf pack leader in the wolf´s den north of here.");
                 messageHandler.Write("You can see the wolf pack leader is bigger and stronger than the other wolves.");
                 messageHandler.Write("From the top, you spot a narrow path leading east of the Wolf’s Den, partially hidden beneath thick bush");
                 messageHandler.Read();
@@ -1033,6 +1077,7 @@ namespace SoC.Game
             if (questNumber == 1)
             {
                 messageHandler.Clear();
+                messageHandler.Write("[YOU ARE TALKING TO THE BARKEEP]");
                 messageHandler.Write("B: You look like someone who can handle trouble.", false);
                 messageHandler.Read();
                 messageHandler.Write("B: We got a problem in these parts—wolves.", false);
@@ -1097,7 +1142,7 @@ namespace SoC.Game
                 Console.ForegroundColor = ConsoleColor.White;
                 messageHandler.Read();
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                messageHandler.Write("(You scrible the wierd marking you found on a piece of paper.)", false);
+                messageHandler.Write("(You scribble the weird marking you found on a piece of paper.)", false);
                 Console.ForegroundColor = ConsoleColor.White;
                 messageHandler.Read();
                 messageHandler.Write("(Eyes narrow as he inspects the token, his fingers running over the symbols.)", false);

@@ -26,5 +26,12 @@
     "ObjectiveNumber": 1,
     "GoldValue": 5,
     "ArmorValue": 11
+  },
+  {
+    "Name": "Heavy",
+    "Description": "Plate Armor",
+    "ObjectiveNumber": 1,
+    "GoldValue": 10,
+    "ArmorValue": 15
   }
 ]

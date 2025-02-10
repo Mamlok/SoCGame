@@ -178,7 +178,7 @@
     {
       "RoomNumber": 6,
       "Description": "Abandoned cabin",
-      "SubDescription": "A forgotten wooden shack hidden among the trees.\nThe windows are shattered, and old claw marks cover the door.",
+      "SubDescription": "A forgotten wooden shack hidden among the trees.\nThe windows are shattered, and old claw marks cover the door.\nYou also see a tree towering into the clouds.",
       "Events": [
         {
           "Name": "Climb tree",

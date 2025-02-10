@@ -285,7 +285,7 @@ namespace SoC.Game
 
             if (monster.Armors != null && monster.Armors.Count > 0)
             {
-                messageHandler.Write($"You found the following items on the {monster.MonsterType}:");
+                messageHandler.Write($"You found the following armor on the {monster.MonsterType}:");
                 foreach (var item in monster.Armors)
                 {
                     messageHandler.Write(item.Description);
@@ -295,7 +295,7 @@ namespace SoC.Game
 
             if (monster.Weapons != null && monster.Weapons.Count > 0)
             {
-                messageHandler.Write($"You found the following items on the {monster.MonsterType}:");
+                messageHandler.Write($"You found the following weapons on the {monster.MonsterType}:");
                 foreach (var item in monster.Weapons)
                 {
                     messageHandler.Write(item.Description);

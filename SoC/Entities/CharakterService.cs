@@ -101,6 +101,7 @@ namespace SoC.Entities
             messageHandler.Write("Welcome to the character creation process.");
             messageHandler.Write("Please answer the following questions to create your character.");
             messageHandler.Write("**********************************************************");
+            messageHandler.Write("\t\t[ENTER to START]");
             messageHandler.Read();
             messageHandler.Clear();
 
@@ -344,6 +345,10 @@ namespace SoC.Entities
                         messageHandler.Write("A force of nature, with power unexcelled.");
                         messageHandler.Write("Their attack is Vril, pure and immense,");
                         messageHandler.Write("A strike that grows in strength, leaving foes in suspense.");
+                        messageHandler.Write("Starting equipment:");
+                        messageHandler.Write("Old rusted sword – A blade weathered by time, dull yet still capable of cutting through foes.");
+                        messageHandler.Write("Worn chainmail – A dented but sturdy armor, bearing the marks of past battles.");
+                        messageHandler.Write("[ENTER to END]");
                         messageHandler.Read();
                         infoRunning = true;
                         break;
@@ -358,6 +363,10 @@ namespace SoC.Entities
                         messageHandler.Write("A shadow unseen, bending foes to their will.");
                         messageHandler.Write("They steal the armor class of those they betray,");
                         messageHandler.Write("Leaving enemies exposed, an easy prey.");
+                        messageHandler.Write("Starting equipment:");
+                        messageHandler.Write("Old rusted dagger – A light, well-worn blade that still finds its mark in the right hands.");
+                        messageHandler.Write("Ragged leather vest – Tattered and flexible, favoring speed over protection.");
+                        messageHandler.Write("[ENTER to END]");
                         messageHandler.Read();
                         infoRunning = true;
                         break;
@@ -372,6 +381,10 @@ namespace SoC.Entities
                         messageHandler.Write("A conjurer of power, bending light and dark.");
                         messageHandler.Write("They cast a powerful spell with dazzling might,");
                         messageHandler.Write("Shaping the battle in radiant light.");
+                        messageHandler.Write("Starting equipment:");
+                        messageHandler.Write("Old basic magic staff – A staff worn smooth with age, yet still pulsing faintly with arcane energy.");
+                        messageHandler.Write("Apprentice’s robe – A simple cloth robe, more for tradition than protection.");
+                        messageHandler.Write("[ENTER to END]");
                         messageHandler.Read();
                         infoRunning = true;
                         break;
@@ -386,6 +399,10 @@ namespace SoC.Entities
                         messageHandler.Write("A balm for wounds across all lands.");
                         messageHandler.Write("When in peril, they heal themselves anew,");
                         messageHandler.Write("Restoring their strength to see the battle through.");
+                        messageHandler.Write("Starting equipment:");
+                        messageHandler.Write("Old rusted rapier – A slender, slightly dulled blade, more precise than powerful, yet effective in practiced hands.");
+                        messageHandler.Write("Blessed chainmail – A light armor infused with divine protection, offering resilience to corruption.");
+                        messageHandler.Write("[ENTER to END]");
                         messageHandler.Read();
                         infoRunning = true;
                         break;
@@ -432,6 +449,7 @@ namespace SoC.Entities
                         messageHandler.Write("A legacy of honor in every sign.");
                         messageHandler.Write("From gilded halls to the fray untold,");
                         messageHandler.Write("Their destiny is forged with a heart of gold.");
+                        messageHandler.Write("[ENTER to END]");
                         messageHandler.Read();
                         infoRunning = true;
                         break;
@@ -446,6 +464,7 @@ namespace SoC.Entities
                         messageHandler.Write("A life of freedom, the heart unshaved.");
                         messageHandler.Write("They tread where others dare not roam,");
                         messageHandler.Write("The world their path, the unknown their home.");
+                        messageHandler.Write("[ENTER to END]");
                         messageHandler.Read();
                         infoRunning = true;
                         break;
@@ -460,6 +479,7 @@ namespace SoC.Entities
                         messageHandler.Write("Fire in their heart and steel in their eyes.");
                         messageHandler.Write("From ashes and ruin, they carve their way,");
                         messageHandler.Write("Defying the night to reclaim the day.");
+                        messageHandler.Write("[ENTER to END]");
                         messageHandler.Read();
                         infoRunning = true;
                         break;

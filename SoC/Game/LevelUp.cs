@@ -92,7 +92,7 @@ namespace SoC.Game
             messageHandler.Write("(S)trength");
             messageHandler.Write("(I)exterity");
             messageHandler.Write("(I)ntelligence");
-            messageHandler.Write("(W)isdomh");
+            messageHandler.Write("(W)isdom");
             messageHandler.Write("(B)ack");
         }
 

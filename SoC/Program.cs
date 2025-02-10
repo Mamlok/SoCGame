@@ -30,7 +30,7 @@ namespace SoC
         private static readonly IEquipWeapon equipWeapon = new EquipWeapon(weaponService, characterService, consoleMessageHandler);
         private static readonly CharakterInfo charakterInfo = new CharakterInfo(consoleMessageHandler, characterService, equipWeapon, armorEquip);
         private static readonly CombatService combatService = new CombatService(consoleMessageHandler, charakterInfo);
-        private static readonly Tavern tavern = new Tavern(consoleMessageHandler, characterService, charakterInfo);
+        private static readonly Tavern tavern = new Tavern(consoleMessageHandler, characterService, charakterInfo, weaponService, armorService, itemService);
         private static readonly LevelUp levelUp = new LevelUp(characterService, consoleMessageHandler);
         private static GameService gameService = new GameService(adventureService, characterService, consoleMessageHandler, combatService, tavern, charakterInfo, levelUp, itemService, weaponService);
 
@@ -44,14 +44,14 @@ namespace SoC
         public static void MakeTitle()
         {
             consoleMessageHandler.Clear();
-            consoleMessageHandler.Write(@"  __   __           _____                     ");
-            consoleMessageHandler.Write(@" |  \\/  |        / ____|                     ");
-            consoleMessageHandler.Write(@" | \\  / |_   _  | |  __  __ _ _ __ ___   ___ ");
-            consoleMessageHandler.Write(@" | |\\/| | | | | | | |_ |/ _` | '_ ` _ \\/ _\\");
+            consoleMessageHandler.Write(@"  __  __          _____                     ");
+            consoleMessageHandler.Write(@" |  \/  |        / ____|                     ");
+            consoleMessageHandler.Write(@" | \  / |_   _  | |  __  __ _ _ __ ___   ___ ");
+            consoleMessageHandler.Write(@" | |\/| | | | | | | |_ |/ _` | '_ ` _ \\/ _ \");
             consoleMessageHandler.Write(@" | |  | | |_| | | |__| | (_| | | | | | |  __/");
             consoleMessageHandler.Write(@" |_|  |_|\__, |  \_____|\__,_|_| |_| |_|\___|");
             consoleMessageHandler.Write(@"          __/ |                              ");
-            consoleMessageHandler.Write("         |___/                               ");
+            consoleMessageHandler.Write("          |___ /                               ");
             consoleMessageHandler.Write("----------------------------------------------");
         }
 

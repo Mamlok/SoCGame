@@ -26,5 +26,12 @@
     "ObjectiveNumber": 1,
     "GoldValue": 5,
     "DamageValue": 1
+  },
+  {
+    "Name": "Sword",
+    "Description": "Basic sword",
+    "ObjectiveNumber": 1,
+    "GoldValue": 10,
+    "DamageValue": 2
   }
 ]
