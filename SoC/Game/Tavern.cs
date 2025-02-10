@@ -439,21 +439,36 @@ namespace SoC.Game
             bool isRunning = true;
             while (isRunning)
             {
-                var playerChoice = Convert.ToInt32(messageHandler.Read());
-                if (character.Gold < itemList[playerChoice].GoldValue)
+                var playerInput = messageHandler.Read();
+                if (string.IsNullOrWhiteSpace(playerInput))
                 {
-                    messageHandler.Write("You dont have enough gold");
-                    isRunning = true;
+                    isRunning = false;
                 }
                 else
                 {
-                    character.Inventory.Add(itemList[playerChoice]);
-                    messageHandler.Write("Your item was added succesfully");
-                    character.Gold -= itemList[playerChoice].GoldValue;
-                    messageHandler.Read();
-                    isRunning = false;
+                    if (int.TryParse(playerInput, out int weaponIndex))
+                    {
+                        if (character.Gold < itemList[weaponIndex].GoldValue)
+                        {
+                            messageHandler.Write("You dont have enough gold");
+                            isRunning = true;
+                        }
+                        else
+                        {
+                            character.Inventory.Add(itemList[weaponIndex]);
+                            messageHandler.Write("Your item was added succesfully");
+                            character.Gold -= itemList[weaponIndex].GoldValue;
+                            messageHandler.Read();
+                            isRunning = false;
 
+                        }
+                    }
+                    else
+                    {
+                        messageHandler.Write("Invalid choice. Please try again.");
+                    }
                 }
+
             }
         }
         private void ShopWeaponChoice(List<Weapon> weaponList, Character character)
@@ -461,21 +476,36 @@ namespace SoC.Game
             bool isRunning = true;
             while (isRunning)
             {
-                var playerChoice = Convert.ToInt32(messageHandler.Read());
-                if (character.Gold < weaponList[playerChoice].GoldValue)
+                var playerInput = messageHandler.Read();
+                if (string.IsNullOrWhiteSpace(playerInput))
                 {
-                    messageHandler.Write("You dont have enough gold");
-                    isRunning = true;
+                    isRunning = false;
                 }
                 else
                 {
-                    character.Weapons.Add(weaponList[playerChoice]);
-                    messageHandler.Write("Your item was added succesfully");
-                    character.Gold -= weaponList[playerChoice].GoldValue;
-                    messageHandler.Read();
-                    isRunning = false;
+                    if (int.TryParse(playerInput, out int weaponIndex))
+                    {
+                        if (character.Gold < weaponList[weaponIndex].GoldValue)
+                        {
+                            messageHandler.Write("You dont have enough gold");
+                            isRunning = true;
+                        }
+                        else
+                        {
+                            character.Weapons.Add(weaponList[weaponIndex]);
+                            messageHandler.Write("Your item was added succesfully");
+                            character.Gold -= weaponList[weaponIndex].GoldValue;
+                            messageHandler.Read();
+                            isRunning = false;
 
+                        }
+                    }
+                    else
+                    {
+                        messageHandler.Write("Invalid choice. Please try again.");
+                    }
                 }
+               
             }
         }
         private void ShopArmorChoice(List<Armor> armorList, Character character)
@@ -483,21 +513,36 @@ namespace SoC.Game
             bool isRunning = true;
             while (isRunning)
             {
-                var playerChoice = Convert.ToInt32(messageHandler.Read());
-                if (character.Gold < armorList[playerChoice].GoldValue)
+                var playerInput = messageHandler.Read();
+                if (string.IsNullOrWhiteSpace(playerInput))
                 {
-                    messageHandler.Write("You dont have enough gold");
-                    isRunning = true;
+                    isRunning = false;
                 }
                 else
                 {
-                    character.Armors.Add(armorList[playerChoice]);
-                    messageHandler.Write("Your item was added succesfully");
-                    character.Gold -= armorList[playerChoice].GoldValue;
-                    messageHandler.Read();
-                    isRunning = false;
+                    if (int.TryParse(playerInput, out int weaponIndex))
+                    {
+                        if (character.Gold < armorList[weaponIndex].GoldValue)
+                        {
+                            messageHandler.Write("You dont have enough gold");
+                            isRunning = true;
+                        }
+                        else
+                        {
+                            character.Armors.Add(armorList[weaponIndex]);
+                            messageHandler.Write("Your item was added succesfully");
+                            character.Gold -= armorList[weaponIndex].GoldValue;
+                            messageHandler.Read();
+                            isRunning = false;
 
+                        }
+                    }
+                    else
+                    {
+                        messageHandler.Write("Invalid choice. Please try again.");
+                    }
                 }
+
             }
         }
     }
