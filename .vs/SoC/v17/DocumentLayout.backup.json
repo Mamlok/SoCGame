@@ -51,8 +51,7 @@
               "ViewState": "AgIAAA8AAAAAAAAAAIBJwCAAAACbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-27T20:44:13.725Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -62,7 +61,7 @@
               "RelativeDocumentMoniker": "SoC\\Game\\CombatService.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\CombatService.cs",
               "RelativeToolTip": "SoC\\Game\\CombatService.cs",
-              "ViewState": "AgIAAPgAAAAAAAAAAAAqwCMBAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMBAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-11T17:51:02.687Z",
               "EditorCaption": ""
@@ -77,8 +76,7 @@
               "RelativeToolTip": "SoC\\Game\\EquipWeapon.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAA1wEEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T17:48:30.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T17:48:30.446Z"
             },
             {
               "$type": "Document",
@@ -90,8 +88,7 @@
               "RelativeToolTip": "SoC\\Game\\ArmorEquip.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAA5wDIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T17:47:18.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T17:47:18.253Z"
             },
             {
               "$type": "Document",
@@ -103,8 +100,7 @@
               "RelativeToolTip": "SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-11T17:30:16.143Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T17:30:16.143Z"
             },
             {
               "$type": "Document",
@@ -116,8 +112,7 @@
               "RelativeToolTip": "SoC\\Game\\Tavern.cs",
               "ViewState": "AgIAAH4BAAAAAAAAAAAuwMABAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T17:43:40.684Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T17:43:40.684Z"
             },
             {
               "$type": "Document",
@@ -129,8 +124,7 @@
               "RelativeToolTip": "SoC\\Game\\GameService.cs",
               "ViewState": "AgIAAFIAAAAAAAAAAAAowGcAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T17:16:54.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T17:16:54.098Z"
             }
           ]
         }
