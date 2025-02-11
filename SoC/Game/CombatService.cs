@@ -6,6 +6,7 @@ using SoC.Utilities.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,6 +26,7 @@ namespace SoC.Game
 
         public void RunCombat(ref Character character, List<Monster> monsters)
         {
+            bool scaredAway = false;
             var monsterDescriptions = "You face off against : ";
             var monsterCount = monsters.Count;
             foreach (var monster in monsters)
@@ -68,7 +70,7 @@ namespace SoC.Game
             {
                 if (characterTurn)
                 {
-                    messageHandler.Write("Choose an action: (A)ttack, Use (S)pecial Ability, (U)se Item, (R)un Away");
+                    messageHandler.Write($"Choose an action: (A)ttack, Use (S)pecial Ability, (U)se Item, (R) - Scare away");
                     messageHandler.Write("Character (I)nfo, (E)nemy info");
                     var action = messageHandler.Read().ToLower();
 
@@ -78,7 +80,7 @@ namespace SoC.Game
                             Attack(character, monsters[0], dice, charDamageDie);
                             break;
                         case "s":
-                            UseSpecialAbility(character, monsters[0], dice, ref healCooldown);
+                            UseSpecialAbility(character, monsters[0], dice, ref healCooldown, charDamageDie);
                             break;
                         case "u":
                             if (character.Inventory.Count == 0)
@@ -93,9 +95,10 @@ namespace SoC.Game
                                 break;
                             }
                         case "r":
-                            if (TryToRunAway(character, dice))
+                            if (TryToScare(character, dice, monsters[0]))
                             {
-                                return; //dodělat
+                                scaredAway = true;
+                                monsters[0].HitPoints = 0;
                             }
                             break;
                         case "i":
@@ -120,21 +123,21 @@ namespace SoC.Game
 
                 if (monsters[0].HitPoints < 1)
                 {
-                    HandleMonsterDeath(character, monsters[0]);
+                    HandleMonsterDeath(character, monsters[0], scaredAway);
                     monsters.RemoveAt(0);
                     if (monsters.Count < 1)
                     {
                         monstersAreAlive = false;
+                    }
+                    else
+                    {
+                        messageHandler.Write("Another enemy comes!");
                     }
                 }
 
                 if (healCooldown)
                 {
                     healCooldown = false;
-                }
-                if (armorStolen)
-                {
-                    armorStolen = false;
                 }
             }
         }
@@ -147,7 +150,9 @@ namespace SoC.Game
 
             if (attackToHitMonster >= monster.ArmorClass)
             {
-                var damage = dice.RollDice(charDamageDie) * character.Attack.BonusDamage;
+                var RollAtack = dice.RollDice(charDamageDie);
+                messageHandler.WriteRead($"You  rolled {RollAtack}");
+                var damage = RollAtack * character.Attack.BonusDamage;
                 messageHandler.WriteRead($"You hit the {monster.MonsterType} for {damage} damage!");
                 monster.HitPoints -= damage;
             }
@@ -157,17 +162,24 @@ namespace SoC.Game
             }
         }
 
-        private void UseSpecialAbility(Character character, Monster monster, Dice dice, ref bool healCooldown)
+        private void UseSpecialAbility(Character character, Monster monster, Dice dice, ref bool healCooldown,List<Die> charDamageDie)
         {
-            var d2 = new List<Die> { Die.D2 };
+            var d100 = new List<Die> { Die.D100 };
             switch (character.Class)
             {
                 case CharacterClass.Thief:
-                    if (dice.RollDice(d2) == 1)
+                    if (dice.RollDice(d100) >= 70)
                     {
                         messageHandler.WriteRead($"You attempt to steal armor from the {monster.MonsterType}!");
-                        monster.ArmorClass -= 2;
-                        messageHandler.WriteRead($"The {monster.MonsterType}'s armor class is now {monster.ArmorClass} for one turn.");
+                        if (monster.ArmorClass >= 2)
+                        {
+                            monster.ArmorClass -= 2;
+                        }
+                        else
+                        {
+                            monster.ArmorClass = 1;
+                        }
+                        messageHandler.WriteRead($"The {monster.MonsterType}'s armor class is now {monster.ArmorClass}.");
                     }
                     else
                     {
@@ -177,8 +189,18 @@ namespace SoC.Game
                 case CharacterClass.MagicUser:
                     if (!character.HasUsedSpell)
                     {
+                        var bonusDamage = 0;
                         messageHandler.WriteRead($"You cast a powerful spell on the {monster.MonsterType}!");
-                        var damage = dice.RollDice(new List<Die> { Die.D20 }) * 2;
+                        if (character.WeaponEquipped[0].MagicValue != null)
+                        {
+                            bonusDamage = character.WeaponEquipped[0].MagicValue;
+                            
+                        }
+                        else
+                        {
+                            bonusDamage = 1;
+                        }
+                        var damage = dice.RollDice(new List<Die> { Die.D20 }) * bonusDamage;
                         messageHandler.WriteRead($"You hit the {monster.MonsterType} for {damage} damage!");
                         monster.HitPoints -= damage;
                         character.HasUsedSpell = true;
@@ -202,6 +224,32 @@ namespace SoC.Game
                         messageHandler.Write("Your healing ability is on cooldown.");
                     }
                     break;
+                case CharacterClass.Fighter:
+                    var roll = dice.RollDice(new List<Die> { Die.D100 });
+                    messageHandler.Write($"You rolled {roll} and needed 80");
+                    messageHandler.Read();
+                    if (roll >= 80)
+                    {
+                        messageHandler.WriteRead($"You channel the power of vril and prepare a powerful attack on the {monster.MonsterType}!");
+                        var attackRoll = dice.RollDice(new List<Die> { Die.D20 });
+                        messageHandler.WriteRead($"You rolled {attackRoll} and the monster´s ArmorClass is {monster.ArmorClass}");
+                        if (attackRoll >= monster.ArmorClass)
+                        {
+                            var damage = dice.RollDice(charDamageDie) * character.Attack.BonusDamage * 2;
+                            messageHandler.WriteRead($"You hit the {monster.MonsterType} for {damage} damage!");
+                            monster.HitPoints -= damage;
+                        }
+                        else
+                        {
+                            messageHandler.WriteRead($"You missed the {monster.MonsterType}!");
+                        }
+                    }
+                    else
+                    {
+                        messageHandler.Write("Your vril is too weak!");
+                    }
+                    
+                    break;
                 default:
                     messageHandler.Write("You have no special ability.");
                     break;
@@ -210,10 +258,34 @@ namespace SoC.Game
 
         private void UseItem(Character character)
         {
+            var itemChoice = 0;
             messageHandler.Clear();
             ShowInventory(character);
             messageHandler.Write("Choose an item to use:");
-            var itemChoice = Convert.ToInt32(messageHandler.Read());
+            var RunLol = true;
+            while (RunLol)
+            {
+                var character1 = messageHandler.Read();
+                if (string.IsNullOrWhiteSpace(character1))
+                {
+                    messageHandler.Write("Invalid choice. Please try again.");
+                    RunLol = true;
+                }
+                else
+                {
+                    if (int.TryParse(character1, out int characterIndex))
+                    {
+                        itemChoice = characterIndex;
+                        RunLol = false;
+                    }
+                    else
+                    {
+                        messageHandler.Write("Invalid choice. Please try again.");
+                        RunLol = true;
+                    }
+                }
+            }
+
             character.HitPoints += character.Inventory[itemChoice].HealthValue;
             character.Inventory.RemoveAt(itemChoice);
             messageHandler.Clear();
@@ -223,17 +295,19 @@ namespace SoC.Game
 
         }
 
-        private bool TryToRunAway(Character character, Dice dice)
+        private bool TryToScare(Character character, Dice dice, Monster monster)
         {
-            var runAwayRoll = dice.RollDice(new List<Die> { Die.D20 });
-            if (runAwayRoll > 10)
+            var bonus = monster.MonsterStrenght;
+            var runAwayRoll = dice.RollDice(new List<Die> { Die.D60 }) * character.Abilities.Strength;
+            var monsterBar = bonus * 100;
+            if (runAwayRoll > monsterBar)
             {
-                messageHandler.Write("You successfully ran away!");
+                messageHandler.Write($"You successfully scared the {monster.MonsterType} away!");
                 return true;
             }
             else
             {
-                messageHandler.Write("You failed to run away!");
+                messageHandler.Write($"You failed to scare the {monster.MonsterType} away!");
                 return false;
             }
         }
@@ -263,9 +337,20 @@ namespace SoC.Game
             }
         }
 
-        private void HandleMonsterDeath(Character character, Monster monster)
+        private void HandleMonsterDeath(Character character, Monster monster, bool scaredAway)
         {
-            messageHandler.Write($"The {monster.MonsterType} is dead!");
+            if (scaredAway)
+            {
+                if (monster.Gold > 0 || (monster.Inventory != null && monster.Inventory.Count > 0) || (monster.Armors != null && monster.Armors.Count > 0) || (monster.Weapons != null && monster.Weapons.Count > 0))
+                {
+                    messageHandler.Write($"The {monster.MonsterType} left something behind!");
+                }
+            }
+            else
+            {
+                messageHandler.Write($"The {monster.MonsterType} is dead!");
+            }
+            
 
             if (monster.Gold > 0)
             {

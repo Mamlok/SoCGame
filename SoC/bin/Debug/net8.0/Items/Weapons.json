@@ -11,7 +11,8 @@
     "Description": "Old basic magic staff",
     "ObjectiveNumber": 1,
     "GoldValue": 5,
-    "DamageValue": 1
+    "DamageValue": 1,
+    "MagicValue" : 1
   },
   {
     "Name": "Dagger",

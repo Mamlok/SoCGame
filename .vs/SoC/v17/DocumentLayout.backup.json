@@ -3,44 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Characters\\Jops.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SoC\\bin\\Debug\\net8.0\\Characters\\Jops.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\tavern.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\tavern.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\items\\interfaces\\iweaponservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\items\\interfaces\\iweaponservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\items\\weaponservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\items\\weaponservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\items\\itemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\items\\itemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\interfaces\\itavern.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\interfaces\\itavern.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\combatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\combatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\equipweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\equipweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Items\\Armors.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SoC\\bin\\Debug\\net8.0\\Items\\Armors.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\tavern.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\tavern.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\armorequip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\armorequip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,137 +42,94 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Program.cs",
               "RelativeDocumentMoniker": "SoC\\Program.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Program.cs",
               "RelativeToolTip": "SoC\\Program.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACAAAACbAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAIBJwCAAAACbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-27T20:44:13.725Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Jops.json",
-              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Characters\\Jops.json",
-              "RelativeDocumentMoniker": "SoC\\bin\\Debug\\net8.0\\Characters\\Jops.json",
-              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Characters\\Jops.json*",
-              "RelativeToolTip": "SoC\\bin\\Debug\\net8.0\\Characters\\Jops.json*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAKAgAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-10T19:08:08.26Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ITavern.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\Interfaces\\ITavern.cs",
-              "RelativeDocumentMoniker": "SoC\\Game\\Interfaces\\ITavern.cs",
-              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\Interfaces\\ITavern.cs",
-              "RelativeToolTip": "SoC\\Game\\Interfaces\\ITavern.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAACDAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "CombatService.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\CombatService.cs",
+              "RelativeDocumentMoniker": "SoC\\Game\\CombatService.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\CombatService.cs",
+              "RelativeToolTip": "SoC\\Game\\CombatService.cs",
+              "ViewState": "AgIAAPgAAAAAAAAAAAAqwCMBAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T18:52:48.68Z"
+              "WhenOpened": "2025-02-11T17:51:02.687Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Armors.json",
-              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Items\\Armors.json",
-              "RelativeDocumentMoniker": "SoC\\bin\\Debug\\net8.0\\Items\\Armors.json",
-              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Items\\Armors.json",
-              "RelativeToolTip": "SoC\\bin\\Debug\\net8.0\\Items\\Armors.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-10T18:33:10.043Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Weapons.json",
-              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json",
-              "RelativeDocumentMoniker": "SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json",
-              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json",
-              "RelativeToolTip": "SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-10T18:31:45.951Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "EquipWeapon.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\EquipWeapon.cs",
               "RelativeDocumentMoniker": "SoC\\Game\\EquipWeapon.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\EquipWeapon.cs",
               "RelativeToolTip": "SoC\\Game\\EquipWeapon.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwCoAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAA1wEEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T17:52:00.782Z"
+              "WhenOpened": "2025-02-11T17:48:30.446Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GameService.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\GameService.cs",
-              "RelativeDocumentMoniker": "SoC\\Game\\GameService.cs",
-              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\GameService.cs",
-              "RelativeToolTip": "SoC\\Game\\GameService.cs",
-              "ViewState": "AgIAAHMEAAAAAAAAAAAIwI8EAAAQAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "ArmorEquip.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\ArmorEquip.cs",
+              "RelativeDocumentMoniker": "SoC\\Game\\ArmorEquip.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\ArmorEquip.cs",
+              "RelativeToolTip": "SoC\\Game\\ArmorEquip.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAA5wDIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T17:45:08.004Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WeaponService.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Items\\WeaponService.cs",
-              "RelativeDocumentMoniker": "SoC\\Items\\WeaponService.cs",
-              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Items\\WeaponService.cs",
-              "RelativeToolTip": "SoC\\Items\\WeaponService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T17:44:23.462Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IWeaponService.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Items\\Interfaces\\IWeaponService.cs",
-              "RelativeDocumentMoniker": "SoC\\Items\\Interfaces\\IWeaponService.cs",
-              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Items\\Interfaces\\IWeaponService.cs",
-              "RelativeToolTip": "SoC\\Items\\Interfaces\\IWeaponService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T17:44:07.329Z"
+              "WhenOpened": "2025-02-11T17:47:18.253Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ItemService.cs",
-              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Items\\ItemService.cs",
-              "RelativeDocumentMoniker": "SoC\\Items\\ItemService.cs",
-              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Items\\ItemService.cs",
-              "RelativeToolTip": "SoC\\Items\\ItemService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T17:39:39.831Z"
+              "Title": "Weapons.json",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json",
+              "RelativeDocumentMoniker": "SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json",
+              "RelativeToolTip": "SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-11T17:30:16.143Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Tavern.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\Tavern.cs",
               "RelativeDocumentMoniker": "SoC\\Game\\Tavern.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\Tavern.cs",
               "RelativeToolTip": "SoC\\Game\\Tavern.cs",
-              "ViewState": "AgIAAJoAAAAAAAAAAAAAwLQBAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAH4BAAAAAAAAAAAuwMABAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T17:28:36.984Z",
+              "WhenOpened": "2025-02-11T17:43:40.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameService.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\GameService.cs",
+              "RelativeDocumentMoniker": "SoC\\Game\\GameService.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\GameService.cs",
+              "RelativeToolTip": "SoC\\Game\\GameService.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAowGcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T17:16:54.098Z",
               "EditorCaption": ""
             }
           ]

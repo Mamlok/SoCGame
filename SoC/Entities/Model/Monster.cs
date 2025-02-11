@@ -9,5 +9,6 @@ namespace SoC.Entities.Model
     public class Monster : Entity
     {
         public string MonsterType;
+        public double MonsterStrenght;
     }
 }

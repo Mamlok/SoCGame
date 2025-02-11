@@ -90,16 +90,18 @@
       "Monsters": [
         {
           "MonsterType": "Wolf",
+          "MonsterStrenght": 1,
           "HitPoints": 1,
           "Attack": {
             "BaseDie": 2,
             "BonusDamage": 1
           },
           "Gold": 0,
-          "ArmorClass": 1
+          "ArmorClass": 6
         },
         {
           "MonsterType": "Wolf",
+          "MonsterStrenght": 1,
           "HitPoints": 1,
           "Attack": {
             "BaseDie": 2,
@@ -140,6 +142,7 @@
       "Monsters": [
         {
           "MonsterType": "Wolf pack leader",
+          "MonsterStrenght": 10,
           "HitPoints": 1,
           "Attack": {
             "BaseDie": 2,

@@ -27,6 +27,7 @@ namespace SoC.Game
         }
         public void EquipWeaponMethod(Character character)
         {
+            var playerChoice = 0;
             messageHandler.Clear();
             if (character.WeaponEquipped.Count == 0 || character.WeaponEquipped == null)
             {
@@ -40,7 +41,30 @@ namespace SoC.Game
             messageHandler.Write("*********************************");
             messageHandler.Write("Choose a weapon to equip :");
             ShowCharakterWeapons(character);
-            var playerChoice = Convert.ToInt32(messageHandler.Read());
+            var RunLol = true;
+            while (RunLol)
+            {
+                var character1 = messageHandler.Read();
+                if (string.IsNullOrWhiteSpace(character1))
+                {
+                    messageHandler.Write("Invalid choice. Please try again.");
+                    RunLol = true;
+                }
+                else
+                {
+                    if (int.TryParse(character1, out int characterIndex))
+                    {
+                        playerChoice = characterIndex;
+                        RunLol = false;
+                    }
+                    else
+                    {
+                        messageHandler.Write("Invalid choice. Please try again.");
+                        RunLol = true;
+                    }
+                }
+            }
+            
             character.WeaponEquipped.Clear();
             character.WeaponEquipped.Add(character.Weapons[playerChoice]);
             messageHandler.Clear();

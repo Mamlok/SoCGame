@@ -94,7 +94,30 @@ namespace SoC.Game
                         characterCount++;
                     }
                 }
-                character = characterService.LoadCharacter(charactersInRange[Convert.ToInt32(messageHandler.Read())].Name);
+                var RunLol = true;
+                while (RunLol)
+                {
+                    var character1 = messageHandler.Read();
+                    if (string.IsNullOrWhiteSpace(character1))
+                    {
+                        messageHandler.Write("Invalid choice. Please try again.");
+                        RunLol = true;
+                    }
+                    else
+                    {
+                        if (int.TryParse(character1, out int characterIndex))
+                        {
+                            character = characterService.LoadCharacter(charactersInRange[characterIndex].Name);
+                            RunLol = false;
+                        }
+                        else
+                        {
+                            messageHandler.Write("Invalid choice. Please try again.");
+                            RunLol = true;
+                        }
+                    }
+                }
+                
 
                 if (character.PlayedIntro == false)
                 {
@@ -311,19 +334,11 @@ namespace SoC.Game
                             messageHandler.Clear();
                             CheckForTrap(room);
                             WriteRoomOptions(room, adventureNumber);
-                            Thread.Sleep(3000);
-                            messageHandler.Clear();
-                            RoomDescription(room);
-                            WriteRoomOptions(room, adventureNumber);
                             playerDecision = messageHandler.Read().ToLower();
                             break;
                         case "c":
                             messageHandler.Clear();
                             CheckForTrapInChest(room.Chest);
-                            WriteRoomOptions(room, adventureNumber);
-                            Thread.Sleep(3000);
-                            messageHandler.Clear();
-                            RoomDescription(room);
                             WriteRoomOptions(room, adventureNumber);
                             playerDecision = messageHandler.Read().ToLower();
                             break;
@@ -332,10 +347,6 @@ namespace SoC.Game
                             if (room.Chest != null)
                             {
                                 OpenChest(room.Chest);
-                                WriteRoomOptions(room, adventureNumber);
-                                Thread.Sleep(5000);
-                                messageHandler.Clear();
-                                RoomDescription(room);
                                 WriteRoomOptions(room, adventureNumber);
                                 //if (gameWon)
                                 //{
@@ -346,10 +357,6 @@ namespace SoC.Game
                             else
                             {
                                 messageHandler.Write("There is no chest");
-                                WriteRoomOptions(room, adventureNumber);
-                                Thread.Sleep(3000);
-                                messageHandler.Clear();
-                                RoomDescription(room);
                                 WriteRoomOptions(room, adventureNumber);
                                 playerDecision = messageHandler.Read().ToLower();
                             }
@@ -386,10 +393,6 @@ namespace SoC.Game
                                         room.Events[0].IsCompleted = true;
                                     }
                                     WriteRoomOptions(room, adventureNumber);
-                                    Thread.Sleep(3000);
-                                    messageHandler.Clear();
-                                    RoomDescription(room);
-                                    WriteRoomOptions(room, adventureNumber);
                                     playerDecision = messageHandler.Read().ToLower();
                                 }
                             }
@@ -397,10 +400,6 @@ namespace SoC.Game
                         case "i":
                             messageHandler.Clear();
                             charakterInfo.ShowCharakterInfo(character);
-                            WriteRoomOptions(room, adventureNumber);
-                            Thread.Sleep(3000);
-                            messageHandler.Clear();
-                            RoomDescription(room);
                             WriteRoomOptions(room, adventureNumber);
                             playerDecision = messageHandler.Read().ToLower();
                             break;
@@ -421,20 +420,18 @@ namespace SoC.Game
                             {
                                 messageHandler.Write("\n Something went wrong there is a wall \n");
                                 WriteRoomOptions(room, adventureNumber);
-                                Thread.Sleep(3000);
-                                messageHandler.Clear();
-                                RoomDescription(room);
-                                WriteRoomOptions(room, adventureNumber);
                                 playerDecision = messageHandler.Read().ToLower();
                             }
+                            break;
+                        case "r":
+                            messageHandler.Clear();
+                            RoomDescription(room);
+                            WriteRoomOptions(room, adventureNumber);
+                            playerDecision = messageHandler.Read().ToLower();
                             break;
                         default:
                             messageHandler.Clear();
                             messageHandler.Write("Please enter a valid option.");
-                            WriteRoomOptions(room, adventureNumber);
-                            Thread.Sleep(3000);
-                            messageHandler.Clear();
-                            RoomDescription(room);
                             WriteRoomOptions(room, adventureNumber);
                             playerDecision = messageHandler.Read().ToLower();
                             break;
@@ -448,6 +445,7 @@ namespace SoC.Game
         {
             messageHandler.Write("What would you like to do?");
             messageHandler.Write("----------------------------");
+            messageHandler.Write("Location info (R)eload");
             messageHandler.Write("Character (I)nfo");
             messageHandler.Write("(L)ook for traps");
             if (room.Chest != null)

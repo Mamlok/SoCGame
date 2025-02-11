@@ -13,6 +13,7 @@ namespace SoC.Items.Models
         public int ObjectiveNumber;
         public int GoldValue;
         public int DamageValue;
+        public int MagicValue;
 
         public enum WeaponType
         {
