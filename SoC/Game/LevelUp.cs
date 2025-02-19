@@ -90,7 +90,7 @@ namespace SoC.Game
             WriteAbilities(charakter.Abilities);
             messageHandler.Write("What do you want to level up:");
             messageHandler.Write("(S)trength");
-            messageHandler.Write("(I)exterity");
+            messageHandler.Write("(D)exterity");
             messageHandler.Write("(I)ntelligence");
             messageHandler.Write("(W)isdom");
             messageHandler.Write("(B)ack");

@@ -1109,7 +1109,7 @@ namespace SoC.Game
         {
             if (outroNumber == 1)
             {
-                messageHandler.Write("The warm glow of the hearth welcomes you back as you step inside the Dancing", false);
+                messageHandler.Write("The warm glow of the hearth welcomes you back as you step inside the Dancing ", false);
                 messageHandler.Write("Willow Tavern. The scent of roasted meat and aged ale fills the air.", false);
                 messageHandler.Write("The murmurs of villagers hush as you approach the bar,", false);
                 messageHandler.Write("their eyes filled with curiosity and expectation.", false);

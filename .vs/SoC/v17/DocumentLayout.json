@@ -3,16 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\levelup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\levelup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Characters\\Nettspend.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SoC\\bin\\Debug\\net8.0\\Characters\\Nettspend.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\combatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\combatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\equipweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\equipweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\charakterinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\charakterinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\gameservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\entities\\charakterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\entities\\charakterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\entities\\model\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\entities\\model\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\equipweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\equipweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\tavern.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\game\\armorequip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\game\\armorequip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|c:\\users\\hp_pavilion\\source\\repos\\soc\\soc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CA1EEB4-9298-4966-A0F0-C4C2339C4F26}|SoC\\SoC.csproj|solutionrelative:soc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,61 +58,129 @@
       "DocumentGroups": [
         {
           "DockedWidth": 290,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Program.cs",
               "RelativeDocumentMoniker": "SoC\\Program.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Program.cs",
               "RelativeToolTip": "SoC\\Program.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAIBJwCAAAACbAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACAAAACbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-27T20:44:13.725Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Nettspend.json",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Characters\\Nettspend.json",
+              "RelativeDocumentMoniker": "SoC\\bin\\Debug\\net8.0\\Characters\\Nettspend.json",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Characters\\Nettspend.json",
+              "RelativeToolTip": "SoC\\bin\\Debug\\net8.0\\Characters\\Nettspend.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAChAgAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-19T15:35:10.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LevelUp.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\LevelUp.cs",
+              "RelativeDocumentMoniker": "SoC\\Game\\LevelUp.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\LevelUp.cs",
+              "RelativeToolTip": "SoC\\Game\\LevelUp.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAIAwwFwAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T15:24:19.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CharakterInfo.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\CharakterInfo.cs",
+              "RelativeDocumentMoniker": "SoC\\Game\\CharakterInfo.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\CharakterInfo.cs",
+              "RelativeToolTip": "SoC\\Game\\CharakterInfo.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAqwEwAAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T15:24:15.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CharakterService.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\CharakterService.cs",
+              "RelativeDocumentMoniker": "SoC\\Entities\\CharakterService.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\CharakterService.cs",
+              "RelativeToolTip": "SoC\\Entities\\CharakterService.cs",
+              "ViewState": "AgIAALoAAAAAAAAAAAApwCABAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T15:22:17.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Monster.cs",
+              "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\Model\\Monster.cs",
+              "RelativeDocumentMoniker": "SoC\\Entities\\Model\\Monster.cs",
+              "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Entities\\Model\\Monster.cs",
+              "RelativeToolTip": "SoC\\Entities\\Model\\Monster.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T15:22:04.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "CombatService.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\CombatService.cs",
               "RelativeDocumentMoniker": "SoC\\Game\\CombatService.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\CombatService.cs",
               "RelativeToolTip": "SoC\\Game\\CombatService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMBAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAjwO0AAABpAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-11T17:51:02.687Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "EquipWeapon.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\EquipWeapon.cs",
               "RelativeDocumentMoniker": "SoC\\Game\\EquipWeapon.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\EquipWeapon.cs",
               "RelativeToolTip": "SoC\\Game\\EquipWeapon.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAA1wEEAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAqwEEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T17:48:30.446Z"
+              "WhenOpened": "2025-02-11T17:48:30.446Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "ArmorEquip.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\ArmorEquip.cs",
               "RelativeDocumentMoniker": "SoC\\Game\\ArmorEquip.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\ArmorEquip.cs",
               "RelativeToolTip": "SoC\\Game\\ArmorEquip.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAA5wDIAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwDIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T17:47:18.253Z"
+              "WhenOpened": "2025-02-11T17:47:18.253Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "Weapons.json",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json",
               "RelativeDocumentMoniker": "SoC\\bin\\Debug\\net8.0\\Items\\Weapons.json",
@@ -104,27 +192,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "Tavern.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\Tavern.cs",
               "RelativeDocumentMoniker": "SoC\\Game\\Tavern.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\Tavern.cs",
               "RelativeToolTip": "SoC\\Game\\Tavern.cs",
-              "ViewState": "AgIAAH4BAAAAAAAAAAAuwMABAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAH4BAAAAAAAAAAA8wMABAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T17:43:40.684Z"
+              "WhenOpened": "2025-02-11T17:43:40.684Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "GameService.cs",
               "DocumentMoniker": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\GameService.cs",
               "RelativeDocumentMoniker": "SoC\\Game\\GameService.cs",
               "ToolTip": "C:\\Users\\HP_Pavilion\\source\\repos\\SoC\\SoC\\Game\\GameService.cs",
               "RelativeToolTip": "SoC\\Game\\GameService.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAowGcAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAG4EAAAAAAAAAAAuwI0EAAB1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T17:16:54.098Z"
+              "WhenOpened": "2025-02-11T17:16:54.098Z",
+              "EditorCaption": ""
             }
           ]
         }
