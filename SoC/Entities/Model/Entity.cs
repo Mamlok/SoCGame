@@ -1,4 +1,5 @@
-﻿using SoC.Items.Models;
+﻿using SoC.Game;
+using SoC.Items.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace SoC.Entities.Model
 
     public class Attack
     {
-        public int BaseDie;
+        public Die BaseDie;
         public int BonusDamage;
     }
 }

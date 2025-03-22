@@ -91,7 +91,7 @@
         {
           "MonsterType": "Wolf",
           "MonsterStrenght": 1,
-          "HitPoints": 1,
+          "HitPoints": 5,
           "Attack": {
             "BaseDie": 2,
             "BonusDamage": 1
@@ -102,13 +102,13 @@
         {
           "MonsterType": "Wolf",
           "MonsterStrenght": 1,
-          "HitPoints": 1,
+          "HitPoints": 5,
           "Attack": {
             "BaseDie": 2,
             "BonusDamage": 1
           },
           "Gold": 0,
-          "ArmorClass": 1
+          "ArmorClass": 6
         }
       ],
       "Exits": [
@@ -143,10 +143,10 @@
         {
           "MonsterType": "Wolf pack leader",
           "MonsterStrenght": 10,
-          "HitPoints": 1,
+          "HitPoints": 20,
           "Attack": {
             "BaseDie": 2,
-            "BonusDamage": 1
+            "BonusDamage": 2
           },
           "Gold": 0,
           "ArmorClass": 1,

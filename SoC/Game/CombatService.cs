@@ -146,12 +146,13 @@ namespace SoC.Game
         {
             messageHandler.WriteRead($"Hit a key to attack the {monster.MonsterType}!");
             var attackToHitMonster = dice.RollDice(new List<Die> { Die.D20 });
-            messageHandler.WriteRead($"You rolled a {attackToHitMonster} to hit the {monster.MonsterType} ArmorClass of {monster.ArmorClass}!");
+            messageHandler.WriteRead($"You rolled a {attackToHitMonster} and the {monster.MonsterType} ArmorClass is {monster.ArmorClass}!");
 
             if (attackToHitMonster >= monster.ArmorClass)
             {
+                messageHandler.WriteRead($"Hit a key to roll for damage!");
                 var RollAtack = dice.RollDice(charDamageDie);
-                messageHandler.WriteRead($"You  rolled {RollAtack}");
+                messageHandler.WriteRead($"You rolled {RollAtack}");
                 var damage = RollAtack * character.Attack.BonusDamage;
                 messageHandler.WriteRead($"You hit the {monster.MonsterType} for {damage} damage!");
                 monster.HitPoints -= damage;

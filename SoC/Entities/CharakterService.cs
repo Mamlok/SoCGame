@@ -2,6 +2,7 @@
 using SoC.Adventures;
 using SoC.Entities.Interfaces;
 using SoC.Entities.Model;
+using SoC.Game;
 using SoC.Items;
 using SoC.Items.Interfaces;
 using SoC.Items.Models;
@@ -132,7 +133,7 @@ namespace SoC.Entities
                         newCharacter.ArmorClass = newCharacter.ArmorEquipped[0].ArmorValue;
                         newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Description == "Old rusted sword"));
                         newCharacter.WeaponEquipped.Add(newCharacter.Weapons[0]);
-                        newCharacter.Attack = new Attack { BaseDie = 8, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
+                        newCharacter.Attack = new Attack { BaseDie = Die.D8, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
                         break;
                     case "t":
                         classChosen = true;
@@ -144,7 +145,7 @@ namespace SoC.Entities
                         newCharacter.ArmorClass = newCharacter.ArmorEquipped[0].ArmorValue;
                         newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Description == "Old rusted dagger"));
                         newCharacter.WeaponEquipped.Add(newCharacter.Weapons[0]);
-                        newCharacter.Attack = new Attack { BaseDie = 4, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
+                        newCharacter.Attack = new Attack { BaseDie = Die.D4, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
                         break;
                     case "m":
                         classChosen = true;
@@ -156,7 +157,7 @@ namespace SoC.Entities
                         newCharacter.ArmorClass = newCharacter.ArmorEquipped[0].ArmorValue;
                         newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Description == "Old basic magic staff"));
                         newCharacter.WeaponEquipped.Add(newCharacter.Weapons[0]);
-                        newCharacter.Attack = new Attack { BaseDie = 4, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
+                        newCharacter.Attack = new Attack { BaseDie = Die.D4, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
                         break;
                     case "h":
                         classChosen = true;
@@ -168,7 +169,7 @@ namespace SoC.Entities
                         newCharacter.ArmorClass = newCharacter.ArmorEquipped[0].ArmorValue;
                         newCharacter.Weapons.Add(weaponService.GetWeapons().FirstOrDefault(w => w.Description == "Old rusted rapier"));
                         newCharacter.WeaponEquipped.Add(newCharacter.Weapons[0]);
-                        newCharacter.Attack = new Attack { BaseDie = 6, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
+                        newCharacter.Attack = new Attack { BaseDie = Die.D6, BonusDamage = newCharacter.WeaponEquipped[0].DamageValue };
                         break;
                     case "i":
                         WriteInfoClass();
